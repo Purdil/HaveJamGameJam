@@ -6,7 +6,6 @@ namespace Member.YDW.AgentSystem
     {
         public Agent User { get; }
         public bool OnTurnEnd {get;}
-        
         public bool OnDead { get; }
 
         public void StartTurn();
@@ -14,5 +13,7 @@ namespace Member.YDW.AgentSystem
         public void Turning();
 
         public void EndTurn();
+        
+        
     }
 }

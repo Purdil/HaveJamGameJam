@@ -15,10 +15,12 @@ public class StartBtn : MonoBehaviour
     private void Start()
     {
         Sequence seq = DOTween.Sequence();
+
+        seq.AppendInterval(3f);
+
         foreach (var i in btn)
         {
             seq.Append(i.DOMoveX(startPos.x - moveX, 0.5f).SetEase(ease));
-
         }
     }
 }
