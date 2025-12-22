@@ -54,7 +54,6 @@ namespace Member.PYH._Scripts.SO.Item
             }
             numSetter(a);
         }
-
         public void AfterApply(Func<RouletNum> Getter, Action<ApplyFinal> Setter)
         {
             var a = new ApplyFinal();

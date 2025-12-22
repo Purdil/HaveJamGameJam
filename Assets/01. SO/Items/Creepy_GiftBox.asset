@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa0464ebdb724becad04f6b5ecbf4b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 96c9e3955a5240798e1de1114490880a, type: 3}
   m_Name: Creepy_GiftBox
   m_EditorClassIdentifier: 
-  index: 0
+  index: 11
   <Icon>k__BackingField: {fileID: 0}
   <ItemName>k__BackingField: "\uC12C\uB729\uD55C \uC120\uBB3C \uC0C1\uC790"
   <Description>k__BackingField: "15% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC 2\uAC1C\uC758
@@ -20,3 +20,5 @@ MonoBehaviour:
     \uC218\uB85C \uBCC0\uD658\uC2DC\uD0B4"
   <ItemPrice>k__BackingField: 0
   <ActiveTurn>k__BackingField: 0
+  <Probability>k__BackingField: 0
+  <Durability>k__BackingField: 0

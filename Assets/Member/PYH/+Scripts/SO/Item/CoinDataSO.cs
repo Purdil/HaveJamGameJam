@@ -8,13 +8,13 @@ namespace Member.PYH._Scripts.SO.Item
     public class CoinDataSO : ItemSO, IBeforeApplyTrunItem<ApplyRouletNum>, IProbabilityItem
     {
         [field:SerializeField] public float Probability { get; private set; }
-        [SerializeField] private OperatorSO @operator;
+        [SerializeField] private OperatorSO plus;
         
         public void BeforeApply(Action<ApplyRouletNum> numSetter)
         {
             var a = new ApplyRouletNum();
             a.RouletNum.Num1 = 5;
-            a.ApplyOperator = @operator;
+            a.ApplyOperator = plus;
             numSetter(a);
         }
 

@@ -9,6 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa0464ebdb724becad04f6b5ecbf4b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 969f48d76e7f49a3840bda224aff937b, type: 3}
   m_Name: Half_Bean
   m_EditorClassIdentifier: 
+  index: 16
+  <Icon>k__BackingField: {fileID: 0}
+  <ItemName>k__BackingField: Please Enter Item Name Here...
+  <Description>k__BackingField: Please Enter Item Description Here...
+  <ItemPrice>k__BackingField: 0
+  <ActiveTurn>k__BackingField: 0
+  <Durability>k__BackingField: 0
+  multiply: {fileID: 0}
+  divide: {fileID: 0}

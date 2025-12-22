@@ -9,6 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa0464ebdb724becad04f6b5ecbf4b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 133e7b03fcec4adc8d09c3884e8489fd, type: 3}
   m_Name: Lucky_Roulette
   m_EditorClassIdentifier: 
+  index: 26
+  <Icon>k__BackingField: {fileID: 0}
+  <ItemName>k__BackingField: Please Enter Item Name Here...
+  <Description>k__BackingField: Please Enter Item Description Here...
+  <ItemPrice>k__BackingField: 0
+  <ActiveTurn>k__BackingField: 0
+  <Durability>k__BackingField: 0

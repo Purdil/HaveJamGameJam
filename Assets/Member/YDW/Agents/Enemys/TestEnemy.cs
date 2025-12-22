@@ -15,7 +15,7 @@ namespace Member.YDW.Agents.Enemys
 
             if (Keyboard.current.eKey.wasPressedThisFrame)
             {
-                ApplyDamage(1000);
+                ApplyDamage(1000 , out _);
             }
             
 
