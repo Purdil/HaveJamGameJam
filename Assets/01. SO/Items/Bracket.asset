@@ -9,19 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
+  m_Script: {fileID: 11500000, guid: fa0464ebdb724becad04f6b5ecbf4b12, type: 3}
   m_Name: Bracket
   m_EditorClassIdentifier: 
-  index: 13
+  index: 0
   <Icon>k__BackingField: {fileID: 0}
   <ItemName>k__BackingField: "\uAD04\uD638"
-  <Description>k__BackingField: "\uC0AC\uC6A9 \uC2DC, \uCD5C\uC18C 2\uAC1C\uC758
-    \uC22B\uC790\uB97C \uBB36\uC740 \uB4A4, \uBB36\uC740 \uC22B\uC790\uB07C\uB9AC\uC758
-    \uC5F0\uC0B0\uC744 \uC6B0\uC120 \uC2DC \uD568"
+  <Description>k__BackingField: Please Enter Item Description Here...
   <ItemPrice>k__BackingField: 0
-  <Durability>k__BackingField: 0
-  <ActiveProbability>k__BackingField: 100
-  <ActiveTurn>k__BackingField: 1
-  <IsEternal>k__BackingField: 1
-  <IsDisposable>k__BackingField: 1
-  <IsPassive>k__BackingField: 0
+  <ActiveTurn>k__BackingField: 0

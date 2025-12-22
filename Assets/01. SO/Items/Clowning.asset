@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
+  m_Script: {fileID: 11500000, guid: fa0464ebdb724becad04f6b5ecbf4b12, type: 3}
   m_Name: Clowning
   m_EditorClassIdentifier: 
-  index: 25
+  index: 0
   <Icon>k__BackingField: {fileID: 0}
   <ItemName>k__BackingField: "\uAD11\uB300\uB180\uC74C"
   <Description>k__BackingField: "67% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC 2\uAC1C\uC758
@@ -20,9 +20,4 @@ MonoBehaviour:
     +\uB85C \uBCC0\uD658\uC2DC\uD0A4\uBA70, \uCD5C\uC885 \uAC12\uC5D0 3\uAC1C\uC758
     \uC22B\uC790 \uC911 2\uBC88\uC9F8 \uC22B\uC790\uB97C \uB354 \uD568"
   <ItemPrice>k__BackingField: 0
-  <Durability>k__BackingField: 4
-  <ActiveProbability>k__BackingField: 67
-  <ActiveTurn>k__BackingField: 1
-  <IsEternal>k__BackingField: 0
-  <IsDisposable>k__BackingField: 1
-  <IsPassive>k__BackingField: 0
+  <ActiveTurn>k__BackingField: 0

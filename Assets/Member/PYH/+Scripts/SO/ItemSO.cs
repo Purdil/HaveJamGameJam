@@ -1,11 +1,8 @@
-using BBJ;
 using Core.Logger;
-using Member.PYH._Scripts.Abstract;
 using UnityEngine;
 
 namespace Member.PYH._Scripts.SO
 {
-    [CreateAssetMenu(fileName = "ItemSO", menuName = "SO/ITEM/ItemSO")]
     public abstract class ItemSO : ScriptableObject
     {
         public int index;

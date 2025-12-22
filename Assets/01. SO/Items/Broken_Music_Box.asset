@@ -9,18 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
+  m_Script: {fileID: 11500000, guid: fa0464ebdb724becad04f6b5ecbf4b12, type: 3}
   m_Name: Broken_Music_Box
   m_EditorClassIdentifier: 
-  index: 31
+  index: 0
   <Icon>k__BackingField: {fileID: 0}
   <ItemName>k__BackingField: "\uACE0\uC7A5\uB09C \uC624\uB974\uACE8"
   <Description>k__BackingField: "56% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC 3\uAC1C\uC758
     \uC22B\uC790 \uC911 1\uAC1C\uC758 \uC22B\uC790\uB97C 0\uC73C\uB85C \uACE0\uC815\uD568"
   <ItemPrice>k__BackingField: 0
-  <Durability>k__BackingField: 8
-  <ActiveProbability>k__BackingField: 56
-  <ActiveTurn>k__BackingField: 1
-  <IsEternal>k__BackingField: 0
-  <IsDisposable>k__BackingField: 0
-  <IsPassive>k__BackingField: 1
+  <ActiveTurn>k__BackingField: 0

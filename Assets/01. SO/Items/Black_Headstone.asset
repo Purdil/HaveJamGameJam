@@ -9,18 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
+  m_Script: {fileID: 11500000, guid: fa0464ebdb724becad04f6b5ecbf4b12, type: 3}
   m_Name: Black_Headstone
   m_EditorClassIdentifier: 
-  index: 17
+  index: 0
   <Icon>k__BackingField: {fileID: 0}
   <ItemName>k__BackingField: "\uAC80\uC740 \uBE44\uC11D"
   <Description>k__BackingField: "47% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC 2\uAC1C\uC758
     \uC5F0\uC0B0\uC790 \uC911 1\uAC00\uC9C0\uB97C + \uB610\uB294 1\uB85C \uBCC0\uD658\uC2DC\uD0B4"
   <ItemPrice>k__BackingField: 0
-  <Durability>k__BackingField: 0
-  <ActiveProbability>k__BackingField: 47
-  <ActiveTurn>k__BackingField: 1
-  <IsEternal>k__BackingField: 1
-  <IsDisposable>k__BackingField: 1
-  <IsPassive>k__BackingField: 0
+  <ActiveTurn>k__BackingField: 0

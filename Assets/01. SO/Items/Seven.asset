@@ -9,18 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
+  m_Script: {fileID: 11500000, guid: fa0464ebdb724becad04f6b5ecbf4b12, type: 3}
   m_Name: Seven
   m_EditorClassIdentifier: 
-  index: 6
-  <Icon>k__BackingField: {fileID: 0}
-  <ItemName>k__BackingField: 7
-  <Description>k__BackingField: "22% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uB8F0\uB81B\uC5D0\uC11C
-    \uB192\uC740 \uC22B\uC790\uAC00 \uB098\uC62C \uD655\uB960 77% \uC99D\uAC00"
-  <ItemPrice>k__BackingField: 0
-  <Durability>k__BackingField: 0
-  <ActiveProbability>k__BackingField: 22
-  <ActiveTurn>k__BackingField: 1
-  <IsEternal>k__BackingField: 1
-  <IsDisposable>k__BackingField: 1
-  <IsPassive>k__BackingField: 0
