@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
+  m_Name: Blood_Pledge
+  m_EditorClassIdentifier: 
+  index: 19
+  <Icon>k__BackingField: {fileID: 0}
+  <ItemName>k__BackingField: "\uD53C\uB85C \uBB3C\uB4E0 \uC11C\uC57D\uC11C"
+  <Description>k__BackingField: "41% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC 15 \uB9CC\uD07C\uC758
+    \uC790\uD574 \uB370\uBBF8\uC9C0\uB97C \uC785\uC740 \uD6C4 1\uD134 \uB3D9\uC548
+    2\uAC1C\uC758 \uC5F0\uC0B0\uC2DD \uC911 \uAC00\uC7A5 \uC624\uB978\uCABD\uC5D0
+    \uC788\uB294 \uC5F0\uC0B0\uC790\uB97C +\uB85C \uACE0\uC815\uD568"
+  <ItemPrice>k__BackingField: 0
+  <Durability>k__BackingField: 6
+  <ActiveProbability>k__BackingField: 41
+  <ActiveTurn>k__BackingField: 1
+  <IsEternal>k__BackingField: 0
+  <IsDisposable>k__BackingField: 1
+  <IsPassive>k__BackingField: 0

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
+  m_Name: Comedy_Mask
+  m_EditorClassIdentifier: 
+  index: 21
+  <Icon>k__BackingField: {fileID: 0}
+  <ItemName>k__BackingField: "\uD76C\uADF9\uC758 \uAC00\uBA74"
+  <Description>k__BackingField: "16% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uD574\uB2F9
+    \uD134 \uB3D9\uC548 \uB3C4\uB9DD \uC131\uACF5 \uD655\uB960\uC774 100%\uB85C \uACE0\uC815\uB428"
+  <ItemPrice>k__BackingField: 0
+  <Durability>k__BackingField: 2
+  <ActiveProbability>k__BackingField: 16
+  <ActiveTurn>k__BackingField: 1
+  <IsEternal>k__BackingField: 0
+  <IsDisposable>k__BackingField: 0
+  <IsPassive>k__BackingField: 1

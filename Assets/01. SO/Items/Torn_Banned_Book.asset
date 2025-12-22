@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
+  m_Name: Torn_Banned_Book
+  m_EditorClassIdentifier: 
+  index: 23
+  <Icon>k__BackingField: {fileID: 0}
+  <ItemName>k__BackingField: "\uCC22\uC5B4\uC9C4 \uAE08\uC11C"
+  <Description>k__BackingField: "49% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC 2\uAC1C\uC758
+    \uC5F0\uC0B0\uC790\uB97C - \uB610\uB294 +\uC73C\uB85C \uBCC0\uD658\uC2DC\uD0A8
+    \uD6C4 \uCD5C\uC885 \uAC12\uC5D0 -2\uB97C \uACF1\uD568"
+  <ItemPrice>k__BackingField: 0
+  <Durability>k__BackingField: 3
+  <ActiveProbability>k__BackingField: 49
+  <ActiveTurn>k__BackingField: 1
+  <IsEternal>k__BackingField: 0
+  <IsDisposable>k__BackingField: 1
+  <IsPassive>k__BackingField: 0
