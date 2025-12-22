@@ -3,7 +3,7 @@ using Member.PYH._Scripts.Interface;
 
 namespace Member.PYH._Scripts.Item
 {
-    public class ItemAce : ItemBase, IUsable
+    public class ItemAce : ItemBase/*, IUsable*/
     {
         protected override float Calculate(string expression)
         {

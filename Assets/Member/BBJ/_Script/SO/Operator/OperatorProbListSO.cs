@@ -41,7 +41,7 @@ public class OperatorProbListSO : ScriptableObject
         int i = 0;
         foreach (var item in OperatorberProbList)
         {
-            result[i] = new OperatorProbInfo(item.Key, item.Value.Prob / sum);
+            result[i] = new OperatorProbInfo(item.Key, (float)item.Value.Prob / sum);
             i++;
         }
         return result;

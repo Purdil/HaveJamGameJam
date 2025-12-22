@@ -1,7 +1,10 @@
-﻿namespace Member.PYH._Scripts.Interface
+﻿using UnityEngine;
+
+namespace Member.PYH._Scripts.Interface
 {
     public interface IUsable
     {
-        public void UseItem(string expression);
+        public LayerMask Target { get; }
+        public void UseItem();
     }
 }

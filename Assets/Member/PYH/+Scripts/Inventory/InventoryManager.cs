@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using BBJ;
 using Core;
 using Core.Logger;
 using Member.PYH._Scripts.SO;
@@ -16,16 +18,16 @@ namespace Member.PYH._Scripts.Inventory
         {
             base.Awake();
             DontDestroyOnLoad(gameObject);
-            
+
             EnsureInspectorSize();
             RebuildDictionaryFromInspector();
         }
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         private void OnValidate()
         {
             EnsureInspectorSize();
         }
-        #endif
+#endif
 
         private void EnsureInspectorSize()
         {
@@ -79,8 +81,19 @@ namespace Member.PYH._Scripts.Inventory
 
             if (empty == -1) return;
 
+            if (item is IItem apply)
+                apply.Acquire();
+            if (item is IDestroyItem destroy)
+                destroy.Destroyed += TryRemoveItem;
+
             _inventory[empty] = item;
             _forInspector[empty] = item;
+        }
+        public void TryRemoveItem(IDestroyItem item)
+        {
+            item.Destroyed -= TryRemoveItem;
+            ItemSO destoryItem = item as ItemSO;
+            TryRemoveItem(destoryItem.index);
         }
         public void TryRemoveItem(int index)
         {
@@ -96,6 +109,10 @@ namespace Member.PYH._Scripts.Inventory
             }
 
             if (_inventory.ContainsKey(index) == false) return;
+
+            var item = _inventory[index];
+            if (item is IItem apply)
+                apply.UnAcquire();
 
             _inventory.Remove(index);
             _forInspector[index] = null; // 인스펙터 표시도 동기화
