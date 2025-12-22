@@ -13,9 +13,9 @@ namespace Member.PYH._Scripts.SO.Item
         public void BeforeApply(Action<ApplyRouletNum> numSetter)
         {
             var a = new ApplyRouletNum();
-            a.ApplyNum.Num1 = 1;
-            a.ApplyNum.Num2 = 1;
-            a.ApplyNum.Num3 = 1;
+            a.RouletNum.Num1 = 1;
+            a.RouletNum.Num2 = 1;
+            a.RouletNum.Num3 = 1;
             a.ApplyOperator = @operator;
             numSetter(a);
         }

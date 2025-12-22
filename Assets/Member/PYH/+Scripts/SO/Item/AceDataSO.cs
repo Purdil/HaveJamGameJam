@@ -13,7 +13,7 @@ namespace Member.PYH._Scripts.SO.Item
         public void BeforeApply(Action<ApplyRouletNum> numSetter)
         {
             var a = new ApplyRouletNum();
-            a.ApplyNum.Num2 = 8;
+            a.RouletNum.Num2 = 8;
             a.ApplyOperator = @operator;
             numSetter(a);
         }
