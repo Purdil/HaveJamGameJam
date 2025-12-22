@@ -1,14 +1,14 @@
 ﻿using Core;
 using UnityEngine;
 
-namespace _01._SO.Events
+namespace Member.YDW.EventChannels
 {
     public enum SaveEventType
     {
         Save,
         Load
     }
-    [CreateAssetMenu(fileName = "SaveEventChaanel", menuName = "Event/SaveEvent", order = 0)]
+    [CreateAssetMenu(fileName = "SaveEventChannel", menuName = "Event/SaveEvent", order = 0)]
     public class SaveEventChannel : EventChannel<SaveEventType>
     {
         

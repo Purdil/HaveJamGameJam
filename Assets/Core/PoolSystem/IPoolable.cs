@@ -1,9 +1,11 @@
 ﻿namespace Core.PoolSystem
 {
     public interface IPoolable
-    {
-        public int InitialPoolCount { get; }
-
+    { 
+        public PoolableSO PoolableSO { get; }
+        
+        public void SettingSO(PoolableSO poolableSO);
+        
         public void OnPopObject();
         
         public void OnPushObject();
