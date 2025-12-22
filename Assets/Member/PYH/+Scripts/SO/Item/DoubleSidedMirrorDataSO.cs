@@ -5,24 +5,30 @@ using Random = UnityEngine.Random;
 
 namespace Member.PYH._Scripts.SO.Item
 {
-    [CreateAssetMenu(fileName = "BlackHeadstoneDataSO", menuName = "SO/ITEM/BlackHeadstoneDataSO")]
-    public class BlackHeadstoneDataSO : ItemSO, IBeforeApplyTrunItem<RouletOperator>, IProbabilityItem, IWearOutItem
+    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
+    public class DoubleSidedMirrorDataSO : ItemSO, IBeforeApplyTrunItem<RouletNum>, IWearOutItem
     {
-        [field:SerializeField] public float Probability { get; private set; }
-        [SerializeField] private OperatorSO plus, minus;
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public int Durability { get; private set; }
         
-        public void BeforeApply(Action<RouletOperator> numSetter)
+        public void BeforeApply(Action<RouletNum> numSetter)
         {
-            var a = new RouletOperator();
+            var a = new RouletNum();
             int rend = Random.Range(0, 2);
 
             if (rend > 0)
-                a.Operator1 = plus;
+            {
+                a.Num1 = 0;
+                a.Num2 = 0;
+                a.Num3 = 0;
+            }
             else
-                a.Operator1 = minus;
-
+            {
+                a.Num1 = (int)Mathf.Pow((float)a.Num1, 2);
+                a.Num2 = (int)Mathf.Pow((float)a.Num2, 2);
+                a.Num3 = (int)Mathf.Pow((float)a.Num3, 2);
+            }
+            
             numSetter(a);
             WearOut();
         }
@@ -35,6 +41,7 @@ namespace Member.PYH._Scripts.SO.Item
                 Destroyed?.Invoke(this);
             }
         }
+        
         public void Acquire()
         {
         }

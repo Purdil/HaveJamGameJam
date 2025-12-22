@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "BracketDataSO", menuName = "SO/ITEM/BracketDataSO")]
-    public class Bracket : ItemSO, IUsable
+    public class BracketDataSO : ItemSO, IUsable
     {
         public LayerMask Target { get; }
         

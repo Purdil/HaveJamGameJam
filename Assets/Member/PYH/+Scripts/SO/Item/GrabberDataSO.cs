@@ -1,23 +1,24 @@
 ﻿using System;
 using BBJ;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Member.PYH._Scripts.SO.Item
 {
-    [CreateAssetMenu(fileName = "AceDataSO", menuName = "SO/ITEM/AceDataSO")]
-    public class AceDataSo : ItemSO, IBeforeApplyTrunItem<ApplyRouletNum>, IProbabilityItem, IWearOutItem
+    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
+    public class GrabberDataSO : ItemSO, IWearOutItem, IAfterApplyTrunIteem<RouletNum, ApplyFinal>
     {
-        public float Probability { get; private set; }
-        [SerializeField] private OperatorSO plus;
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public int Durability { get; private set; }
+        [SerializeField] private OperatorSO multiply;
         
-        public void BeforeApply(Action<ApplyRouletNum> numSetter)
+        public void AfterApply(Func<RouletNum> Getter, Action<ApplyFinal> Setter)
         {
-            var a = new ApplyRouletNum();
-            a.RouletNum.Num2 = 8;
-            a.ApplyOperator = plus;
-            numSetter(a);
+            var a = Getter;
+            var b = new ApplyFinal();
+            b.final = 2;
+            b.ApplyOperator = multiply;
+            Setter(b);
             WearOut();
         }
         public void WearOut()
@@ -29,6 +30,7 @@ namespace Member.PYH._Scripts.SO.Item
                 Destroyed?.Invoke(this);
             }
         }
+        
         public void Acquire()
         {
         }
