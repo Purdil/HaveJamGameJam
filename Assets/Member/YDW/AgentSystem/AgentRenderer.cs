@@ -26,7 +26,7 @@ namespace Member.YDW.AgentSystem
         }
 
         public void SetParam(AnimParamSO param, int value)
-        { 
+        {
             _animator.SetInteger(param.HashValue, value);
         }
 

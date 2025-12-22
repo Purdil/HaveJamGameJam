@@ -8,7 +8,6 @@ namespace Member.YDW.CombatSystem
 {
     public class CombatSetter : MonoBehaviour
     {
-        [SerializeField] private Transform playerSpawnPos;
         [SerializeField] private PoolableSO playerPool;
         [SerializeField] private PoolableListSO enemyList;
         
@@ -19,10 +18,7 @@ namespace Member.YDW.CombatSystem
             if(player == null)
                 Logging.LogError("플레이어 캐스팅에 실패했습니다. PoolableSO를 점검하세요.");
             else
-            {
                player.SettingSO(playerPool);
-               player.transform.position = playerSpawnPos.position; 
-            }
             foreach (var enemy in enemyList.PoolableList)
             {
                 AbstractEnemy enemyInstance = PoolManager.Instance.Factory(enemy).Pop() as AbstractEnemy;

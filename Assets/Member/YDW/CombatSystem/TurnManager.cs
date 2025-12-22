@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Core.Logger;
 using Member.YDW.Agents;
 using Member.YDW.AgentSystem;
 using Member.YDW.EventChannels;
 using Member.YDW.EventStruct;
-using Member.YDW.HealthSystem;
 using UnityEngine;
 
 namespace Member.YDW.CombatSystem
@@ -19,7 +17,7 @@ namespace Member.YDW.CombatSystem
     public class TurnManager : MonoBehaviour
     {
         [field: SerializeField] public TurnStatEvent StatEvent { get; private set; }
-        [SerializeField] private TryEscapeEvent _escapeEvent;
+        
         
         
         private List<AbstractEnemy>  _enemies;
@@ -27,7 +25,6 @@ namespace Member.YDW.CombatSystem
         private ITurnAgent _player;
         private ITurnAgent _currentEnemy;
 
-        private bool _playerIsEscape;
     
 
         public void StartCombat((Player,List<AbstractEnemy>) agents)
@@ -38,17 +35,7 @@ namespace Member.YDW.CombatSystem
             {
                 agent.Health.OnDeath += HandleEnemyDead;
             }
-            _playerIsEscape = false;
-            _escapeEvent.OnEvent += HandleEscapeEvent;
             StartCoroutine(GameLoop());
-        }
-
-        private void HandleEscapeEvent(bool obj)
-        {
-            Logging.Log($"도망 시도 결과 : {obj}");
-            _playerIsEscape = obj;
-            if(_playerIsEscape)
-                Debug.Log("Sussese Escape");
         }
 
         private void HandleEnemyDead(Agent agent)
@@ -57,8 +44,6 @@ namespace Member.YDW.CombatSystem
             {
                 _enemies.Remove(agent as AbstractEnemy);
             }
-
-            agent.Health.OnDeath -= HandleEnemyDead;
         }
 
         private void Update()
@@ -74,44 +59,27 @@ namespace Member.YDW.CombatSystem
             while (true)
             { 
                 _currentTurnAgent = _player;
-                if(_currentTurnAgent is Player player)
-                    player.InitTargets(_enemies);
                 yield return StartCoroutine(StartTurn());
-                
-                if(_playerIsEscape)
-                    break;
-                
                 if (_currentEnemy.OnDead)
                 {
                     Logging.Log("Enemy OnDead");
                     if (_enemies.Count == 0)
                     {
                         StatEvent.Raise(new CombatSettingValue(TurnState.CombatEnd,AgentType.Enemy));
-                        break;
+                        yield break;
                     }
+                   
                     _currentEnemy =  _enemies[0];
                 }
 
                 _currentTurnAgent = _currentEnemy;
                 yield return StartCoroutine(StartTurn());
-                
-                if(_playerIsEscape)
-                    break;
-                
                 if (_player.OnDead)
                 {
-                    Logging.Log("Player OnDead");
                     StatEvent.Raise(new CombatSettingValue(TurnState.CombatEnd, AgentType.Player));
-                    break;
+                    yield break;
                 }
             }
-
-            GameOver();
-        }
-
-        private void GameOver()
-        {
-            _currentTurnAgent = null;
         }
 
         private IEnumerator StartTurn()
@@ -122,18 +90,10 @@ namespace Member.YDW.CombatSystem
                 yield break;
             }
             _currentTurnAgent.StartTurn();
-            Logging.Log($"{_currentTurnAgent.User.GetInstanceID()} 의 턴이 시작되었습니다.");
-            yield return new WaitUntil(() =>
-            {
-                return _currentTurnAgent.OnTurnEnd || _playerIsEscape;
-            });
+            Logging.Log($"{_currentTurnAgent.User.name} 의 턴이 시작되었습니다.");
+            yield return new WaitUntil(() => _currentTurnAgent.OnTurnEnd);
             _currentTurnAgent.EndTurn();
             
-        }
-
-        private void OnDestroy()
-        {
-            _escapeEvent.OnEvent -= HandleEscapeEvent;
         }
     }
 }

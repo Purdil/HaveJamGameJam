@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using DG.Tweening;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class EscUi : MonoBehaviour
@@ -20,10 +18,6 @@ public class EscUi : MonoBehaviour
         //    SettingToggle();
         //}
         Application.Quit();
-    }
-    public void LoadMove()
-    {
-        SceneManager.LoadScene("StartScene");
     }
 
     //private void SettingToggle()
