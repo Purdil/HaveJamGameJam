@@ -9,20 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
+  m_Script: {fileID: 11500000, guid: c5e6b62358e6441ab9438ebd4d44bc05, type: 3}
   m_Name: Tragedy_Mask
   m_EditorClassIdentifier: 
-  index: 22
+  index: 31
   <Icon>k__BackingField: {fileID: 0}
-  <ItemName>k__BackingField: "\uBE44\uADF9\uC758 \uAC00\uBA74"
-  <Description>k__BackingField: "39% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uD574\uB2F9
-    \uD134 \uB3D9\uC548 \uB3C4\uB9DD \uC131\uACF5 \uD655\uB960\uC774 0%\uB85C \uACE0\uC815\uB418\uBA70,
-    2\uAC1C\uC758 \uC5F0\uC0B0\uC790 \uC911 1\uAC00\uC9C0\uC758 \uC5F0\uC0B0\uC790\uB97C
-    *\uC73C\uB85C \uACE0\uC815\uC2DC\uD0B4"
+  <ItemName>k__BackingField: Please Enter Item Name Here...
+  <Description>k__BackingField: Please Enter Item Description Here...
   <ItemPrice>k__BackingField: 0
-  <Durability>k__BackingField: 2
-  <ActiveProbability>k__BackingField: 39
-  <ActiveTurn>k__BackingField: 1
-  <IsEternal>k__BackingField: 0
-  <IsDisposable>k__BackingField: 1
-  <IsPassive>k__BackingField: 0
+  <ActiveTurn>k__BackingField: 0
+  <Durability>k__BackingField: 0
+  multiply: {fileID: 0}

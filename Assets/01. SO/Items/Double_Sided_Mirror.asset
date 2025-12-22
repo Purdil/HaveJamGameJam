@@ -9,19 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
+  m_Script: {fileID: 11500000, guid: a02b13b150954679a5c2bd5fbb25e1bc, type: 3}
   m_Name: Double_Sided_Mirror
   m_EditorClassIdentifier: 
-  index: 18
+  index: 12
   <Icon>k__BackingField: {fileID: 0}
   <ItemName>k__BackingField: "\uC591\uBA74 \uAC70\uC6B8"
   <Description>k__BackingField: "32% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC 3\uAC1C\uC758
     \uC22B\uC790\uB97C '\uC22B\uC790\uC758 \uC81C\uACF1' \uB610\uB294 '0'\uC73C\uB85C
     \uBCC0\uD658\uC2DC\uD0B4"
   <ItemPrice>k__BackingField: 0
-  <Durability>k__BackingField: 3
-  <ActiveProbability>k__BackingField: 32
-  <ActiveTurn>k__BackingField: 1
-  <IsEternal>k__BackingField: 0
-  <IsDisposable>k__BackingField: 1
-  <IsPassive>k__BackingField: 0
+  <ActiveTurn>k__BackingField: 0
+  <Durability>k__BackingField: 0

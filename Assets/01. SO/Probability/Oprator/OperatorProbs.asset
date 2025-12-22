@@ -14,22 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OperatorberProbList:
     _keyValueList:
-    - Key: Plus
+    - Key: +
       Value:
         prob:
           _value: 1
         OperatorSO: {fileID: 11400000, guid: e69bc13a35165814c8257de2933d0e9e, type: 2}
-    - Key: Minus
+    - Key: '-'
       Value:
         prob:
           _value: 1
         OperatorSO: {fileID: 11400000, guid: 58be907de4884554f8a77a15148b3714, type: 2}
-    - Key: Multiple
+    - Key: x
       Value:
         prob:
           _value: 1
         OperatorSO: {fileID: 11400000, guid: 7a474416a68e6714695a26dff50c4c78, type: 2}
-    - Key: Division
+    - Key: /
       Value:
         prob:
           _value: 1

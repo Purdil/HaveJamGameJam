@@ -9,19 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
+  m_Script: {fileID: 11500000, guid: d2947beab101404e8007ea2f99bb3077, type: 3}
   m_Name: Wishlist
   m_EditorClassIdentifier: 
-  index: 13
+  index: 33
   <Icon>k__BackingField: {fileID: 0}
-  <ItemName>k__BackingField: "\uD76C\uB9DD \uC0AC\uD56D"
-  <Description>k__BackingField: "49%\uB85C \uBC1C\uB3D9 \uC2DC \uD574\uB2F9 \uD134
-    \uB3D9\uC548 \uB8F0\uB81B\uC5D0\uC11C 1, 2, 3\uC774 \uB098\uC624\uC9C0 \uC54A\uC73C\uBA70,
-    0\uC774 \uB098\uC62C \uD655\uB960\uC774 2\uBC30 \uC99D\uAC00\uD568."
+  <ItemName>k__BackingField: Please Enter Item Name Here...
+  <Description>k__BackingField: Please Enter Item Description Here...
   <ItemPrice>k__BackingField: 0
+  <ActiveTurn>k__BackingField: 0
   <Durability>k__BackingField: 0
-  <ActiveProbability>k__BackingField: 49
-  <ActiveTurn>k__BackingField: 1
-  <IsEternal>k__BackingField: 0
-  <IsDisposable>k__BackingField: 0
-  <IsPassive>k__BackingField: 1

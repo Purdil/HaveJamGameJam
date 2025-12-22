@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
+  m_Script: {fileID: 11500000, guid: 560f6c7ec5b543c79667686cbb30a1f5, type: 3}
   m_Name: Blood_Pledge
   m_EditorClassIdentifier: 
-  index: 19
+  index: 5
   <Icon>k__BackingField: {fileID: 0}
   <ItemName>k__BackingField: "\uD53C\uB85C \uBB3C\uB4E0 \uC11C\uC57D\uC11C"
   <Description>k__BackingField: "41% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC 15 \uB9CC\uD07C\uC758
@@ -20,9 +20,8 @@ MonoBehaviour:
     2\uAC1C\uC758 \uC5F0\uC0B0\uC2DD \uC911 \uAC00\uC7A5 \uC624\uB978\uCABD\uC5D0
     \uC788\uB294 \uC5F0\uC0B0\uC790\uB97C +\uB85C \uACE0\uC815\uD568"
   <ItemPrice>k__BackingField: 0
-  <Durability>k__BackingField: 6
-  <ActiveProbability>k__BackingField: 41
-  <ActiveTurn>k__BackingField: 1
-  <IsEternal>k__BackingField: 0
-  <IsDisposable>k__BackingField: 1
-  <IsPassive>k__BackingField: 0
+  <ActiveTurn>k__BackingField: 0
+  <Probability>k__BackingField: 0
+  plus: {fileID: 0}
+  playerSelfDamageChannel: {fileID: 0}
+  <Durability>k__BackingField: 0

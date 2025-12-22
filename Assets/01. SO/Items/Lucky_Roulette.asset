@@ -9,18 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
+  m_Script: {fileID: 11500000, guid: 133e7b03fcec4adc8d09c3884e8489fd, type: 3}
   m_Name: Lucky_Roulette
   m_EditorClassIdentifier: 
-  index: 7
+  index: 26
   <Icon>k__BackingField: {fileID: 0}
-  <ItemName>k__BackingField: "\uB7ED\uD0A4 \uB8F0\uB81B"
-  <Description>k__BackingField: "20% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uB192\uC740
-    \uC22B\uC790\uAC00 \uB8F0\uB81B \uC804\uCCB4\uB97C \uCC44\uC6C0"
+  <ItemName>k__BackingField: Please Enter Item Name Here...
+  <Description>k__BackingField: Please Enter Item Description Here...
   <ItemPrice>k__BackingField: 0
-  <Durability>k__BackingField: 2
-  <ActiveProbability>k__BackingField: 20
-  <ActiveTurn>k__BackingField: 1
-  <IsEternal>k__BackingField: 0
-  <IsDisposable>k__BackingField: 1
-  <IsPassive>k__BackingField: 0
+  <ActiveTurn>k__BackingField: 0
+  <Durability>k__BackingField: 0
