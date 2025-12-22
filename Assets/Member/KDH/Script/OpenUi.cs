@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.AppUI.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,11 +13,13 @@ public class OpenUi : MonoBehaviour
     public List<Transform> btn;
     private Vector2 startPos;
     private Tween a;
+    [SerializeField] private GameObject panel;
 
     private bool isOpen;
 
     private void Awake()
     {
+        SetActive(isOpen);
         startPos = transform.position;
     }
     private void Update()
@@ -25,6 +28,13 @@ public class OpenUi : MonoBehaviour
         {
             SettingToggle();
         }
+    }
+
+    public void OnCountinue()
+    {
+        isOpen = false;
+        SetActive(isOpen);
+        Time.timeScale = 1f;
     }
     private void SettingToggle()
     {
@@ -44,9 +54,7 @@ public class OpenUi : MonoBehaviour
             Sequence seq = DOTween.Sequence().SetUpdate(true);
             foreach (var i in btn)
             {
-                seq.Append(i.DOMoveX(moveX, 0.1f)
-                    .From()
-                    .SetEase(ease));
+                seq.Append(i.DOMoveX(moveX, 0.1f).From().SetEase(ease));
             }
             a = seq;
 
