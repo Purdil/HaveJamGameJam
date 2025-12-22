@@ -40,7 +40,7 @@ public class NumberProbListSO : ScriptableObject
         foreach (var item in numberProbList)
         {
             int index = int.Parse(item.Key);
-            result[index] = new NumberProbInfo(index, item.Value.Prob / sum);
+            result[index] = new NumberProbInfo(index, (float)item.Value.Prob / sum);
         }
         return result;
     }

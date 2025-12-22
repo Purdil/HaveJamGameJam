@@ -9,17 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
+  m_Script: {fileID: 11500000, guid: fa0464ebdb724becad04f6b5ecbf4b12, type: 3}
   m_Name: Torn_Banned_Book
   m_EditorClassIdentifier: 
-  index: 0
-  <Icon>k__BackingField: {fileID: 0}
-  <ItemName>k__BackingField: "\uCC22\uC5B4\uC9C4 \uAE08\uC11C"
-  <Description>k__BackingField: Please Enter Item Description Here...
-  <ItemPrice>k__BackingField: 0
-  <Durability>k__BackingField: 0
-  <ActiveProbability>k__BackingField: 0
-  <ActiveTurn>k__BackingField: 0
-  <IsDisposable>k__BackingField: 0
-  <IsPassive>k__BackingField: 1
-  itemBase: {fileID: 0}
