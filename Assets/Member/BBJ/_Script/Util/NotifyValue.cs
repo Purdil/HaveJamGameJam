@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 public interface IReadOnlyNotifyValue<T>
@@ -7,9 +8,10 @@ public interface IReadOnlyNotifyValue<T>
 
     public Action<T, T> OnValueChanged { get; }
 }
-
+[Serializable]
 public class NotifyValue<T> : IReadOnlyNotifyValue<T>
 {
+    [SerializeField]
     private T _value;
     public Action<T, T> OnValueChanged { get; set; }
 
