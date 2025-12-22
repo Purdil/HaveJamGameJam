@@ -18,6 +18,7 @@ MonoBehaviour:
   <Description>k__BackingField: "32% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC 3\uAC1C\uC758
     \uC22B\uC790\uB97C '\uC22B\uC790\uC758 \uC81C\uACF1' \uB610\uB294 '0'\uC73C\uB85C
     \uBCC0\uD658\uC2DC\uD0B4"
-  <ItemPrice>k__BackingField: 0
+  <ItemPrice>k__BackingField: 4500
   <ActiveTurn>k__BackingField: 0
-  <Durability>k__BackingField: 0
+  <Probability>k__BackingField: 32
+  <Durability>k__BackingField: 5

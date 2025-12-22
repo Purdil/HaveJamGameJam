@@ -17,8 +17,7 @@ namespace Member.PYH._Scripts.SO.Item
         {
             playerSelfDamageChannel.Raise(15);
             
-            var a = new RouletOperator();
-            a.Operator2 = plus;
+            var a = new RouletOperator(operator2: plus);
             WearOut();
         }
         public void WearOut()

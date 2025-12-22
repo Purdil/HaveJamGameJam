@@ -17,6 +17,7 @@ MonoBehaviour:
   <ItemName>k__BackingField: "\uAE08\uC774 \uAC04 \uAC00\uC871 \uC561\uC790"
   <Description>k__BackingField: "45% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uC801
     \uCC98\uCE58 \uC2DC \uD50C\uB808\uC774\uC5B4\uC758 \uCCB4\uB825\uC744 +15 \uD68C\uBCF5\uD568"
-  <ItemPrice>k__BackingField: 0
+  <ItemPrice>k__BackingField: 5401
   <ActiveTurn>k__BackingField: 0
-  <Probability>k__BackingField: 0
+  <Probability>k__BackingField: 45
+  <Durability>k__BackingField: 2
