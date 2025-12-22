@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace Member.PYH._Scripts.SO
 {
-    [CreateAssetMenu(fileName = "ItemSOList", menuName = "SO/ITEM/ItemSO", order = 0)]
+    [CreateAssetMenu(fileName = "ItemSOList", menuName = "SO/ITEM/ItemSOList")]
     public class ItemSOList : ScriptableObject
     {
-        public ItemSO[] Items { get; private set; }
+        [field: SerializeField] public ItemSO[] Items { get; private set; }
         private Dictionary<int, ItemSO> _items;
 
         private void OnEnable()

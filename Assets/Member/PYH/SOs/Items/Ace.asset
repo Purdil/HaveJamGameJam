@@ -10,8 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
-  m_Name: ItemSO
+  m_Name: Ace
   m_EditorClassIdentifier: 
-  index: 0
-  <Name>k__BackingField: Please Enter Item Name Here...
+  index: 5
+  <Name>k__BackingField: "\uC5D0\uC774\uC2A4"
   <Description>k__BackingField: Please Enter Item Description Here...
+  <Durability>k__BackingField: 0
+  <ActiveProbability>k__BackingField: 0
+  <ActiveTurn>k__BackingField: 0
+  <IsDisposable>k__BackingField: 1
+  <IsPassive>k__BackingField: 0
+  itemBase: {fileID: 0}
