@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using Core.Logger;
+using Member.YDW.Agents;
 using Member.YDW.AgentSystem;
 using Member.YDW.EventChannels;
 using Member.YDW.EventStruct;
+using Member.YDW.HealthSystem;
 using UnityEngine;
 
 namespace Member.YDW.CombatSystem
@@ -12,12 +15,14 @@ namespace Member.YDW.CombatSystem
         [SerializeField] private CombatManagingEvent managingEvent;
         [SerializeField] private CombatSetter setter;
         [SerializeField] private TurnManager turnManager;
+        [SerializeField] private EnemyPosManager enemyPosManager;
        
         
         private void Start()
         {
-            
-            turnManager.StartCombat(setter.CreateAgents());
+            (Player, List<AbstractEnemy>) value = setter.CreateAgents();
+            turnManager.StartCombat(value);
+            enemyPosManager.Initialize(value.Item2);
             turnManager.StatEvent.OnEvent += HandleNextGame;
         }
 
@@ -37,8 +42,9 @@ namespace Member.YDW.CombatSystem
                     Logging.Log("Player Win");
                 }
             }
+            turnManager.StatEvent.OnEvent -= HandleNextGame;
+        }
                 
             
-        }
     }
 }
