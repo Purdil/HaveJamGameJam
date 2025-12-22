@@ -1,11 +1,10 @@
 ﻿using Core.Logger;
-using Member.PYH._Scripts.Item;
 using Member.PYH._Scripts.SO;
 using UnityEngine;
 
 namespace Member.PYH._Scripts.Abstract
 {
-    public abstract class ItemBase : MonoBehaviour
+    public abstract class ItemBase
     {
         [SerializeField] protected ItemSO item;
         
