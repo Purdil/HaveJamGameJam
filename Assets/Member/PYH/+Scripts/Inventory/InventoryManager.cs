@@ -13,6 +13,8 @@ namespace Member.PYH._Scripts.Inventory
         private Dictionary<int, ItemSO> _inventory = new Dictionary<int, ItemSO>();
         private List<ItemSO> _forInspector;
         [SerializeField] private int maxSlot;
+        [SerializeField] private ItemChannel itemAddChannel;
+        [SerializeField] private ItemChannel itemRemoveChannel;
 
         private new void Awake()
         {
@@ -88,6 +90,7 @@ namespace Member.PYH._Scripts.Inventory
 
             _inventory[empty] = item;
             _forInspector[empty] = item;
+            itemAddChannel.Raise(item);
         }
         public void TryRemoveItem(IDestroyItem item)
         {
@@ -116,6 +119,7 @@ namespace Member.PYH._Scripts.Inventory
 
             _inventory.Remove(index);
             _forInspector[index] = null; // 인스펙터 표시도 동기화
+            itemRemoveChannel.Raise(_inventory[index]);
         }
     }
 }
