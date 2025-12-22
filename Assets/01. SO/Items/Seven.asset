@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Seven
   m_EditorClassIdentifier: 
   index: 6
-  <Name>k__BackingField: 7
+  <Icon>k__BackingField: {fileID: 0}
+  <ItemName>k__BackingField: 7
   <Description>k__BackingField: Please Enter Item Description Here...
   <Durability>k__BackingField: 0
   <ActiveProbability>k__BackingField: 0
+  <ActiveTurn>k__BackingField: 0
   <IsDisposable>k__BackingField: 1
   <IsPassive>k__BackingField: 0
-  ItemBase: {fileID: 0}
+  itemBase: {fileID: 0}

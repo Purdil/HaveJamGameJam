@@ -11,6 +11,11 @@ namespace Member.PYH._Scripts.Inventory
         private Dictionary<int, ItemSO> _inventory = new Dictionary<int, ItemSO>();
         [SerializeField] private int maxSlot;
 
+        private void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
+        
         public void TryAddItem(ItemSO item)
         {
             if (_inventory.Count + 1 > maxSlot) return;

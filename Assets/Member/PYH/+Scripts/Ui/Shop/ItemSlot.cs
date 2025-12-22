@@ -15,7 +15,9 @@ namespace Member.PYH._Scripts.Ui.Shop
         [SerializeField] public Image highlight;
         [SerializeField] private Image itemIcon;
         [SerializeField] private TMP_Text itemName;
-
+        [SerializeField] private TMP_Text itemDesc;
+        public int ItemIndex { get; private set; }
+        
         private void Awake()
         {
             rect = GetComponent<RectTransform>();
@@ -25,7 +27,9 @@ namespace Member.PYH._Scripts.Ui.Shop
         {
             _item = item;
             itemName.text = _item.ItemName;
+            itemDesc.text = _item.Description;
             itemIcon.sprite = _item.Icon;
+            ItemIndex = item.index;
         }
     }
 }

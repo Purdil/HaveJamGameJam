@@ -3,6 +3,7 @@ using DG.Tweening;
 using Member.PYH._Scripts.SO;
 using Member.PYH._Scripts.Ui.Shop;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class ShopUi : MonoBehaviour
@@ -14,6 +15,7 @@ public class ShopUi : MonoBehaviour
 
     [SerializeField] private List<ItemSlot> slotList = new(35);
     [SerializeField] private ScrollRect scrollRect;
+    [SerializeField] private RectTransform content;
     [SerializeField] private float scrollTweenDuration = 0.15f;
     
     private int currentIndex;
@@ -25,13 +27,35 @@ public class ShopUi : MonoBehaviour
         foreach (var var in list.Items)
         {
             ItemSlot slot = Instantiate(slotPrefab, itemSlotPoint).GetComponent<ItemSlot>();
+            slot.index = var.index - 1;
             slot.SetSlotUiSetting(var);
         }
-    }
 
+        BuildSlotList();
+    }
     private void Update()
     {
-        
+        if (!gameObject.activeInHierarchy) return;
+        if (Keyboard.current == null) return;
+        if (slotList == null || slotList.Count == 0) return;
+        if (currentSlot == null)
+        {
+            currentIndex = GetFirstValidIndex();
+            if (currentIndex < 0) return;
+            currentSlot = slotList[currentIndex];
+            UpdateUi();
+            CenterCurrentSlotInScroll(true);
+        }
+        if (Keyboard.current.upArrowKey.wasPressedThisFrame)
+            MoveSelection(-1);
+
+        if (Keyboard.current.downArrowKey.wasPressedThisFrame)
+            MoveSelection(1);
+
+        if (Keyboard.current.enterKey.wasPressedThisFrame)
+        {
+            // Select
+        }
     }
 
     private void MoveSelection(int dir)
@@ -73,7 +97,7 @@ public class ShopUi : MonoBehaviour
 
             if (img == null) continue;
 
-            img.color = (slot == currentSlot) ? Color.yellow : Color.white;
+            img.color = (slot == currentSlot) ? Color.yellow : Color.gray;
         }
     }
     private void CenterCurrentSlotInScroll(bool instant)
@@ -177,5 +201,33 @@ public class ShopUi : MonoBehaviour
             if (slotList[i] != null) return i;
 
         return -1;
+    }
+    private void BuildSlotList()
+    {
+        slotList.Clear();
+        if (content == null) return;
+
+        int max = -1;
+
+        for (int i = 0; i < content.childCount; i++)
+        {
+            var rs = content.GetChild(i).GetComponent<ItemSlot>();
+            if (rs == null) continue;
+            if (rs.index < 0) continue;
+            if (rs.index > max) max = rs.index;
+        }
+
+        if (max < 0) return;
+
+        for (int i = 0; i <= max; i++) slotList.Add(null);
+
+        for (int i = 0; i < content.childCount; i++)
+        {
+            var rs = content.GetChild(i).GetComponent<ItemSlot>();
+            if (rs == null) continue;
+            if (rs.index < 0 || rs.index >= slotList.Count) continue;
+
+            slotList[rs.index] = rs;
+        }
     }
 }

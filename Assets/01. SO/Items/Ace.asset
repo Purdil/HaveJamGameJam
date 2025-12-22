@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
-  m_Name: Heal
+  m_Name: Ace
   m_EditorClassIdentifier: 
-  index: 1
-  <Name>k__BackingField: "\uD790"
+  index: 5
+  <Icon>k__BackingField: {fileID: 0}
+  <ItemName>k__BackingField: "\uC5D0\uC774\uC2A4"
   <Description>k__BackingField: Please Enter Item Description Here...
   <Durability>k__BackingField: 0
   <ActiveProbability>k__BackingField: 0
