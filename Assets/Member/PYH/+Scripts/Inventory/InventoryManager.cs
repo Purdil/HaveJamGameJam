@@ -9,20 +9,66 @@ namespace Member.PYH._Scripts.Inventory
     public class InventoryManager : MonoSingleton<InventoryManager>
     {
         private Dictionary<int, ItemSO> _inventory = new Dictionary<int, ItemSO>();
+        private List<ItemSO> _forInspector;
         [SerializeField] private int maxSlot;
 
-        private void Awake()
+        private new void Awake()
         {
-            DontDestroyOnLoad(this);
+            base.Awake();
+            DontDestroyOnLoad(gameObject);
+            
+            EnsureInspectorSize();
+            RebuildDictionaryFromInspector();
         }
-        
+        #if UNITY_EDITOR
+        private void OnValidate()
+        {
+            EnsureInspectorSize();
+        }
+        #endif
+
+        private void EnsureInspectorSize()
+        {
+            if (maxSlot < 0) maxSlot = 0;
+
+            if (_forInspector == null)
+                _forInspector = new List<ItemSO>(maxSlot);
+
+            if (_forInspector.Count < maxSlot)
+            {
+                int addCount = maxSlot - _forInspector.Count;
+                for (int i = 0; i < addCount; i++)
+                    _forInspector.Add(null);
+            }
+            else if (_forInspector.Count > maxSlot)
+            {
+                _forInspector.RemoveRange(maxSlot, _forInspector.Count - maxSlot);
+            }
+        }
+        private void RebuildDictionaryFromInspector()
+        {
+            _inventory.Clear();
+
+            for (int i = 0; i < maxSlot; i++)
+            {
+                var item = _forInspector[i];
+                if (item != null)
+                    _inventory[i] = item;
+            }
+        }
+
         public void TryAddItem(ItemSO item)
         {
-            if (_inventory.Count + 1 > maxSlot) return;
+            if (item == null) return;
+            if (maxSlot <= 0) return;
 
-            int empty = 0;
-            
-            for (int i = 0; i < _inventory.Count; i++)
+            EnsureInspectorSize();
+
+            if (_inventory.Count >= maxSlot) return;
+
+            int empty = -1;
+
+            for (int i = 0; i < maxSlot; i++)
             {
                 if (_inventory.ContainsKey(i) == false)
                 {
@@ -30,15 +76,29 @@ namespace Member.PYH._Scripts.Inventory
                     break;
                 }
             }
-            _inventory.TryAdd(empty, item);
-        }
 
+            if (empty == -1) return;
+
+            _inventory[empty] = item;
+            _forInspector[empty] = item;
+        }
         public void TryRemoveItem(int index)
         {
-            if (_inventory.Count == 0) { Logging.LogError("Can't Remove Inventroy"); return; }
-            if (_inventory.ContainsKey(index) == false) { return; }
-            
+            if (maxSlot <= 0) return;
+            if (index < 0 || index >= maxSlot) return;
+
+            EnsureInspectorSize();
+
+            if (_inventory.Count == 0)
+            {
+                Logging.LogError("Can't Remove Inventory");
+                return;
+            }
+
+            if (_inventory.ContainsKey(index) == false) return;
+
             _inventory.Remove(index);
+            _forInspector[index] = null; // 인스펙터 표시도 동기화
         }
     }
 }

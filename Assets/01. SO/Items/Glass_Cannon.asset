@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
-  m_Name: Lucky_Roulette
+  m_Name: Glass_Cannon
   m_EditorClassIdentifier: 
-  index: 7
+  index: 0
   <Icon>k__BackingField: {fileID: 0}
-  <ItemName>k__BackingField: "\uB7ED\uD0A4 \uB8F0\uB81B"
+  <ItemName>k__BackingField: "\uC720\uB9AC \uB300\uD3EC"
   <Description>k__BackingField: Please Enter Item Description Here...
   <ItemPrice>k__BackingField: 0
   <Durability>k__BackingField: 0
   <ActiveProbability>k__BackingField: 0
   <ActiveTurn>k__BackingField: 0
-  <IsDisposable>k__BackingField: 1
-  <IsPassive>k__BackingField: 0
+  <IsDisposable>k__BackingField: 0
+  <IsPassive>k__BackingField: 1
   itemBase: {fileID: 0}

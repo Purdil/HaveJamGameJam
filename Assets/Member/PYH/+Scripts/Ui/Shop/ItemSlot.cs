@@ -10,7 +10,7 @@ namespace Member.PYH._Scripts.Ui.Shop
     {
         public int index;
         public RectTransform rect;
-        private ItemSO _item;
+        public ItemSO Item { get; private set; }
     
         [SerializeField] public Image highlight;
         [SerializeField] private Image itemIcon;
@@ -25,10 +25,10 @@ namespace Member.PYH._Scripts.Ui.Shop
 
         public void SetSlotUiSetting(ItemSO item)
         {
-            _item = item;
-            itemName.text = _item.ItemName;
-            itemDesc.text = _item.Description;
-            itemIcon.sprite = _item.Icon;
+            Item = item;
+            itemName.text = Item.ItemName;
+            itemDesc.text = Item.Description;
+            itemIcon.sprite = Item.Icon;
             ItemIndex = item.index;
         }
     }

@@ -1,3 +1,6 @@
+using Core.Logger;
+using Member.PYH._Scripts.Currency;
+using Member.PYH._Scripts.Inventory;
 using Member.PYH._Scripts.SO;
 using UnityEngine;
 
@@ -7,11 +10,12 @@ namespace Member.PYH._Scripts.Shop
     {
         [SerializeField] private ItemSOList list;
 
-        public bool TryBuyItem(int price, int index)
+        public void TryBuyItem(int price, int index)
         {
-            if (!CurrencyManager.Instance.CanUseCurrency(price, index)) { return false; }
+            if (!CurrencyManager.Instance.CanUseCurrency(price)) { Logging.Log("Returned From Check CanUseCurrency"); return; }
             
-            return true;
+            CurrencyManager.Instance.TryUseCurrency(price);
+            InventoryManager.Instance.TryAddItem(list.GetItem(index));
         }
     }
 }

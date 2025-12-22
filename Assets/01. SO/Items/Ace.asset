@@ -16,6 +16,7 @@ MonoBehaviour:
   <Icon>k__BackingField: {fileID: 0}
   <ItemName>k__BackingField: "\uC5D0\uC774\uC2A4"
   <Description>k__BackingField: Please Enter Item Description Here...
+  <ItemPrice>k__BackingField: 0
   <Durability>k__BackingField: 0
   <ActiveProbability>k__BackingField: 0
   <ActiveTurn>k__BackingField: 0
