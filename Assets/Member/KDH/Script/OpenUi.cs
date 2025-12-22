@@ -52,6 +52,9 @@ public class OpenUi : MonoBehaviour
         {
             a?.Complete();
             Sequence seq = DOTween.Sequence().SetUpdate(true);
+
+            seq.AppendInterval(2f);
+
             foreach (var i in btn)
             {
                 seq.Append(i.DOMoveX(moveX, 0.1f).From().SetEase(ease));

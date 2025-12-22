@@ -1,27 +1,26 @@
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
 public class GameOverUi : MonoBehaviour
 {
-    [System.Serializable]
-    public struct BtnData
+    [SerializeField] private Ease ease;
+    [SerializeField] private float moveX = 10f;
+    public List<Transform> btn;
+    private Vector2 startPos;
+    private void Awake()
     {
-        public RectTransform btn;
-        public float height;
+        startPos = transform.position;
     }
-
-    [SerializeField] private BtnData[] buttons;
-    [SerializeField] private float time = 0.3f;
-
-    public void Move()
+    private void Start()
     {
-        Debug.Log("Move called");
-        foreach (var b in buttons)
+        Sequence seq = DOTween.Sequence();
+
+        seq.AppendInterval(3f);
+
+        foreach (var i in btn)
         {
-            b.btn.DOAnchorPos(
-                b.btn.anchoredPosition + Vector2.up * b.height,
-                time
-            ).SetUpdate(true);
+            seq.Append(i.DOMoveX(startPos.x - moveX, 0.5f).SetEase(ease));
         }
     }
 }

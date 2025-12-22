@@ -16,7 +16,7 @@ public class StartBtn : MonoBehaviour
     {
         Sequence seq = DOTween.Sequence();
 
-        seq.AppendInterval(3f);
+        seq.AppendInterval(2f);
 
         foreach (var i in btn)
         {
