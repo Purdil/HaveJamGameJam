@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a8082d4bc677d44ab39698c2650a96, type: 3}
   m_Name: Cracked_Family_Picture
   m_EditorClassIdentifier: 
-  index: 0
+  index: 30
   <Icon>k__BackingField: {fileID: 0}
   <ItemName>k__BackingField: "\uAE08\uC774 \uAC04 \uAC00\uC871 \uC561\uC790"
-  <Description>k__BackingField: Please Enter Item Description Here...
+  <Description>k__BackingField: "45% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uC801
+    \uCC98\uCE58 \uC2DC \uD50C\uB808\uC774\uC5B4\uC758 \uCCB4\uB825\uC744 +15 \uD68C\uBCF5\uD568"
   <ItemPrice>k__BackingField: 0
-  <Durability>k__BackingField: 0
-  <ActiveProbability>k__BackingField: 0
-  <ActiveTurn>k__BackingField: 0
+  <Durability>k__BackingField: 7
+  <ActiveProbability>k__BackingField: 45
+  <ActiveTurn>k__BackingField: 1
+  <IsEternal>k__BackingField: 0
   <IsDisposable>k__BackingField: 0
   <IsPassive>k__BackingField: 1
-  itemBase: {fileID: 0}

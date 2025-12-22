@@ -15,11 +15,12 @@ MonoBehaviour:
   index: 2
   <Icon>k__BackingField: {fileID: 0}
   <ItemName>k__BackingField: "\uD134 \uC99D\uAC00"
-  <Description>k__BackingField: Please Enter Item Description Here...
+  <Description>k__BackingField: "35% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uB2E4\uC74C
+    \uD134\uC5D0 \uD50C\uB808\uC774\uC5B4 \uD134 1\uD68C \uCD94\uAC00"
   <ItemPrice>k__BackingField: 0
   <Durability>k__BackingField: 0
-  <ActiveProbability>k__BackingField: 0
-  <ActiveTurn>k__BackingField: 0
+  <ActiveProbability>k__BackingField: 35
+  <ActiveTurn>k__BackingField: 1
+  <IsEternal>k__BackingField: 1
   <IsDisposable>k__BackingField: 1
   <IsPassive>k__BackingField: 0
-  itemBase: {fileID: 0}
