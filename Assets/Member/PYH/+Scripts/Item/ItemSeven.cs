@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 namespace Member.PYH._Scripts.Item
 {
-    public class ItemSeven : ItemBase, IUsable
+    public class ItemSeven : ItemBase/*, IUsable*/
     {
         private int _count;
         
@@ -20,8 +20,7 @@ namespace Member.PYH._Scripts.Item
         public void UseItem(string expression)
         {
             float rend = Random.Range(0, 100);
-
-            if (rend > item.ActiveProbability)
+            //if (rend > item.ActiveProbability)
             {
                 _count++;
 

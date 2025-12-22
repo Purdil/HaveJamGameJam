@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Member.PYH._Scripts.Item
 {
-    public class ItemTrunIncerese : ItemBase, IUsable
+    public class ItemTrunIncerese : ItemBase/*,*/ /*IUsable*/
     {
         private void OnDisable()
         {
@@ -18,9 +18,9 @@ namespace Member.PYH._Scripts.Item
         {
             float rend = Random.Range(0, 100);
             
-            if (rend > item.ActiveProbability)
+            //if (rend > item.ActiveProbability)
             {
-                //
+                
             }
         }
     }
