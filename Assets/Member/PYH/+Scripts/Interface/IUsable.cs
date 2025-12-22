@@ -2,6 +2,6 @@
 {
     public interface IUsable
     {
-        public void UseItem();
+        public void UseItem(string expression);
     }
 }

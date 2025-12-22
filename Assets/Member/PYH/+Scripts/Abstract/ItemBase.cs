@@ -1,10 +1,14 @@
 ﻿using Core.Logger;
+using Member.PYH._Scripts.Item;
+using Member.PYH._Scripts.SO;
 using UnityEngine;
 
 namespace Member.PYH._Scripts.Abstract
 {
     public abstract class ItemBase : MonoBehaviour
     {
+        [SerializeField] protected ItemSO item;
+        
         protected char[] ToCharArray(string expression)
         {
             string replaced = expression.Replace(" ", "");
@@ -13,10 +17,6 @@ namespace Member.PYH._Scripts.Abstract
             if (chars.Length > 5) { Logging.LogError("Wrong Expression"); return null;}
             return chars;
         }
-        protected virtual float Calculate(string expression)
-        {
-            Logging.LogError("Not Overridden");
-            return 0;
-        }
+        protected abstract float Calculate(string expression);
     }
 }
