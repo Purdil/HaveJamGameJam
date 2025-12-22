@@ -1,3 +1,4 @@
+using Member.PYH._Scripts.Inventory;
 using System;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
@@ -12,14 +13,16 @@ public class RouletteManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-
+            StartRoulette();
         }
     }
 #endif
     public void StartRoulette()
     {
-        // 시작 전 이벤트
-        // 
+        // 시작 전 이벤트를 실행하여 가중치에 따라서 초기값을 설정
+
+
+        //  룰렛을 돌려야하는 거 
     }
 }
 
