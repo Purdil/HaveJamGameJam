@@ -11,6 +11,7 @@ namespace Member.PYH._Scripts.SO
         [field: SerializeField] public Sprite Icon { get; set; }
         [field: SerializeField] public string ItemName { get; private set; } = "Please Enter Item Name Here..."; // 아이템 이름
         [field: SerializeField] public string Description { get; private set; } = "Please Enter Item Description Here..."; // 아이템 설명
+        [field: SerializeField] public int ItemPrice { get; private set; } = 0;
 
         [field: SerializeField] public int Durability { get; private set; } = 0; // 아이템 내구도
         [field: SerializeField] public float ActiveProbability { get; private set; } = 0; // 발동 확률

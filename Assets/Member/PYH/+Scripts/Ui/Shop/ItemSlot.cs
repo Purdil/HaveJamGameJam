@@ -10,12 +10,14 @@ namespace Member.PYH._Scripts.Ui.Shop
     {
         public int index;
         public RectTransform rect;
-        private ItemSO _item;
+        public ItemSO Item { get; private set; }
     
         [SerializeField] public Image highlight;
         [SerializeField] private Image itemIcon;
         [SerializeField] private TMP_Text itemName;
-
+        [SerializeField] private TMP_Text itemDesc;
+        public int ItemIndex { get; private set; }
+        
         private void Awake()
         {
             rect = GetComponent<RectTransform>();
@@ -23,9 +25,11 @@ namespace Member.PYH._Scripts.Ui.Shop
 
         public void SetSlotUiSetting(ItemSO item)
         {
-            _item = item;
-            itemName.text = _item.ItemName;
-            itemIcon.sprite = _item.Icon;
+            Item = item;
+            itemName.text = Item.ItemName;
+            itemDesc.text = Item.Description;
+            itemIcon.sprite = Item.Icon;
+            ItemIndex = item.index;
         }
     }
 }

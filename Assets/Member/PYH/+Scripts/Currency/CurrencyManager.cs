@@ -1,26 +1,28 @@
 using Core;
+using Core.Logger;
 using UnityEngine;
 
-public class CurrencyManager : MonoSingleton<CurrencyManager>
+namespace Member.PYH._Scripts.Currency
 {
-    public int CurrentCurrency { get; private set; } = 0;
-
-    public bool CanUseCurrency(int price, int itemIndex) // Only Using In Shop
+    public class CurrencyManager : MonoSingleton<CurrencyManager>
     {
-        if (CurrentCurrency - price < 0) return false;
+        public int CurrentCurrency { get; private set; } = 0;
 
-        UseCurrency(price);
-        DisburseItem(itemIndex);
-        return true;
-    }
+        public bool CanUseCurrency(int price)
+        {
+            return CurrentCurrency - price >= 0;
+        }
+        public void TryUseCurrency(int price) // Only Using In Shop
+        {
+            if (CurrentCurrency - price < 0) { Logging.Log("FAILED TO USE CURRENCY"); return; }
+
+            UseCurrency(price);
+        }
     
-    private void UseCurrency(int price)
-    {
-        CurrentCurrency = Mathf.Clamp(CurrentCurrency - price, 0, int.MaxValue);
-    }
-
-    private void DisburseItem(int itemIndex)
-    {
-        // 여기서 인벤토리 매니저에게 아이템 지급
+        private void UseCurrency(int price)
+        {
+            Logging.Log("USE CURRENCY");
+            CurrentCurrency = Mathf.Clamp(CurrentCurrency - price, 0, int.MaxValue);
+        }
     }
 }

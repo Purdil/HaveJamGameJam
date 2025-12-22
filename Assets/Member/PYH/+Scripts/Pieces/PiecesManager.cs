@@ -4,33 +4,101 @@ using Core.Logger;
 using Member.PYH._Scripts.SO;
 using UnityEngine;
 
-public class PiecesManager : MonoSingleton<PiecesManager>
+namespace Member.PYH._Scripts.Pieces
 {
-    private Dictionary<int, ItemSO> _inventory = new Dictionary<int, ItemSO>();
-    [SerializeField] private int maxSlot;
+    public class PiecesManager : MonoSingleton<PiecesManager>
+    { 
+        private Dictionary<int, ItemSO> _pieces = new Dictionary<int, ItemSO>();
+        private List<ItemSO> _forInspector;
+        [SerializeField] private int maxSlot;
 
-    public void TryAddItem(ItemSO item)
-    {
-        if (_inventory.Count + 1 > maxSlot) return;
-
-        int empty = 0;
-            
-        for (int i = 0; i < _inventory.Count; i++)
+        private new void Awake()
         {
-            if (_inventory.ContainsKey(i) == false)
+            base.Awake();
+            DontDestroyOnLoad(gameObject);
+            
+            EnsureInspectorSize();
+            RebuildDictionaryFromInspector();
+        }
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            EnsureInspectorSize();
+        }
+#endif
+
+        private void EnsureInspectorSize()
+        {
+            if (maxSlot < 0) maxSlot = 0;
+
+            if (_forInspector == null)
+                _forInspector = new List<ItemSO>(maxSlot);
+
+            if (_forInspector.Count < maxSlot)
             {
-                empty = i;
-                break;
+                int addCount = maxSlot - _forInspector.Count;
+                for (int i = 0; i < addCount; i++)
+                    _forInspector.Add(null);
+            }
+            else if (_forInspector.Count > maxSlot)
+            {
+                _forInspector.RemoveRange(maxSlot, _forInspector.Count - maxSlot);
             }
         }
-        _inventory.TryAdd(empty, item);
-    }
+        private void RebuildDictionaryFromInspector()
+        {
+            _pieces.Clear();
 
-    public void TryRemoveItem(int index)
-    {
-        if (_inventory.Count == 0) { Logging.LogError("Can't Remove Inventroy"); return; }
-        if (_inventory.ContainsKey(index) == false) { return; }
-            
-        _inventory.Remove(index);
+            for (int i = 0; i < maxSlot; i++)
+            {
+                var item = _forInspector[i];
+                if (item != null)
+                    _pieces[i] = item;
+            }
+        }
+
+        public void TryAddItem(ItemSO item)
+        {
+            if (item == null) return;
+            if (maxSlot <= 0) return;
+
+            EnsureInspectorSize();
+
+            if (_pieces.Count >= maxSlot) return;
+
+            int empty = -1;
+
+            for (int i = 0; i < maxSlot; i++)
+            {
+                if (_pieces.ContainsKey(i) == false)
+                {
+                    empty = i;
+                    break;
+                }
+            }
+
+            if (empty == -1) return;
+
+            _pieces[empty] = item;
+            _forInspector[empty] = item;
+        }
+        public void TryRemoveItem(int index)
+        {
+            if (maxSlot <= 0) return;
+            if (index < 0 || index >= maxSlot) return;
+
+            EnsureInspectorSize();
+
+            if (_pieces.Count == 0)
+            {
+                Logging.LogError("Can't Remove Inventory");
+                return;
+            }
+
+            if (_pieces.ContainsKey(index) == false) return;
+
+            _pieces.Remove(index);
+            _forInspector[index] = null; // 인스펙터 표시도 동기화
+        }
     }
 }
