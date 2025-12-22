@@ -6,9 +6,10 @@ using Random = UnityEngine.Random;
 
 namespace Member.PYH._Scripts.SO.Item
 {
-    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
+    [CreateAssetMenu(fileName = "GreenEyedMonsterDataSO", menuName = "SO/ITEM/GreenEyedMonsterDataSO")]
     public class GreenEyedMonsterDataSO : ItemSO, IWearOutItem, IAfterApplyTrunIteem<RouletNum, ApplyFinal>, IBeforeApplyTrunItem<RouletNum>
     {
+        [field: SerializeField] public float Probability { get; private set; }
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public int Durability { get; private set; }
         [SerializeField] private OperatorSO plus;
@@ -20,9 +21,7 @@ namespace Member.PYH._Scripts.SO.Item
         public void AfterApply(Func<RouletNum> Getter, Action<ApplyFinal> Setter)
         {
             var a = Getter;
-            var b = new ApplyFinal();
-            b.final = Random.Range(0, 100);
-            b.ApplyOperator = plus;
+            var b = new ApplyFinal(final: Random.Range(0, 100), applyOperator: plus);
             Setter(b);
             WearOut();
         }

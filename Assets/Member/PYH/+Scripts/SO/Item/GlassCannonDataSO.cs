@@ -5,18 +5,17 @@ using Random = UnityEngine.Random;
 
 namespace Member.PYH._Scripts.SO.Item
 {
-    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
+    [CreateAssetMenu(fileName = "GlassCannonDataSO", menuName = "SO/ITEM/GlassCannonDataSO")]
     public class GlassCannonDataSO : ItemSO, IBeforeApplyTrunItem<RouletOperator>, IWearOutItem, IAfterApplyTrunIteem<RouletNum, ApplyFinal>
     {
         public Action<IDestroyItem> Destroyed { get; set; }
+        [field: SerializeField] public float Probability { get; private set; }
         [field: SerializeField] public int Durability { get; private set; }
         [SerializeField] private OperatorSO multiply, minus;
         
         public void BeforeApply(Action<RouletOperator> operatorSetter)
         {
-            var a = new RouletOperator();
-            a.Operator1 = multiply;
-            a.Operator2 = multiply;
+            var a = new RouletOperator(operator1: multiply, operator2: multiply);
             operatorSetter(a);
         }
         public void AfterApply(Func<RouletNum> Getter, Action<ApplyFinal> Setter)
