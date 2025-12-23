@@ -1,11 +1,12 @@
 ﻿using System;
 using BBJ;
+using Core.Logger;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Member.PYH._Scripts.SO.Item
 {
-    [CreateAssetMenu(fileName = "CreepyGiftBoxDataSO", menuName = "SO/ITEM/CreepyGiftBoxDataSO")]
+    [CreateAssetMenu(fileName = "CreepyGiftBox", menuName = "SO/ITEM/CreepyGiftBox")]
     public class CreepyGiftBoxDataSO : ItemSO, IBeforeApplyTrunItem<RouletNum>, IWearOutItem
     {
         [field: SerializeField] public float Probability { get; private set; }

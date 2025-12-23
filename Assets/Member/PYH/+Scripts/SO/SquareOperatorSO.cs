@@ -2,7 +2,7 @@
 
 namespace Member.PYH._Scripts.SO
 {
-    [CreateAssetMenu(fileName = "Square", menuName = "SO/Operator/Data/Square")]
+    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
     public class SquareOperatorSO : OperatorSO
     {
         public override float Operation(float p1, float p2)

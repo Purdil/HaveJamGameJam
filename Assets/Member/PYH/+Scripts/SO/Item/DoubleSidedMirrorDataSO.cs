@@ -5,10 +5,9 @@ using Random = UnityEngine.Random;
 
 namespace Member.PYH._Scripts.SO.Item
 {
-    [CreateAssetMenu(fileName = "DoubleSidedMirrorDataSO", menuName = "SO/ITEM/DoubleSidedMirrorDataSO")]
+    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
     public class DoubleSidedMirrorDataSO : ItemSO, IBeforeApplyTrunItem<RouletNum>, IWearOutItem
     {
-        [field: SerializeField] public float Probability { get; private set; }
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public int Durability { get; private set; }
         

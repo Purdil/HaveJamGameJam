@@ -2,6 +2,7 @@
 using BBJ;
 using Core.Logger;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Member.PYH._Scripts.SO.Item
 {
