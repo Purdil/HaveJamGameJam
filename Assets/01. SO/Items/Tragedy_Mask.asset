@@ -16,7 +16,7 @@ MonoBehaviour:
   <Icon>k__BackingField: {fileID: 21300000, guid: a8b621de065bfac4596179c1263999d7, type: 3}
   <ItemName>k__BackingField: "\uBE44\uADF9\uC758 \uAC00\uBA74"
   <Description>k__BackingField: Please Enter Item Description Here...
-  <ItemPrice>k__BackingField: 0
+  <ItemPrice>k__BackingField: 7090
   <ActiveTurn>k__BackingField: 0
   <Durability>k__BackingField: 0
   multiply: {fileID: 11400000, guid: 7a474416a68e6714695a26dff50c4c78, type: 2}

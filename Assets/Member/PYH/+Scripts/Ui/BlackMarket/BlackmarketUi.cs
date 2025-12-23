@@ -1,4 +1,3 @@
-using System;
 using Member.PYH._Scripts.Currency;
 using TMPro;
 using UnityEngine;
@@ -24,12 +23,12 @@ public class BlackmarketUi : MonoBehaviour
 
     public void SellMagicstone()
     {
-        /*int magicstone = CurrencyManager.Instance.CurrentMagicStone;
+        int magicstone = CurrencyManager.Instance.CurrentMagicstone;
         
         if (magicstone == 0) return;
         
-        CurrencyManager.Instance.TryUseCurrency(CurrencyType.MagicStone, magicstone);
-        CurrencyManager.Instance.TryGiveCurrency(CurrencyType.Gold, magicstone * _todayPP);
-        OnSellSuccessEvent?.Invoke();*/
+        CurrencyManager.Instance.TryUseCurrency(CurrencyType.MAGICSTONE, magicstone);
+        CurrencyManager.Instance.TryGiveCurrency(CurrencyType.GOLD, magicstone * _todayPP);
+        OnSellSuccessEvent?.Invoke();
     }
 }

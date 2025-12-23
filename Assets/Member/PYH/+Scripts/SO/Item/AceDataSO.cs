@@ -7,7 +7,7 @@ namespace Member.PYH._Scripts.SO.Item
     [CreateAssetMenu(fileName = "AceDataSO", menuName = "SO/ITEM/AceDataSO")]
     public class AceDataSo : ItemSO, IBeforeApplyTrunItem<ApplyRouletNum>, IProbabilityItem, IWearOutItem
     {
-        public float Probability { get; private set; }
+        [SerializeField] public float Probability { get; private set; }
         [SerializeField] private OperatorSO plus;
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public int Durability { get; private set; }

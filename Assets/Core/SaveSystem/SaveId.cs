@@ -2,6 +2,7 @@
 
 namespace Core.SaveSystem
 {
+    [CreateAssetMenu(menuName = "Save/SaveId", fileName = "SaveId_")]
     public class SaveId : ScriptableObject
     {
         public int id;
