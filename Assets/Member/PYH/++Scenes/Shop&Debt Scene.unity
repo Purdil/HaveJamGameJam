@@ -1961,7 +1961,7 @@ MonoBehaviour:
   currentChannel: 0
   shopChannel: {fileID: 2066020831}
   blackmarketChannel: {fileID: 0}
-  channelFadeImage: {fileID: 0}
+  channelFadeImage: {fileID: 2060834555}
   shopUi: {fileID: 776451276}
   background: {fileID: 476013568}
   onTryBuyEvent:
