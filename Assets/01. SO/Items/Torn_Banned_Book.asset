@@ -19,5 +19,5 @@ MonoBehaviour:
   <ItemPrice>k__BackingField: 0
   <ActiveTurn>k__BackingField: 0
   <Durability>k__BackingField: 0
-  plus: {fileID: 0}
-  minus: {fileID: 0}
+  plus: {fileID: 11400000, guid: e69bc13a35165814c8257de2933d0e9e, type: 2}
+  minus: {fileID: 11400000, guid: 58be907de4884554f8a77a15148b3714, type: 2}
