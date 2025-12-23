@@ -102,7 +102,7 @@ public class ItemManager : MonoSingleton<ItemManager>
     }
     public void OnRouletBefore(Action<RouletData> setter)
     {
-        var result = new RouletData(new RouletNum(), new RouletOperator());
+        var result = new RouletData(new RouletNum(null), new RouletOperator(null));
         var num = RouletteManager.Instance.rouletData.rouletNum;
         var oper = RouletteManager.Instance.rouletData.rouletOperator;
 
@@ -114,7 +114,7 @@ public class ItemManager : MonoSingleton<ItemManager>
     }
     public void OnRouletAfter(Action<RouletData> setter)
     {
-        var result = new RouletData(new RouletNum(), new RouletOperator());
+        var result = new RouletData(new RouletNum(null), new RouletOperator(null));
         var num = RouletteManager.Instance.rouletData.rouletNum;
         var oper = RouletteManager.Instance.rouletData.rouletOperator;
         OnAfter_RN_RN?.Invoke(() => { return num; }, (RouletNum num) => result.Setter(num));

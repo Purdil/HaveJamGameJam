@@ -74,13 +74,13 @@ public struct RouletData: IRouletApply
             rouletNum.Num3 = item.ApplyOperator.Operation(rouletNum.Num1.Value, a.Num1.Value);
         }
 
-        if (rouletOperator.oper[0].y < rouletOperator.oper[0].y)
+        if (rouletOperator.oper[0].y < rouletOperator.oper[1].y)
         {
-           result = rouletOperator.oper[0].x.Operation(rouletNum.Num1.Value, rouletOperator.oper[0].x.Operation(rouletNum.Num2.Value, rouletNum.Num3.Value));
+           result = rouletOperator.oper[0].x.Operation(rouletNum.Num1.GetValueOrDefault(), rouletOperator.oper[1].x.Operation(rouletNum.Num2.GetValueOrDefault(), rouletNum.Num3.GetValueOrDefault()));
         }
         else
         {
-           result = rouletOperator.oper[0].x.Operation(rouletOperator.oper[0].x.Operation(rouletNum.Num1.Value, rouletNum.Num2.Value), rouletNum.Num3.Value);
+           result = rouletOperator.oper[0].x.Operation(rouletOperator.oper[1].x.Operation(rouletNum.Num1.GetValueOrDefault(), rouletNum.Num2.GetValueOrDefault()), rouletNum.Num3.GetValueOrDefault());
         }
 
         for (int i = 0; i < applyFinal.Count; i++)

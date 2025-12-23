@@ -35,7 +35,7 @@ public class RouletteManager : MonoSingleton<RouletteManager>
     {
         itemSubChannel.Raise(list);
 
-        rouletData = new RouletData(new RouletNum(), new RouletOperator());
+        rouletData = new RouletData(new RouletNum(null), new RouletOperator(null));
         rouletStartChannel.Raise((data) => { rouletData.Setter(data); }); // ����
 
         var a = Spin(numProb, operProb);
