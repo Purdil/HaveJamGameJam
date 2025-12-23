@@ -9,6 +9,7 @@ namespace Member.YDW.HealthSystem
 {
     public class AgentHealth : MonoBehaviour , IAgentComponent , IDamageable, IHealable
     {
+        [SerializeField] private PoolableSO healEffect;
         [SerializeField] private AnimParamSO deathParam;
         [SerializeField] private AnimParamSO hurtParam;
         [SerializeField] private int maxHealth;
@@ -16,6 +17,7 @@ namespace Member.YDW.HealthSystem
         private Agent _owner;
         
         public event Action<int> OnDamaged;
+        public event Action<int> OnHealed; 
         public event Action<Agent> OnDeath;
         public int Health {get; private set;}
         
@@ -25,11 +27,23 @@ namespace Member.YDW.HealthSystem
             Health = maxHealth;
         }
 
+        public void SetMaxHealth(int maxHealth)
+        {
+            this.maxHealth = maxHealth;
+            Health = maxHealth;
+        }
+
+        public int GetMaxHealth()
+        {
+            return maxHealth;
+        }
+
         public void ApplyDamage(int damage, out int overDamage)
         {
             if (damage < 0)
             {
-                Logging.LogError("데미지는 음수가 될 수 없습니다.");
+                ApplyHeal(-damage);
+                Logging.Log($"Apply Heal {-damage}.");
                 overDamage = 0;
                 return;
             }
@@ -81,9 +95,10 @@ namespace Member.YDW.HealthSystem
                 Logging.LogError("힐은 음수가 될 수 없습니다.");
                 return;
             }
+            PoolManager.Instance.Factory(healEffect).Pop().transform.position = transform.position;
             Health += heal;
             Health = Mathf.Clamp(Health, 0, maxHealth);
-            OnDamaged?.Invoke(Health);
+            OnHealed?.Invoke(Health);
         }
                 
     }

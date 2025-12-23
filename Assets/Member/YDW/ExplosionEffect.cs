@@ -19,6 +19,7 @@ namespace Member.YDW
 
         public void OnPopObject()
         {
+            
         }
 
         public void OnPushObject()

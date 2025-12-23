@@ -14,7 +14,7 @@ using Random = UnityEngine.Random;
 
 namespace Member.YDW.Agents
 {
-    public class Player : Agent
+    public class Player : Agent , ICanHoldRandomEvent
     {
         [SerializeField] private float initEscapeChance;
         [SerializeField] private TryEscapeEvent escapeEvent;
@@ -23,6 +23,7 @@ namespace Member.YDW.Agents
         [SerializeField] private PoolableSO swordPrefab;
         [SerializeField] private AnimParamSO animParam;
         [SerializeField] private Transform auraSpawnPoint;
+        
         private AgentAttack _attackCompo;
         
         private readonly List<IDamageable>  _enemies = new();
@@ -74,7 +75,35 @@ namespace Member.YDW.Agents
             }
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
-                StartCoroutine(Attack(150));// 플레이어는 검기를 날림. 데미지는 룰렛 산출로 넣어줌.
+                int damage = RouletteManager.Instance.StartPlayerSpin(numberProbList, operatorProbList)();
+
+                if (minusDamage)
+                {
+                    damage = -damage;
+                    minusDamage = false;
+                }
+                else if (doubleDamage)
+                {
+                    damage *= 2;
+                    doubleDamage = false;
+                }
+                else if (halfDamage)
+                {
+                    damage = Mathf.CeilToInt(damage / 2f);
+                    halfDamage = false;
+
+                }
+                else if (plusDamage)
+                {
+                    if (damage < 0)
+                        damage *= -1;
+                    plusDamage = false;
+                }
+                else if(reSpine)
+                    damage = RouletteManager.Instance.StartPlayerSpin(numberProbList, operatorProbList)();
+                
+                Logging.Log($"Player damage : {damage}");
+                StartCoroutine(Attack(damage));// 플레이어는 검기를 날림. 데미지는 룰렛 산출로 넣어줌.
             }
             #endregion
         }
@@ -146,5 +175,11 @@ namespace Member.YDW.Agents
             base.OnDestroy();
             escapeValueEvent.OnEvent -= ModifyEscapeChance;
         }
+
+        public bool doubleDamage { get; set; }
+        public bool halfDamage { get; set; }
+        public bool minusDamage { get; set; }
+        public bool plusDamage { get; set; }
+        public bool reSpine { get; set; }
     }
 }

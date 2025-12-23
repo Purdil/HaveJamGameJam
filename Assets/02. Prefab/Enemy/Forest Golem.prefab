@@ -50,6 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd43ad552654d25a96b16373a00b32d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberProbList: {fileID: 11400000, guid: d0a348a9f158a294fa14ccd8983822c8, type: 2}
+  operatorProbList: {fileID: 11400000, guid: 6f920d47bc1b38945b420aa29dee3af5, type: 2}
   attackImpulse: {fileID: 4422069155536947511}
   moveDamping: 1
   attackParam: {fileID: 11400000, guid: ccb96eb4bf9d3a24fbfbb9669c590275, type: 2}

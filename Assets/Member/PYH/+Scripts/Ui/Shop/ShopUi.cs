@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Member.PYH._Scripts.Ui.Shop
@@ -62,11 +63,15 @@ namespace Member.PYH._Scripts.Ui.Shop
         }
         private void Update()
         {
-            if (Keyboard.current.f1Key.wasPressedThisFrame)
-                OpenUi();
             if (Keyboard.current.f2Key.wasPressedThisFrame)
-                HideUi();
-
+            {
+                SceneManager.LoadScene(1);
+            }
+            if (Keyboard.current.f1Key.wasPressedThisFrame)
+            {
+                OpenUi();
+            }
+            
             if (Keyboard.current == null) return;
             if (slotList == null || slotList.Count == 0) return;
             if (!_isActive) return;
@@ -81,13 +86,19 @@ namespace Member.PYH._Scripts.Ui.Shop
                 UpdateUi();
                 CenterCurrentSlotInScroll(true);
             }
-            
+
+            if (Keyboard.current.escapeKey.wasPressedThisFrame && !_moving && !_fading)
+            {
+                HideUi();
+            }
             if (Keyboard.current.upArrowKey.wasPressedThisFrame && currentChannel == ChannelEnum.Shop)
+            {
                 MoveSelection(-1);
-
+            }
             if (Keyboard.current.downArrowKey.wasPressedThisFrame && currentChannel == ChannelEnum.Shop)
+            {
                 MoveSelection(1);
-
+            }
             if (Keyboard.current.enterKey.wasPressedThisFrame)
             {
                 if (currentChannel == ChannelEnum.Shop)

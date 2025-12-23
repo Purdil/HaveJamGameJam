@@ -6,14 +6,18 @@ using Random = UnityEngine.Random;
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
-    public class DoubleSidedMirrorDataSO : ItemSO, IBeforeApplyTrunItem<RouletNum>, IWearOutItem
+    public class DoubleSidedMirrorDataSO : ItemSO, IAfterApplyTrunIteem<RouletNum, RouletNum>, IWearOutItem, IProbabilityItem
     {
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public int Durability { get; private set; }
-        
-        public void BeforeApply(Action<RouletNum> numSetter)
+        [field: SerializeField] public float Probability { get; private set; }
+
+
+        public void AfterApply(Func<RouletNum> getter, Action<RouletNum> setter)
         {
             var a = new RouletNum();
+            var read = getter();
+
             int rend = Random.Range(0, 2);
 
             if (rend > 0)
@@ -24,12 +28,12 @@ namespace Member.PYH._Scripts.SO.Item
             }
             else
             {
-                a.Num1 = (int)Mathf.Pow((float)a.Num1, 2);
-                a.Num2 = (int)Mathf.Pow((float)a.Num2, 2);
-                a.Num3 = (int)Mathf.Pow((float)a.Num3, 2);
+                a.Num1 = (int)Mathf.Pow((float)read.Num1, 2);
+                a.Num2 = (int)Mathf.Pow((float)read.Num2, 2);
+                a.Num3 = (int)Mathf.Pow((float)read.Num3, 2);
             }
-            
-            numSetter(a);
+
+            setter(a);
             WearOut();
         }
         public void WearOut()
@@ -48,5 +52,6 @@ namespace Member.PYH._Scripts.SO.Item
         public void UnAcquire()
         {
         }
+
     }
 }

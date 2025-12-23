@@ -15,6 +15,8 @@ namespace Member.YDW.AgentSystem
     }
     public abstract class Agent : MonoBehaviour , IDamageable , IPoolable, ITurnAgent
     {
+        [SerializeField] protected NumberProbListSO numberProbList;
+        [SerializeField] protected OperatorProbListSO operatorProbList;
         private Dictionary<Type,IAgentComponent> _components;
 
         public bool IsActivated {get; private set;}
@@ -76,6 +78,7 @@ namespace Member.YDW.AgentSystem
             Health.Initialize(this);
             OnDead = false;
             IsActivated = true;
+            
         }
         public void OnPushObject()
         {

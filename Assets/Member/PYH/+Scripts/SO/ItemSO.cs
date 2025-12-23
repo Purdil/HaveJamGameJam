@@ -11,8 +11,6 @@ namespace Member.PYH._Scripts.SO
         [field: SerializeField] public string Description { get; private set; } = "Please Enter Item Description Here..."; // 아이템 설명
         [field: SerializeField] public int ItemPrice { get; private set; } = 0; // 상점 내 아이템 가격
 
-        [field: SerializeField] public float ActiveTurn { get; private set; } = 0; // 발동되는 턴
-
         private void OnValidate()
         {
             if (ItemName.Length == 0) Logging.LogWarning("Empty Item Name");

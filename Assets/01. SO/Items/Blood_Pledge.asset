@@ -19,9 +19,9 @@ MonoBehaviour:
     \uC790\uD574 \uB370\uBBF8\uC9C0\uB97C \uC785\uC740 \uD6C4 1\uD134 \uB3D9\uC548
     2\uAC1C\uC758 \uC5F0\uC0B0\uC2DD \uC911 \uAC00\uC7A5 \uC624\uB978\uCABD\uC5D0
     \uC788\uB294 \uC5F0\uC0B0\uC790\uB97C +\uB85C \uACE0\uC815\uD568"
-  <ItemPrice>k__BackingField: 0
+  <ItemPrice>k__BackingField: 4456
   <ActiveTurn>k__BackingField: 0
-  <Probability>k__BackingField: 0
+  <Probability>k__BackingField: 41
   plus: {fileID: 11400000, guid: e69bc13a35165814c8257de2933d0e9e, type: 2}
   playerSelfDamageChannel: {fileID: 11400000, guid: 433bff5210317d74caf835d72b008039, type: 2}
-  <Durability>k__BackingField: 0
+  <Durability>k__BackingField: 1
