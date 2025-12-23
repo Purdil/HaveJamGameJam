@@ -16,6 +16,7 @@ namespace Member.PYH._Scripts.SO.Item
         public void BeforeApply(Action<ApplyRouletNum> numSetter)
         {
             var a = new ApplyRouletNum(num1: 3, applyOperator: plus );
+            numSetter(a);
             WearOut();
         }
         public void WearOut()
