@@ -1,5 +1,6 @@
 using Core.Logger;
 using Member.PYH._Scripts.SO;
+using System;
 
 public struct RouletNum : IRouletApply, IRouletInfo, IPriority
 {
@@ -64,6 +65,17 @@ public struct RouletNum : IRouletApply, IRouletInfo, IPriority
             this.Num[1] = p2.Num[1];
         if (p2.Num3 != null && (this.Num3.HasValue == false || this.Num[2].y < p2.Num[2].y))
             this.Num[2] = p2.Num[2];
+    }
+
+    internal void Apply(ApplyRouletNum applyRouletNum)
+    {
+        if (applyRouletNum.ApplyOperator == null) return;
+        if (applyRouletNum.RouletNum.Num1.HasValue == true)
+        this.Num1 = applyRouletNum.ApplyOperator.Operation(this.Num1.GetValueOrDefault() ,applyRouletNum.RouletNum.Num1.GetValueOrDefault());
+        if (applyRouletNum.RouletNum.Num2.HasValue == true)          
+        this.Num2 = applyRouletNum.ApplyOperator.Operation(this.Num2.GetValueOrDefault() ,applyRouletNum.RouletNum.Num2.GetValueOrDefault());
+        if (applyRouletNum.RouletNum.Num3.HasValue == true)          
+        this.Num3 = applyRouletNum.ApplyOperator.Operation(this.Num3.GetValueOrDefault(), applyRouletNum.RouletNum.Num3.GetValueOrDefault());
     }
 }
 public struct Vector<T, V>

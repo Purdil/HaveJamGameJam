@@ -1,9 +1,12 @@
+using System.Collections;
 using csiimnida.CSILib.SoundManager.RunTime;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class Last : MonoBehaviour
 {
+    public UnityEvent OnShopUiOpenEvent;
 
     public void Countinue()
     {
@@ -28,7 +31,7 @@ public class Last : MonoBehaviour
 
     private void OnClickButton(Scene s, LoadSceneMode m)
     {
-        SoundManager.Instance.PlaySound("Click");
+        SoundManager.Instance?.PlaySound("Click");
         SceneManager.sceneLoaded -= OnClickButton;
     }
 
@@ -37,16 +40,13 @@ public class Last : MonoBehaviour
 
         //SoundManager.Instance.PlaySound("Click");
         SceneManager.sceneLoaded += OnClickButton;
-        SceneManager.LoadScene("CombatScene");
+        SceneManager.LoadScene("Debt");
     }
     public void GoDebt()
     {
-        //SceneManager.LoadScene("ShopScene");
-        //SoundManager.Instance.PlaySound("Click");
+        SceneManager.sceneLoaded += OnClickButton;
     }
     public void GoShop()
     {
-        // SceneManager.LoadScene("DebtScene");
-        //SoundManager.Instance.PlaySound("Click");
     }
 }
