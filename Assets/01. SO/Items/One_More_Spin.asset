@@ -14,11 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 28
   <Icon>k__BackingField: {fileID: 0}
-  <ItemName>k__BackingField: "\uD55C \uBC88 \uB354 \uC2A4\uD540"
-  <Description>k__BackingField: "42% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uB8F0\uB81B\uC744
-    \uB2E4\uC2DC \uB3CC\uB9AC\uB294 \uAE30\uD68C \uD68D\uB4DD"
-  <ItemPrice>k__BackingField: 3750
+  <ItemName>k__BackingField: Please Enter Item Name Here...
+  <Description>k__BackingField: Please Enter Item Description Here...
+  <ItemPrice>k__BackingField: 0
   <ActiveTurn>k__BackingField: 0
-  <Probability>k__BackingField: 42
-  <Durability>k__BackingField: 2
-  multiply: {fileID: 11400000, guid: 7a474416a68e6714695a26dff50c4c78, type: 2}
+  <Durability>k__BackingField: 0
+  multiply: {fileID: 0}

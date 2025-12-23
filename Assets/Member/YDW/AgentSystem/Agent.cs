@@ -4,6 +4,7 @@ using System.Linq;
 using Core.PoolSystem;
 using Member.YDW.HealthSystem;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Member.YDW.AgentSystem
 {
@@ -57,9 +58,12 @@ namespace Member.YDW.AgentSystem
         }
 
 
-        public int ApplyDamage(int damage)
+        public void ApplyDamage(int damage , out int overDamage)
         {
-            return Health.ApplyDamage(damage);
+            Health.ApplyDamage(damage, out int damageOver);
+            
+            overDamage = damageOver;
+            return;
         }
 
 
@@ -85,6 +89,7 @@ namespace Member.YDW.AgentSystem
         public Agent User => this;
         public bool OnTurnEnd { get; protected set; }
         public bool OnDead { get; private set; }
+        
         public virtual void StartTurn()
         {
             
@@ -98,6 +103,10 @@ namespace Member.YDW.AgentSystem
         public virtual void EndTurn()
         {
             OnTurnEnd = false;
+        }
+        protected virtual void OnDestroy()
+        {
+            Health.OnDeath -= HandleDead;
         }
     }
 }
