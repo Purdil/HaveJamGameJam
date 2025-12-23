@@ -1,78 +1,70 @@
-using Member.PYH._Scripts.Inventory;
+using Core;
+using Core.Logger;
+using Member.PYH._Scripts.SO;
+using NUnit.Framework;
 using System;
-using Unity.IO.LowLevel.Unsafe;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class RouletteManager : MonoBehaviour
+public class RouletteManager : MonoSingleton<RouletteManager>
 {
-    [SerializeField] private NumberProbListSO numProb;
-    [SerializeField] private OperatorProbListSO operProb;
+    [SerializeField] private RouletEvent rouletStartChannel;
+    [SerializeField] private RouletEvent rouletEndChannel;
 
+    [SerializeField] private RouletUIEvent rouletUIChannel;
+    [SerializeField] private RouletUIEvent rouletApplyUIChannel;
+    [SerializeField] private RouletUIEvent rouletResultChannel;
+
+    [SerializeField] private ItemListEvent itemSubChannel;
+    [SerializeField] private ItemListEvent itemUnsubChannel;
+    //[SerializeField] private NumberProbListSO numProb;
+    //[SerializeField] private OperatorProbListSO operProb;
+
+    public RouletData rouletData { get; private set; }
 #if UNITY_EDITOR
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            StartRoulette();
+            //StartPlayerSpin();
         }
     }
 #endif
-    public void StartRoulette()
+
+    public Func<int> StartPlayerSpin(NumberProbListSO numProb, OperatorProbListSO operProb, List<ItemSO> list = default)
     {
-        // 시작 전 이벤트를 실행하여 가중치에 따라서 초기값을 설정
+        itemSubChannel.Raise(list);
+
+        rouletData = new RouletData(new RouletNum(), new RouletOperator());
+        rouletStartChannel.Raise((data) => { rouletData.Setter(data); }); // 비포
+
+        var a = Spin(numProb, operProb);
+        Logging.Log($"{a.rouletNum.Num1.Value} {a.rouletOperator.Operator1.std} {a.rouletNum.Num2.Value} {a.rouletOperator.Operator2.std} {a.rouletNum.Num3.Value}");
+        rouletUIChannel.Raise(a); // 룰렛UI
+
+        rouletEndChannel.Raise((data) => { rouletData.Setter(data); }); // 적용
+        a.rouletNum.Apply(rouletData.rouletNum);
+        a.rouletOperator.Apply(rouletData.rouletOperator);
+        Logging.Log($"{a.rouletNum.Num1.Value} {a.rouletOperator.Operator1.std} {a.rouletNum.Num2.Value} {a.rouletOperator.Operator2.std} {a.rouletNum.Num3.Value}");
+        rouletApplyUIChannel.Raise(a); // 적용값UI
 
 
-        //  룰렛을 돌려야하는 거 
-    }
-}
+        rouletEndChannel.Raise((data) => { rouletData.Setter(data); }); // 적용
+        a.rouletNum.Apply(rouletData.rouletNum);
+        a.rouletOperator.Apply(rouletData.rouletOperator);
+        rouletApplyUIChannel.Raise(a); // 적용값UI
 
-public struct RouletNum: IRouletApply, IRouletInfo
-{
-    public int? Num1, Num2, Num3;
-    public int Priority;
-    public RouletNum(int? num1 = default, int? num2 = default, int? num3 = default, int Priority = default)
+        Logging.Log($"{a.rouletNum.Num1.Value} {a.rouletOperator.Operator1.std} {a.rouletNum.Num2.Value} {a.rouletOperator.Operator2.std} {a.rouletNum.Num3.Value}");
+
+        itemUnsubChannel.Raise(list);
+        return () => rouletData.GetResult();
+    }
+    public RouletData Spin(NumberProbListSO numberProb, OperatorProbListSO operatorProb)
     {
-        this.Num1 = num1;
-        this.Num2 = num2;
-        this.Num3 = num3;
-        this.Priority = Priority;
+        var result = new RouletData(
+            new RouletNum(numberProb.GetRendomNum(), numberProb.GetRendomNum(), numberProb.GetRendomNum(), -1),
+            new RouletOperator(operatorProb.GetRendom(), operatorProb.GetRendom(), -1));
+        //  UI에서 룰렛을 돌려리기(최종 정보 넣어주기)
+        return result;
     }
 }
-public struct ApplyFinal : IRouletApply
-{
-    public int final;
-    public OperatorSO ApplyOperator;
-    public ApplyFinal(int final = default, OperatorSO applyOperator = default)
-    {
-        this.final = final;
-        this.ApplyOperator = applyOperator;
-    }
-}
-public struct ApplyRouletNum: IRouletApply
-{
-    public RouletNum RouletNum;
-    public OperatorSO ApplyOperator;
-    public ApplyRouletNum(int num1 = default, int num2 = default, int num3 = default, OperatorSO applyOperator = default)
-    {
-        this.RouletNum = new RouletNum(num1, num2, num3);
-        this.ApplyOperator = applyOperator;
-    }
-    public ApplyRouletNum(RouletNum rouletNum, OperatorSO applyOperator = default)
-    {
-        this.RouletNum = rouletNum;
-        this.ApplyOperator = applyOperator;
-    }
-}
-public struct RouletOperator:IRouletApply, IRouletInfo
-{
-    public OperatorSO Operator1, Operator2;
-    public int Priority;
-    public RouletOperator(OperatorSO operator1 = default, OperatorSO operator2 = default, int priority = default)
-    {
-        this.Operator1 = operator1;
-        this.Operator2 = operator2;
-        this.Priority = priority;
-    }
-}
-public interface IRouletApply{}
-public interface IRouletInfo {}
