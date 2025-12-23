@@ -76,6 +76,7 @@ namespace Member.YDW.AgentSystem
             Health.Initialize(this);
             OnDead = false;
             IsActivated = true;
+            
         }
         public void OnPushObject()
         {
