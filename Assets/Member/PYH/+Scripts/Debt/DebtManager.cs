@@ -5,6 +5,7 @@ using Member.PYH._Scripts.Currency;
 using Member.YDW.EventChannels;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Member.PYH._Scripts.Debt
 {
@@ -46,7 +47,7 @@ namespace Member.PYH._Scripts.Debt
 
             if (result < 0)
             {
-                CurrencyManager.Instance.TryUseCurrency(CurrencyType.GOLD, gold - result * - 1);
+                CurrencyManager.Instance.TryUseCurrency(CurrencyType.GOLD, result * - 1);
                 DebtRepayment(_currentDebt);
                 return;
             }
@@ -67,6 +68,16 @@ namespace Member.PYH._Scripts.Debt
             _suppressAutoSave = false;
             
             UiUpdateEvent?.Invoke(maxDebt, _currentDebt, _dayLeft);
+        }
+
+        private void Start()
+        {
+            SceneManager.sceneLoaded += HandleSceneLoaded;
+        }
+
+        private void HandleSceneLoaded(Scene arg0, LoadSceneMode arg1)
+        {
+            UpdateUi();
         }
 
         public void UpdateUi()
