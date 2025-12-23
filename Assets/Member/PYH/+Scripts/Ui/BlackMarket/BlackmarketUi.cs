@@ -24,12 +24,12 @@ public class BlackmarketUi : MonoBehaviour
 
     public void SellMagicstone()
     {
-        /*int magicstone = CurrencyManager.Instance.CurrentMagicStone;
+        int magicstone = CurrencyManager.Instance.CurrentMagicStone;
         
         if (magicstone == 0) return;
         
         CurrencyManager.Instance.TryUseCurrency(CurrencyType.MagicStone, magicstone);
         CurrencyManager.Instance.TryGiveCurrency(CurrencyType.Gold, magicstone * _todayPP);
-        OnSellSuccessEvent?.Invoke();*/
+        OnSellSuccessEvent?.Invoke();
     }
 }
