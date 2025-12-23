@@ -78,7 +78,7 @@ public struct RouletData: IRouletApply
         {
             var temp = rouletOperator.oper[0].x.Operation(rouletNum.Num1.GetValueOrDefault(), rouletNum.Num2.GetValueOrDefault());
 
-            result = rouletOperator.oper[1].x.Operation(rouletNum.Num3.GetValueOrDefault(), temp);
+            result = rouletOperator.oper[1].x.Operation(temp,rouletNum.Num3.GetValueOrDefault());
         }
 
         for (int i = 0; i < applyFinal.Count; i++)

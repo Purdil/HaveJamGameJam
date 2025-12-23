@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 296014991}
   - component: {fileID: 296014990}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ItemManager and RouletteManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
