@@ -5,8 +5,9 @@ using UnityEngine;
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
-    public class HighRiskDataSO : ItemSO, IWearOutItem, IBeforeApplyTrunItem<ApplyRouletNum>, IAfterApplyTrunIteem<RouletNum, ApplyFinal>
+    public class HighRiskDataSO : ItemSO, IWearOutItem, IBeforeApplyTrunItem<ApplyRouletNum>, IAfterApplyTrunIteem<RouletNum, ApplyFinal>, IProbabilityItem
     {
+        [field: SerializeField] public float Probability { get; private set; }
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public int Durability { get; private set; }
         [SerializeField] private OperatorSO square;

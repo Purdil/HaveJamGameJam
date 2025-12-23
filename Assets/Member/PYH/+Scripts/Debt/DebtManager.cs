@@ -23,9 +23,8 @@ namespace Member.PYH._Scripts.Debt
         [SerializeField] private int defaultDay; // 주 길이
         private int _dayLeft;                   // 남은 날
 
-        public UnityEvent allWeekEnd;
-        public UnityEvent currentDebtAllRepayment;
         public UnityEvent gameEnd;
+        public UnityEvent gameOver;
 
         private bool _suppressAutoSave;
 
@@ -58,14 +57,12 @@ namespace Member.PYH._Scripts.Debt
 
             saveEventChannel.Raise(SaveEventType.Save);
         }
-
         private void RequestLoad()
         {
             if (saveEventChannel == null) return;
 
             saveEventChannel.Raise(SaveEventType.Load);
         }
-
         public string GetSaveData()
         {
             var payload = new DebtSavePayload
@@ -78,7 +75,6 @@ namespace Member.PYH._Scripts.Debt
 
             return JsonUtility.ToJson(payload);
         }
-
         public void RestoreData(string loadData)
         {
             if (string.IsNullOrEmpty(loadData)) return;
@@ -92,9 +88,7 @@ namespace Member.PYH._Scripts.Debt
             _currentDebt = Mathf.Clamp(payload.currentDebt, 0, maxRapay);
             _currentDebt = Mathf.Min(_currentDebt, maxDebt);
         }
-
         public int GetCurrentDebt() => _currentDebt;
-
         public void DebtRepayment(int amount)
         {
             if (_currentDebt == 0) return;
@@ -105,8 +99,9 @@ namespace Member.PYH._Scripts.Debt
             if (maxDebt == 0) gameEnd?.Invoke();
             if (_currentDebt <= 0)
             {
+                _dayLeft = defaultDay;
+                _currentDebt = GetPayThisPeriod(defaultDay, maxDebt, _debted);
                 _debted++;
-                currentDebtAllRepayment?.Invoke();
             }
             RequestSave();
         }
@@ -115,22 +110,38 @@ namespace Member.PYH._Scripts.Debt
         {
             _dayLeft = Mathf.Clamp(_dayLeft - 1, 0, defaultDay);
 
-            if (_dayLeft == 0) allWeekEnd?.Invoke();
+            if (_dayLeft == 0)
+            {
+                AllDayEndHandler();
+            }
 
             RequestSave();
         }
-
         public void AllDayEndHandler()
         {
-            _dayLeft = defaultDay;
-
-            _allWeekEndCount++;
-            _currentDebt = Mathf.Clamp(maxDebt / _dayLeft, 0, maxRapay);
+            gameOver?.Invoke();
 
             RequestSave();
         }
-
         public int GetAllWeekEnd() => _allWeekEndCount;
         public int GetDebted() => _debted;
+        
+        public int GetPayThisPeriod(int allDays, int maxDebt, int alldebted, float p = 1.5f)
+        {
+            if (allDays <= 0 || maxDebt <= 0) return 0;
+
+            alldebted = Mathf.Clamp(alldebted, 0, allDays - 1);
+            p = Mathf.Max(0.1f, p);
+
+            double denom = 0.0;
+            for (int k = 1; k <= allDays; k++)
+                denom += Math.Pow(k, p);
+
+            double numer = Math.Pow(alldebted + 1, p);
+            double raw = maxDebt * (numer / denom);
+
+            int pay = (int)Math.Floor(raw); // 정수화 방식(원하면 Round로 바꿔도 됨)
+            return Mathf.Clamp(pay, 0, maxDebt);
+        }
     }
 }
