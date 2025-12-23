@@ -17,8 +17,7 @@ public class StartBtn : MonoBehaviour
         Sequence seq = DOTween.Sequence();
         foreach (var i in btn)
         {
-            seq.Append(i.DOMoveX(startPos.x - moveX, 0.5f).SetEase(ease));
-
+            seq.Append(i.DOMoveX(startPos.x - moveX, 0.8f).SetEase(ease));
         }
     }
 }

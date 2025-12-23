@@ -4,20 +4,23 @@ using UnityEngine.UI;
 public class AudioSlider : MonoBehaviour
 {
     [SerializeField] private AudioType audioType;
+
     private Slider slider;
 
     private void Awake()
     {
         slider = GetComponent<Slider>();
     }
+
     private void OnEnable()
     {
-        string key = audioType.ToString();
+        float value = PlayerPrefs.GetFloat(audioType.ToString(), 1f);
 
-        if (PlayerPrefs.HasKey(key))
+        slider.SetValueWithoutNotify(value);
+
+        if (AudioSetting.Instance != null)
         {
-            float save = PlayerPrefs.GetFloat(key, 1f);
-            slider.SetValueWithoutNotify(save);
+            AudioSetting.Instance.SetVolume(audioType, value);
         }
     }
 }

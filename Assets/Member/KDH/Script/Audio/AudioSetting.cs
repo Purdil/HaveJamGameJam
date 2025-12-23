@@ -1,7 +1,6 @@
-using System;
-using CSILib.SoundManager.RunTime;
 using UnityEngine;
 using UnityEngine.Audio;
+using CSILib.SoundManager.RunTime;
 
 public enum AudioType
 {
@@ -14,12 +13,13 @@ public class AudioSetting : MonoSingleton<AudioSetting>
 {
     [SerializeField] private AudioMixer audioMixer;
 
-    //private void Start()
-    //{
-    //    VolumeChange(AudioType.Master);
-    //    VolumeChange(AudioType.BGM);
-    //    VolumeChange(AudioType.SFX);
-    //}
+    protected void Awake()
+    {
+        ApplySavedVolume(AudioType.Master);
+        ApplySavedVolume(AudioType.BGM);
+        ApplySavedVolume(AudioType.SFX);
+    }
+
     public void SetMasterVolume(float value)
     {
         SetVolume(AudioType.Master, value);
@@ -39,11 +39,12 @@ public class AudioSetting : MonoSingleton<AudioSetting>
     {
         value = Mathf.Clamp(value, 0.0001f, 1f);
 
-        audioMixer.SetFloat(type.ToString(), Mathf.Log10(value) * 20);
+        audioMixer.SetFloat(type.ToString(), Mathf.Log10(value) * 20f);
         PlayerPrefs.SetFloat(type.ToString(), value);
+        PlayerPrefs.Save();
     }
-    
-    private void VolumeChange(AudioType type)
+
+    private void ApplySavedVolume(AudioType type)
     {
         float value = PlayerPrefs.GetFloat(type.ToString(), 1f);
         SetVolume(type, value);
