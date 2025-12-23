@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Creepy_GiftBox
   m_EditorClassIdentifier: 
   index: 11
-  <Icon>k__BackingField: {fileID: 21300000, guid: aa4377b2970051e48b9bddc6d090360b, type: 3}
+  <Icon>k__BackingField: {fileID: 0}
   <ItemName>k__BackingField: "\uC12C\uB729\uD55C \uC120\uBB3C \uC0C1\uC790"
   <Description>k__BackingField: "15% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC 2\uAC1C\uC758
     \uC22B\uC790 \uC911 1\uAC1C\uC758 \uC22B\uC790\uB97C \uC22B\uC790\uC758 3 \uC81C\uACF1\uD55C

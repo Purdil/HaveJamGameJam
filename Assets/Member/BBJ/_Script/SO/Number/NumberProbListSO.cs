@@ -1,4 +1,3 @@
-using Core.Logger;
 using System;
 using System.Linq;
 using UnityEngine;
@@ -8,7 +7,7 @@ using Random = UnityEngine.Random;
 public class NumberProbListSO : ScriptableObject
 {
     [SerializeField]
-    private SerializableDictionary<string, NumberProb> numberProbList;
+    private SerializableDictionary<string,NumberProb> numberProbList;
 
     public Action<NumberProbInfo[]> ValueChenged;
 
@@ -33,7 +32,7 @@ public class NumberProbListSO : ScriptableObject
         ValueChenged?.Invoke(probs);
     }
 
-    public NumberProbInfo[] GetPrebInfo()
+    private NumberProbInfo[] GetPrebInfo()
     {
         var sum = numberProbList.Values.Sum((x) => x.Prob);
         NumberProbInfo[] result = new NumberProbInfo[numberProbList.Count];
@@ -48,39 +47,19 @@ public class NumberProbListSO : ScriptableObject
     public int GetRendomNum()
     {
         var sum = numberProbList.Values.Sum((x) => x.Prob);
-        float r = Random.value * sum;
+        float r = Random.value;
         int result = default;
         int s = 0;
         foreach (var item in numberProbList)
         {
             s += item.Value.Prob;
-            if (s >= r)
+            if (s > r)
             {
                 result = int.Parse(item.Key);
                 break;
             }
         }
         return result;
-    }
-    public void SetProb(int key, int setValue) => SetProb(key.ToString(), setValue);
-    public void SetProb(string key, int setValue)
-    {
-        if (numberProbList.ContainsKey(key))
-        {
-            numberProbList[key].Prob = setValue;
-            return;
-        }
-        Logging.LogError($"Dictionary : {key} is null");
-    }
-    public int GetProb(int key) => GetProb(key.ToString());
-    public int GetProb(string key)
-    {
-        if (numberProbList.ContainsKey(key))
-        {
-            return numberProbList[key].Prob;
-        }
-        Logging.LogError($"Dictionary : {key} is null");
-        return default;
     }
 }
 public struct NumberProbInfo
@@ -92,5 +71,4 @@ public struct NumberProbInfo
         this.num = num;
         this.prob = prob;
     }
-    // UI ¿Ã∫•∆Æ
 }

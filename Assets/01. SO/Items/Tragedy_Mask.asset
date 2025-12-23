@@ -13,14 +13,10 @@ MonoBehaviour:
   m_Name: Tragedy_Mask
   m_EditorClassIdentifier: 
   index: 31
-  <Icon>k__BackingField: {fileID: 21300000, guid: a8b621de065bfac4596179c1263999d7, type: 3}
-  <ItemName>k__BackingField: "\uBE44\uADF9\uC758 \uAC00\uBA74"
-  <Description>k__BackingField: "39% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uD574\uB2F9
-    \uD134 \uB3D9\uC548 \uB3C4\uB9DD \uC131\uACF5 \uD655\uB960\uC774 0%\uB85C \uACE0\uC815\uB418\uBA70,
-    2\uAC1C\uC758 \uC5F0\uC0B0\uC790 \uC911 1\uAC00\uC9C0\uC758 \uC5F0\uC0B0\uC790\uB97C
-    *\uC73C\uB85C \uACE0\uC815\uC2DC\uD0B4"
-  <ItemPrice>k__BackingField: 5430
+  <Icon>k__BackingField: {fileID: 0}
+  <ItemName>k__BackingField: Please Enter Item Name Here...
+  <Description>k__BackingField: Please Enter Item Description Here...
+  <ItemPrice>k__BackingField: 0
   <ActiveTurn>k__BackingField: 0
-  <Probability>k__BackingField: 39
   <Durability>k__BackingField: 0
-  multiply: {fileID: 11400000, guid: 7a474416a68e6714695a26dff50c4c78, type: 2}
+  multiply: {fileID: 0}

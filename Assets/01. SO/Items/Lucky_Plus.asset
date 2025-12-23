@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: Lucky_Plus
   m_EditorClassIdentifier: 
   index: 25
-  <Icon>k__BackingField: {fileID: 21300000, guid: 55319fcd677e0bc4597ca9d97a3a392f, type: 3}
-  <ItemName>k__BackingField: "\uD589\uC6B4+"
-  <Description>k__BackingField: "32% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uB8F0\uB81B\uC5D0\uC11C
-    \uB192\uC740 \uC22B\uC790\uAC00 \uB098\uC62C \uD655\uB960 25% \uC99D\uAC00"
-  <ItemPrice>k__BackingField: 7777
+  <Icon>k__BackingField: {fileID: 0}
+  <ItemName>k__BackingField: Please Enter Item Name Here...
+  <Description>k__BackingField: Please Enter Item Description Here...
+  <ItemPrice>k__BackingField: 0
   <ActiveTurn>k__BackingField: 0
-  <Probability>k__BackingField: 32
-  <Durability>k__BackingField: 7
+  <Durability>k__BackingField: 0

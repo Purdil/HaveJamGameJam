@@ -9,7 +9,6 @@ namespace Member.PYH._Scripts.Debt
         [SerializeField] private int maxRapay; // 주 당 갚아야하는 최대치
         [SerializeField] private int maxDebt; // 총 값아야하는 부채
         private int _currentDebt; // 현재  값아야하는 부채 (총 값아야하는 부채의 일부)
-        private int _allWeekEndCount;
 
         [SerializeField] private int defaultDay; // 기본 부채 상환 날
         private int _dayLeft; // 부채 상환까지 현재 남은 날 (턴)
@@ -55,13 +54,7 @@ namespace Member.PYH._Scripts.Debt
         {
             _dayLeft = defaultDay;
 
-            _allWeekEndCount++;
             _currentDebt = Mathf.Clamp(maxDebt / _dayLeft, 0, maxRapay);
-        }
-
-        public int GetAllWeekEnd()
-        {
-            return _allWeekEndCount;
         }
     }
 }
