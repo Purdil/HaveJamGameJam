@@ -18,7 +18,7 @@ public class MoveBtn : MonoBehaviour
         foreach (var i in btn)
         {
             seq.Append(i.DOMoveX(startPos.x + moveX, 0.5f).SetEase(ease));
-            seq.AppendInterval(1f);
+
         }
     }
 }

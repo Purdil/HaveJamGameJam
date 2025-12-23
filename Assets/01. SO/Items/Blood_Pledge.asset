@@ -22,6 +22,6 @@ MonoBehaviour:
   <ItemPrice>k__BackingField: 0
   <ActiveTurn>k__BackingField: 0
   <Probability>k__BackingField: 0
-  plus: {fileID: 0}
-  playerSelfDamageChannel: {fileID: 0}
+  plus: {fileID: 11400000, guid: e69bc13a35165814c8257de2933d0e9e, type: 2}
+  playerSelfDamageChannel: {fileID: 11400000, guid: 433bff5210317d74caf835d72b008039, type: 2}
   <Durability>k__BackingField: 0
