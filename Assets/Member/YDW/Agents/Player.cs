@@ -93,6 +93,9 @@ namespace Member.YDW.Agents
                 swordAuraInstance.transform.position = auraSpawnPoint.position;
                 swordAura.Initialize(damage);
                 swordAura.SettingSO(swordPrefab);
+                CombatCamera.Instance.SetFollow(swordAura.transform);
+                CombatCamera.Instance.SetLensSize(4);
+                CombatCamera.Instance.SetFollowOffSet(new Vector3(2,1,-10));
                 OnTurnEnd = true;
             }
         }

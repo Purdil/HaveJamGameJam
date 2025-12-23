@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f126a04ee76084a46a5ac3f39485b7a8, type: 3}
   m_Name: PlayerInputSO
   m_EditorClassIdentifier: 
+  <moveDir>k__BackingField: {x: 0, y: 0, z: 0}
