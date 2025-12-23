@@ -330,7 +330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &125431760
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2559,6 +2559,8 @@ MonoBehaviour:
   shopChannel: {fileID: 425209613}
   blackmarketChannel: {fileID: 125431759}
   channelFadeImage: {fileID: 1209701179}
+  shopUi: {fileID: 0}
+  background: {fileID: 0}
   onTryBuyEvent:
     m_PersistentCalls:
       m_Calls:
@@ -3306,11 +3308,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 7274322229917573306}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!222 &1419056700
+CanvasRenderer:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_CullTransparentMesh: 1
 --- !u!1 &1425253801
 GameObject:
   m_ObjectHideFlags: 0
