@@ -150,6 +150,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1534656390}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &296014989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 296014992}
+  - component: {fileID: 296014991}
+  - component: {fileID: 296014990}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &296014990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296014989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb3d9193c5319842b513995ca494224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rouletStartChannel: {fileID: 11400000, guid: 1287070c44fd40848a0767f8fe098031, type: 2}
+  rouletEndChannel: {fileID: 11400000, guid: 94045b020a73b4b438b84913c8fde3a9, type: 2}
+  rouletUIChannel: {fileID: 11400000, guid: 77afc3c687ee484439f36e7dbdbfeecf, type: 2}
+  rouletApplyUIChannel: {fileID: 11400000, guid: d56c7e61def82ef4aa4630234333f86e, type: 2}
+  rouletResultChannel: {fileID: 11400000, guid: 326a01115e9de784298a642316cec56c, type: 2}
+  itemSubChannel: {fileID: 11400000, guid: 97ca6b690a73e724fb1faae59457bb61, type: 2}
+  itemUnsubChannel: {fileID: 11400000, guid: 8c892e216a702ca4f90a38c2c69bec59, type: 2}
+--- !u!114 &296014991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296014989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6ec0f97863da148a80713d70250b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rouletStartChannel: {fileID: 11400000, guid: 94045b020a73b4b438b84913c8fde3a9, type: 2}
+  rouletEndChannel: {fileID: 11400000, guid: 1287070c44fd40848a0767f8fe098031, type: 2}
+  itemSubChannel: {fileID: 11400000, guid: 97ca6b690a73e724fb1faae59457bb61, type: 2}
+  itemUnsubChannel: {fileID: 11400000, guid: 8c892e216a702ca4f90a38c2c69bec59, type: 2}
+--- !u!4 &296014992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296014989}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &322617808
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpawnPos: {fileID: 1391156616}
   playerPool: {fileID: 11400000, guid: 1219f9c72447b124582262384c13a254, type: 2}
-  enemyList: {fileID: 11400000, guid: 49e9deaa973d66c438d27e3e271978a3, type: 2}
+  enemyLists: {fileID: 11400000, guid: 711b3a493ce07f24ab5d54c59e14a637, type: 2}
 --- !u!1 &885397414
 GameObject:
   m_ObjectHideFlags: 0
@@ -10271,3 +10339,4 @@ SceneRoots:
   - {fileID: 1681575813}
   - {fileID: 528996951}
   - {fileID: 1092473984}
+  - {fileID: 296014992}
