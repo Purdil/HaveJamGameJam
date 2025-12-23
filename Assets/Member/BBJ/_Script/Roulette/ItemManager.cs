@@ -1,5 +1,6 @@
 using BBJ;
 using Core;
+using JetBrains.Annotations;
 using Member.PYH._Scripts.SO;
 using System;
 using System.Collections.Generic;
@@ -38,18 +39,20 @@ public class ItemManager : MonoSingleton<ItemManager>
         rouletStartChannel.OnEvent += OnRouletBefore;
         rouletEndChannel.OnEvent += OnRouletAfter;
         itemSubChannel.OnEvent += ResetSpine;
-        itemUnsubChannel.OnEvent +=  EndTrun;
+        itemUnsubChannel.OnEvent += EndTrun;
     }
     public void OnDestroy()
     {
         rouletStartChannel.OnEvent -= OnRouletBefore;
         rouletEndChannel.OnEvent -= OnRouletAfter;
         itemSubChannel.OnEvent -= ResetSpine;
-        itemUnsubChannel.OnEvent -=  EndTrun;
+        itemUnsubChannel.OnEvent -= EndTrun;
     }
-    public void EndTrun(List<ItemSO> _) => UnSubItems();
+    public void EndTrun(List<ItemSO> _) {if (_ == null) return; UnSubItems(); }
     public void ResetSpine(List<ItemSO> list)
     {
+        if (list == null) return;
+
         _currentTrunUseItem.Clear();
         foreach (var item in list)
         {
