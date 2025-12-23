@@ -26,7 +26,7 @@ public class BtnDistance : MonoBehaviour
         for (int i = 0; i < btn.Count; i++)
         {
 
-            seq.AppendInterval(0.5f);
+            seq.AppendInterval(0.01f);
 
             Transform t = btn[i];
 

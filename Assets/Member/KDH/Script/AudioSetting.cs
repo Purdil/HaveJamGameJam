@@ -14,12 +14,12 @@ public class AudioSetting : MonoSingleton<AudioSetting>
 {
     [SerializeField] private AudioMixer audioMixer;
 
-    //private void Start()
-    //{
-    //    VolumeChange(AudioType.Master);
-    //    VolumeChange(AudioType.BGM);
-    //    VolumeChange(AudioType.SFX);
-    //}
+    private void Start()
+    {
+        VolumeChange(AudioType.Master);
+        VolumeChange(AudioType.BGM);
+        VolumeChange(AudioType.SFX);
+    }
     public void SetMasterVolume(float value)
     {
         SetVolume(AudioType.Master, value);

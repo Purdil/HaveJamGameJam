@@ -17,7 +17,7 @@ public class GameOverUi : MonoBehaviour
         Sequence seq = DOTween.Sequence();
         foreach (var i in btn)
         {
-            seq.AppendInterval(0.7f);
+            seq.AppendInterval(0.3f);
 
             seq.Append(i.DOMoveX(startPos.x - moveX, 0.3f).SetEase(ease));
 
