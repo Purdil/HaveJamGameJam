@@ -5,51 +5,137 @@ using UnityEngine.Events;
 
 namespace Member.PYH._Scripts.Currency
 {
+    public enum CurrencyType
+    {
+        Gold,
+        MagicStone
+    }
+    
     public class CurrencyManager : MonoSingleton<CurrencyManager>
     {
+        [Header("GOLD")]
         public UnityEvent<int> onRepaymentEvent;
-        public UnityEvent<int> onCurrencyChanged;
-        private int _currentCurrency = 5000;
+        public UnityEvent<int> onGoldChanged;
+        private int _currentGold = 0;
+        [SerializeField] private int maxGold = 1000000000;
 
-        public int CurrentCurrency
+        [Header("MAGICSTONE")]
+        public UnityEvent<int> onMagicstoneChanged;
+        private int currentMagicstone = 1000000000;
+        [SerializeField] private int maxMagicstone = 1000000000;
+        
+        public int CurrentGold
         {
-            get => _currentCurrency;
+            get => _currentGold;
             set
             {
-                if (_currentCurrency == value) return;
-                _currentCurrency = value;
-                onCurrencyChanged?.Invoke(_currentCurrency);
+                if (_currentGold == value) return;
+                _currentGold = value;
+                onGoldChanged?.Invoke(_currentGold);
+            }
+        }
+
+        public int CurrentMagicStone
+        {
+            get => currentMagicstone;
+            set
+            {
+                if (currentMagicstone == value) return;
+                currentMagicstone = value;
+                onMagicstoneChanged?.Invoke(currentMagicstone);
             }
         }
         
         private new void Awake()
         {
             base.Awake();
-            onCurrencyChanged?.Invoke(CurrentCurrency);
+            onGoldChanged?.Invoke(CurrentGold);
+            onMagicstoneChanged?.Invoke(CurrentMagicStone);
         }
         
-        public bool CanUseCurrency(int price)
+        public bool CanUseCurrency(CurrencyType type, int price)
         {
-            return CurrentCurrency - price >= 0;
-        }
-        public void TryUseCurrency(int price)
-        {
-            if (CurrentCurrency - price < 0) { Logging.Log("FAILED TO USE CURRENCY"); return; }
+            switch (type)
+            {
+                case CurrencyType.Gold:
+                {
+                    return CurrentGold - price >= 0;
+                }
+                
+                case CurrencyType.MagicStone:
+                {
+                    return CurrentMagicStone - price >= 0;
+                }
 
-            UseCurrency(price);
+                default:
+                {
+                    return false;
+                }
+            }
+        }
+        public void TryUseCurrency(CurrencyType type, int price)
+        {
+            switch (type)
+            {
+                case CurrencyType.Gold:
+                {
+                    if (CurrentGold - price < 0) { Logging.Log("FAILED TO USE CURRENCY"); return; }
+                    break;
+                }
+                
+                case CurrencyType.MagicStone:
+                {
+                    if (CurrentMagicStone - price < 0) { Logging.Log("FAILED TO USE CURRENCY"); return; }
+                    break;
+                }
+            }
+
+            UseCurrency(type, price);
         } // Only Using In Shop
+
+        public void TryGiveCurrency(CurrencyType type, int price)
+        {
+            switch (type)
+            {
+                case CurrencyType.Gold:
+                {
+                    CurrentGold = Mathf.Clamp(CurrentGold + price, 0, maxGold);
+                    break;
+                }
+                
+                case CurrencyType.MagicStone:
+                {
+                    CurrentMagicStone = Mathf.Clamp(CurrentGold + price, 0, maxMagicstone);
+                    break;
+                }
+            }
+        }
         public void TryRepayment(int price)
         {
-            if (CurrentCurrency - price < 0) { Logging.Log("FAILED TO REPAYMENT CURRENCY"); return; }
+            if (CurrentGold - price < 0) { Logging.Log("FAILED TO REPAYMENT CURRENCY"); return; }
             
-            UseCurrency(price);
+            UseCurrency(CurrencyType.Gold, price);
             onRepaymentEvent?.Invoke(price);
         } // Only Using In Debt
         
-        private void UseCurrency(int price)
+        private void UseCurrency(CurrencyType type, int price)
         {
             Logging.Log("USE CURRENCY");
-            CurrentCurrency = Mathf.Clamp(CurrentCurrency - price, 0, 1000000000);
+
+            switch (type)
+            {
+                case CurrencyType.Gold:
+                {
+                    CurrentGold = Mathf.Clamp(CurrentGold - price, 0, maxGold);
+                    break;
+                }
+                
+                case CurrencyType.MagicStone:
+                {
+                    CurrentMagicStone = Mathf.Clamp(CurrentGold - price, 0, maxMagicstone);
+                    break;
+                }
+            }
         }
     }
 }
