@@ -27,6 +27,17 @@ namespace Member.YDW.HealthSystem
             Health = maxHealth;
         }
 
+        public void SetMaxHealth(int maxHealth)
+        {
+            this.maxHealth = maxHealth;
+            Health = maxHealth;
+        }
+
+        public int GetMaxHealth()
+        {
+            return maxHealth;
+        }
+
         public void ApplyDamage(int damage, out int overDamage)
         {
             if (damage < 0)

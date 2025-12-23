@@ -10,6 +10,13 @@ namespace Member.YDW.Agents
         [SerializeField] protected float moveDamping = 1;
         protected Player target;
 
+        protected override void Awake()
+        {
+            base.Awake();
+            if(MoneyStateManager.Instance.state != 0)
+                Health.SetMaxHealth(Health.GetMaxHealth() * MoneyStateManager.Instance.state + MoneyStateManager.Instance.state / 10);
+        }
+
         public void InitTarget(Player target)
         {
             this.target ??= target;

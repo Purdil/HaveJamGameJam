@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-using Core.Logger;
-using Member.YDW.AgentSystem;
+﻿using Core.Logger;
 using Member.YDW.EventChannels;
 using Member.YDW.EventStruct;
 using UnityEngine;
-using Action = Unity.AppUI.Redux.Action;
 using Random = UnityEngine.Random;
 
 namespace Member.YDW.CombatSystem
@@ -12,17 +9,17 @@ namespace Member.YDW.CombatSystem
     public class RandomEventManager : MonoBehaviour
     {
         [Range(0,100)] [field: SerializeField] public float EventChance { get; private set; }
-
+        [SerializeField] private RandomEventInfoEvent infoEvent;
         [SerializeField] private TurnManagerPauseEvent pauseEvent;
         [SerializeField] private RandomEvent randomEvent;
-        [SerializeField] private List<RandomEventSO> randomEvents;
         
         private void Awake()
         {
             randomEvent.OnEvent += HandleRandomEvent;
+            gameObject.SetActive(false);
         }
 
-        private void HandleRandomEvent(AgentType obj)
+        private void HandleRandomEvent(ICanHoldRandomEvent obj)
         {
             //obj는 적용시킬 대상.
             float rand = Random.Range(0, 100);
@@ -30,22 +27,33 @@ namespace Member.YDW.CombatSystem
                 return;
             
             Logging.Log("이벤트 발동!");
-            if (randomEvents.Count == 0)
-            {
-                Logging.Log("등록된 이벤트가 없습니다.");
-                return;
-            }
             pauseEvent.Raise(true);
-            int randomEventIndex = Random.Range(0, randomEvents.Count);
-            RandomEventSO activateRandomEvent = randomEvents[randomEventIndex];
-            
-            activateRandomEvent.RandomEvent.ActiveEvent(HandleEndEvent());
-        }
-
-        private Action HandleEndEvent()
-        {
+            int randomEventIndex = Random.Range(0,5);
+            switch (randomEventIndex)
+            {
+                case 0:
+                    infoEvent.Raise("데미지 2배!");
+                    obj.doubleDamage = true;
+                    break;
+                case 1:
+                    infoEvent.Raise("데미지 절반!");
+                    obj.halfDamage = true;
+                    break;
+                case 2:
+                    infoEvent.Raise("데미지에 - 부호!");
+                    obj.minusDamage = true;
+                    break;
+                case 3:
+                    infoEvent.Raise("데미지에 + 부호!");
+                    obj.plusDamage = true;
+                    break;
+                case 4:
+                    infoEvent.Raise("룰렛 다시 돌리기!");
+                    obj.reSpine = true;
+                    break;
+            }
             pauseEvent.Raise(false);
-            return null;
+            
         }
 
         private void OnDestroy()
