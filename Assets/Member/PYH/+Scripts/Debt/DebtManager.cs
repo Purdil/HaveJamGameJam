@@ -3,7 +3,6 @@ using Core;
 using Core.SaveSystem;
 using Member.PYH._Scripts.Currency;
 using Member.YDW.EventChannels;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -27,6 +26,7 @@ namespace Member.PYH._Scripts.Debt
 
         public UnityEvent gameEnd;
         public UnityEvent gameOver;
+        public UnityEvent<int, int, int> UiUpdateEvent;
 
         private bool _suppressAutoSave;
 
@@ -51,7 +51,6 @@ namespace Member.PYH._Scripts.Debt
                 return;
             }
             
-            CurrencyManager.Instance.TryUseCurrency(CurrencyType.GOLD, gold);
             DebtRepayment(gold);
         }
         
@@ -66,8 +65,14 @@ namespace Member.PYH._Scripts.Debt
             _suppressAutoSave = true;
             RequestLoad();
             _suppressAutoSave = false;
+            
+            UiUpdateEvent?.Invoke(maxDebt, _currentDebt, _dayLeft);
         }
 
+        public void UpdateUi()
+        {
+            UiUpdateEvent?.Invoke(maxDebt, _currentDebt, _dayLeft);
+        }
         private void RequestSave()
         {
             if (_suppressAutoSave) return;
