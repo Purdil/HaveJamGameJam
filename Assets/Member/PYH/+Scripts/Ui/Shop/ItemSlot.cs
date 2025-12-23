@@ -26,7 +26,7 @@ namespace Member.PYH._Scripts.Ui.Shop
         public void SetSlotUiSetting(ItemSO item)
         {
             Item = item;
-            itemName.text = Item.ItemName;
+            itemName.text = $"{Item.ItemName} | {item.ItemPrice}G";
             itemDesc.text = Item.Description;
             itemIcon.sprite = Item.Icon;
             ItemIndex = item.index;
