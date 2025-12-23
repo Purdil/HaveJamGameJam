@@ -1,7 +1,9 @@
 using System;
 using Core;
 using Core.SaveSystem;
+using Member.PYH._Scripts.Currency;
 using Member.YDW.EventChannels;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -37,6 +39,22 @@ namespace Member.PYH._Scripts.Debt
             public int allWeekEndCount;
         }
 
+        public void TryRepaymentUseButton()
+        {
+            int gold = CurrencyManager.Instance.CurrentGold;
+            int result = _currentDebt - gold;
+
+            if (result < 0)
+            {
+                CurrencyManager.Instance.TryUseCurrency(CurrencyType.GOLD, gold - result * - 1);
+                DebtRepayment(_currentDebt);
+                return;
+            }
+            
+            CurrencyManager.Instance.TryUseCurrency(CurrencyType.GOLD, gold);
+            DebtRepayment(gold);
+        }
+        
         private new void Awake()
         {
             base.Awake();
