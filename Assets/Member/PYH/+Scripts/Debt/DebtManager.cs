@@ -5,6 +5,7 @@ using Member.PYH._Scripts.Currency;
 using Member.YDW.EventChannels;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Member.PYH._Scripts.Debt
 {
@@ -42,16 +43,14 @@ namespace Member.PYH._Scripts.Debt
         public void TryRepaymentUseButton()
         {
             int gold = CurrencyManager.Instance.CurrentGold;
-            int result = _currentDebt - gold;
+            int debt = GetCurrentDebt();
 
-            if (result < 0)
-            {
-                CurrencyManager.Instance.TryUseCurrency(CurrencyType.GOLD, gold - result * - 1);
-                DebtRepayment(_currentDebt);
-                return;
-            }
-            
-            DebtRepayment(gold);
+            int pay = Mathf.Min(gold, debt);
+
+            if (pay <= 0) return;
+
+            CurrencyManager.Instance.TryUseCurrency(CurrencyType.GOLD, pay);
+            DebtRepayment(pay);
         }
         
         private new void Awake()
@@ -67,6 +66,16 @@ namespace Member.PYH._Scripts.Debt
             _suppressAutoSave = false;
             
             UiUpdateEvent?.Invoke(maxDebt, _currentDebt, _dayLeft);
+        }
+
+        private void Start()
+        {
+            SceneManager.sceneLoaded += HandleSceneLoaded;
+        }
+
+        private void HandleSceneLoaded(Scene arg0, LoadSceneMode arg1)
+        {
+            UpdateUi();
         }
 
         public void UpdateUi()
@@ -127,6 +136,7 @@ namespace Member.PYH._Scripts.Debt
                 _debted++;
             }
             RequestSave();
+            UpdateUi();
         }
 
         public void NextDay()
@@ -142,7 +152,7 @@ namespace Member.PYH._Scripts.Debt
         }
         public void AllDayEndHandler()
         {
-            gameOver?.Invoke();
+            SceneManager.LoadScene("GameOver");
 
             RequestSave();
         }
@@ -165,6 +175,11 @@ namespace Member.PYH._Scripts.Debt
 
             int pay = (int)Math.Floor(raw); // 정수화 방식(원하면 Round로 바꿔도 됨)
             return Mathf.Clamp(pay, 0, maxDebt);
+        }
+
+        public void GameEnd()
+        {
+            Application.Quit();
         }
     }
 }

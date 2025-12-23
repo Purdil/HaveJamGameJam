@@ -22,7 +22,7 @@ public class Last : MonoBehaviour
     }
     public void GoLobby()
     {
-        Debug.Log("[EscUI] ¼Ò¸®!");
+        Debug.Log("[EscUI] ï¿½Ò¸ï¿½!");
         // SoundManager.Instance.PlaySound("Click");
         SceneManager.sceneLoaded += OnClickButton;
         SceneManager.LoadScene("LobbyScene");
@@ -40,7 +40,7 @@ public class Last : MonoBehaviour
 
         //SoundManager.Instance.PlaySound("Click");
         SceneManager.sceneLoaded += OnClickButton;
-        SceneManager.LoadScene("Debt");
+        SceneManager.LoadScene("CombatScene");
     }
     public void GoDebt()
     {

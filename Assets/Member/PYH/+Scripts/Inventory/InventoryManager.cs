@@ -5,6 +5,7 @@ using Core.SaveSystem;
 using Member.PYH._Scripts.SO;
 using Member.YDW.EventChannels;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Member.PYH._Scripts.Inventory
 {
@@ -138,5 +139,19 @@ namespace Member.PYH._Scripts.Inventory
         public bool HasItem(ItemSO item) => _inventory.Contains(item);
         public int GetMaxCount() => _inventory.Count;
         public bool CanGetItem() => _inventory.Count < maxSlot;
+
+        public void RemoveRendItem()
+        {
+            int removedCount = 0;
+            
+            foreach (var itemSo in _inventory)
+            {
+                if (Random.Range(0, 2) == 1)
+                {
+                    removedCount++;
+                    _inventory.Remove(_inventory[Random.Range(0, _inventory.Count + 1)]);
+                }
+            }
+        }
     }
 }
