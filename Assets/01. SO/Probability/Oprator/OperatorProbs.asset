@@ -33,4 +33,4 @@ MonoBehaviour:
       Value:
         prob:
           _value: 1
-        OperatorSO: {fileID: 11400000, guid: 7a474416a68e6714695a26dff50c4c78, type: 2}
+        OperatorSO: {fileID: 11400000, guid: a922a8c576b8eed45a46d5929096ec29, type: 2}

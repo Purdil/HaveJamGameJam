@@ -14,7 +14,7 @@ namespace Member.PYH._Scripts.Ui.Shop
     
         [SerializeField] public Image highlight;
         [SerializeField] private Image itemIcon;
-        [SerializeField] private TMP_Text itemName;
+        [SerializeField] public TMP_Text itemName;
         [SerializeField] private TMP_Text itemDesc;
         public int ItemIndex { get; private set; }
         

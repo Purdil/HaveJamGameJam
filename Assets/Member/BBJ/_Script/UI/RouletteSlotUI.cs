@@ -1,4 +1,3 @@
-using Core.Logger;
 using DG.Tweening;
 using System.Collections;
 using TMPro;

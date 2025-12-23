@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Leather_Knuckles
   m_EditorClassIdentifier: 
   index: 22
-  <Icon>k__BackingField: {fileID: 0}
-  <ItemName>k__BackingField: Please Enter Item Name Here...
+  <Icon>k__BackingField: {fileID: 21300000, guid: 572c2e861a5f8a345a99375b4cb1fde2, type: 3}
+  <ItemName>k__BackingField: "\uAC00\uC8FD \uB108\uD074"
   <Description>k__BackingField: Please Enter Item Description Here...
   <ItemPrice>k__BackingField: 0
   <ActiveTurn>k__BackingField: 0
