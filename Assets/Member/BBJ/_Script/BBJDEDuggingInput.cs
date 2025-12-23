@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Member.PYH._Scripts.SO;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -13,7 +14,8 @@ public class BBJDEDuggingInput : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            Debug.Log( RouletteManager.Instance.StartPlayerSpin(number,oper, list)());
+            var a =RouletteManager.Instance.StartPlayerSpin(number, oper, list);
+            DOVirtual.DelayedCall(1, () => Debug.Log(a()));
         }
     }
 #endif

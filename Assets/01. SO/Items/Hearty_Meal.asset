@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3bb402dca7243d9bbcae83bb3b25a22, type: 3}
   m_Name: Hearty_Meal
   m_EditorClassIdentifier: 
-  index: 19
+  index: 18
   <Icon>k__BackingField: {fileID: 21300000, guid: 091df7bb765067746813f9a9985233e0, type: 3}
   <ItemName>k__BackingField: "\uB4E0\uB4E0\uD55C \uD55C \uB07C"
-  <Description>k__BackingField: Please Enter Item Description Here...
+  <Description>k__BackingField: "50% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uCCAB
+    \uBC88\uC9F8 \uC22B\uC790\uC5D0 +5\uB97C \uD568"
   <ItemPrice>k__BackingField: 5000
-  <ActiveTurn>k__BackingField: 0
-  <Durability>k__BackingField: 0
+  <Probability>k__BackingField: 50
+  <Durability>k__BackingField: 3
   plus: {fileID: 11400000, guid: e69bc13a35165814c8257de2933d0e9e, type: 2}

@@ -1,6 +1,7 @@
 using System;
 using Core;
 using Core.SaveSystem;
+using Member.PYH._Scripts.Currency;
 using Member.YDW.EventChannels;
 using UnityEngine;
 using UnityEngine.Events;
@@ -25,6 +26,7 @@ namespace Member.PYH._Scripts.Debt
 
         public UnityEvent gameEnd;
         public UnityEvent gameOver;
+        public UnityEvent<int, int, int> UiUpdateEvent;
 
         private bool _suppressAutoSave;
 
@@ -37,6 +39,21 @@ namespace Member.PYH._Scripts.Debt
             public int allWeekEndCount;
         }
 
+        public void TryRepaymentUseButton()
+        {
+            int gold = CurrencyManager.Instance.CurrentGold;
+            int result = _currentDebt - gold;
+
+            if (result < 0)
+            {
+                CurrencyManager.Instance.TryUseCurrency(CurrencyType.GOLD, gold - result * - 1);
+                DebtRepayment(_currentDebt);
+                return;
+            }
+            
+            DebtRepayment(gold);
+        }
+        
         private new void Awake()
         {
             base.Awake();
@@ -48,8 +65,14 @@ namespace Member.PYH._Scripts.Debt
             _suppressAutoSave = true;
             RequestLoad();
             _suppressAutoSave = false;
+            
+            UiUpdateEvent?.Invoke(maxDebt, _currentDebt, _dayLeft);
         }
 
+        public void UpdateUi()
+        {
+            UiUpdateEvent?.Invoke(maxDebt, _currentDebt, _dayLeft);
+        }
         private void RequestSave()
         {
             if (_suppressAutoSave) return;

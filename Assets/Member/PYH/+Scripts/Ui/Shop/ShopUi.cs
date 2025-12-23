@@ -63,15 +63,6 @@ namespace Member.PYH._Scripts.Ui.Shop
         }
         private void Update()
         {
-            if (Keyboard.current.f2Key.wasPressedThisFrame)
-            {
-                SceneManager.LoadScene(1);
-            }
-            if (Keyboard.current.f1Key.wasPressedThisFrame)
-            {
-                OpenUi();
-            }
-            
             if (Keyboard.current == null) return;
             if (slotList == null || slotList.Count == 0) return;
             if (!_isActive) return;
