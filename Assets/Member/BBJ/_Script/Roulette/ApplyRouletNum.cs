@@ -14,6 +14,7 @@
     }
     public int CompareTo(object obj)
     {
-        return this.ApplyOperator.Priority.CompareTo(((ApplyFinal)obj).ApplyOperator.Priority);
+        //return this.ApplyOperator.Priority.CompareTo(((ApplyFinal)obj).ApplyOperator.Priority);
+        return 0;
     }
 }
