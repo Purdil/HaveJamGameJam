@@ -20,7 +20,7 @@ public class RouletteManager : MonoSingleton<RouletteManager>
     //[SerializeField] private NumberProbListSO numProb;
     //[SerializeField] private OperatorProbListSO operProb;
 
-    public RouletData rouletData { get; private set; }
+    public RouletData RouletData { get; private set; }
 #if UNITY_EDITOR
     private void Update()
     {
@@ -35,30 +35,45 @@ public class RouletteManager : MonoSingleton<RouletteManager>
     {
         itemSubChannel.Raise(list);
 
-        rouletData = new RouletData(new RouletNum(null), new RouletOperator(null));
-        rouletStartChannel.Raise((data) => { rouletData.Setter(data); }); // ����
+        RouletData = new RouletData(new RouletNum(null), new RouletOperator(null));
+        rouletStartChannel.Raise((data) => { RouletData.Setter(data); }); // ����
 
         var a = Spin(numProb, operProb);
         Logging.Log($"{a.rouletNum.Num1.Value} {a.rouletOperator.Operator1.std} {a.rouletNum.Num2.Value} {a.rouletOperator.Operator2.std} {a.rouletNum.Num3.Value}");
         rouletUIChannel.Raise(a); // �귿UI
 
-        rouletEndChannel.Raise((data) => { rouletData.Setter(data); }); // ����
-        a.rouletNum.Apply(rouletData.rouletNum);
-        a.rouletOperator.Apply(rouletData.rouletOperator);
+        rouletEndChannel.Raise((data) => { RouletData.Setter(data); }); // ����
+        a.rouletNum.Apply(RouletData.rouletNum);
+        a.rouletOperator.Apply(RouletData.rouletOperator);
         Logging.Log($"{a.rouletNum.Num1.Value} {a.rouletOperator.Operator1.std} {a.rouletNum.Num2.Value} {a.rouletOperator.Operator2.std} {a.rouletNum.Num3.Value}");
         rouletApplyUIChannel.Raise(a); // ���밪UI
 
 
-        rouletEndChannel.Raise((data) => { rouletData.Setter(data); }); // ����
-        a.rouletNum.Apply(rouletData.rouletNum);
-        a.rouletOperator.Apply(rouletData.rouletOperator);
+        rouletEndChannel.Raise((data) => { RouletData.Setter(data); }); // ����
+        a.rouletNum.Apply(RouletData.rouletNum);
+        a.rouletOperator.Apply(RouletData.rouletOperator);
         rouletApplyUIChannel.Raise(a); // ���밪UI
 
         Logging.Log($"{a.rouletNum.Num1.Value} {a.rouletOperator.Operator1.std} {a.rouletNum.Num2.Value} {a.rouletOperator.Operator2.std} {a.rouletNum.Num3.Value}");
 
         itemUnsubChannel.Raise(list);
-        rouletData = a;
-        return () => rouletData.GetResult();
+        RouletData = a;
+        return () => { rouletResultChannel.Raise(RouletData); return RouletData.GetResult(); };
+    }
+
+    public void SetOprtor(int index, OperatorSO operatorSO)
+    {
+        var temp = new RouletOperator(null);
+        temp.oper[index].x = operatorSO;
+        temp.oper[index].y = int.MaxValue;
+        RouletData.Setter(temp);
+    }
+    public void SetNumbor(int index, int num)
+    {
+        var temp = new RouletNum(null);
+        temp.Num[index].x = num;
+        temp.Num[index].y = int.MaxValue;
+        RouletData.Setter(temp);
     }
     public RouletData Spin(NumberProbListSO numberProb, OperatorProbListSO operatorProb)
     {
