@@ -5,7 +5,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Member.PYH._Scripts.Ui.Shop
@@ -40,7 +39,7 @@ namespace Member.PYH._Scripts.Ui.Shop
         [SerializeField] private Image background;
 
         private Sequence _selectSeq;
-        private bool _isActive;
+        public bool IsActive { get; private set; }
         private bool _fading;
         private bool _moving;
         private int _currentIndex;
@@ -65,7 +64,7 @@ namespace Member.PYH._Scripts.Ui.Shop
         {
             if (Keyboard.current == null) return;
             if (slotList == null || slotList.Count == 0) return;
-            if (!_isActive) return;
+            if (!IsActive) return;
             if (_moving) return;
             if (!gameObject.activeInHierarchy) return;
             if (_fading) return;
@@ -129,28 +128,32 @@ namespace Member.PYH._Scripts.Ui.Shop
         public void HideUi()
         {
             if (_fading) return;
-            if (!_isActive) return;
+            if (!IsActive) return;
             if (_moving) return;
             
             _moving = true;
+
+            background.raycastTarget = false;
             
             Sequence seq = DOTween.Sequence();
             seq.Append(shopUi.DOAnchorPosY(-2500, 1.3f));
             seq.Join(background.DOFade(0, 1.25f));
             seq.AppendCallback(() =>
             {
-                _isActive = false;
+                IsActive = false;
                 _moving = false;
             });
         }
         public void OpenUi()
         {
-            if (_isActive) return;
+            if (IsActive) return;
             if (_moving) return;
 
             ResetUi();
-            _isActive = true;
+            IsActive = true;
             _moving = true;
+
+            background.raycastTarget = true;
             
             Sequence seq = DOTween.Sequence();
             seq.Append(background.DOFade(1, 1.25f));

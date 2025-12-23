@@ -8,9 +8,9 @@ public class CurrencyUi : MonoBehaviour
 
     public void SetText(int currency)
     {
-        if (currency > 9999999)
+        if (currency > 999999)
         {
-            currencyText.text = $"9999999{unit}+";
+            currencyText.text = $"999999{unit}+";
         }
         else
         { 
