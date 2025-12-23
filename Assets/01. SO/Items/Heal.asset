@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Heal
   m_EditorClassIdentifier: 
   index: 17
-  <Icon>k__BackingField: {fileID: 0}
-  <ItemName>k__BackingField: Please Enter Item Name Here...
-  <Description>k__BackingField: Please Enter Item Description Here...
-  <ItemPrice>k__BackingField: 0
-  <ActiveTurn>k__BackingField: 0
-  <Durability>k__BackingField: 0
-  multiply: {fileID: 0}
-  divide: {fileID: 0}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 47825a1a0b22c804d91455ad62a710da, type: 3}
+  <ItemName>k__BackingField: "\uD790"
+  <Description>k__BackingField: "15% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC 3\uD134
+    \uB3D9\uC548, \uD50C\uB808\uC774\uC5B4 HP 7 \uB9CC\uD07C \uD68C\uBCF5"
+  <ItemPrice>k__BackingField: 3500
+  <ActiveTurn>k__BackingField: 3
+  <Probability>k__BackingField: 15
+  <Durability>k__BackingField: 7
+  multiply: {fileID: 11400000, guid: 7a474416a68e6714695a26dff50c4c78, type: 2}
+  divide: {fileID: 11400000, guid: a922a8c576b8eed45a46d5929096ec29, type: 2}

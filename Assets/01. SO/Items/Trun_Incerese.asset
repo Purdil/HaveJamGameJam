@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Trun_Incerese
   m_EditorClassIdentifier: 
   index: 32
-  <Icon>k__BackingField: {fileID: 0}
-  <ItemName>k__BackingField: Please Enter Item Name Here...
-  <Description>k__BackingField: Please Enter Item Description Here...
-  <ItemPrice>k__BackingField: 0
+  <Icon>k__BackingField: {fileID: 21300000, guid: bb92cb99d530dcf45b3ce1d687e63e93, type: 3}
+  <ItemName>k__BackingField: "\uD134 \uC99D\uAC00"
+  <Description>k__BackingField: "35% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uB2E4\uC74C
+    \uD134\uC5D0 \uD50C\uB808\uC774\uC5B4 \uD134 1\uD68C \uCD94\uAC00"
+  <ItemPrice>k__BackingField: 4000
   <ActiveTurn>k__BackingField: 0
-  <Durability>k__BackingField: 0
-  multiply: {fileID: 0}
+  <Probability>k__BackingField: 35
+  <Durability>k__BackingField: 3
+  multiply: {fileID: 11400000, guid: 7a474416a68e6714695a26dff50c4c78, type: 2}

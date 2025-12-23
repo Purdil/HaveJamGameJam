@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: HighRisk
   m_EditorClassIdentifier: 
   index: 20
-  <Icon>k__BackingField: {fileID: 0}
-  <ItemName>k__BackingField: Please Enter Item Name Here...
-  <Description>k__BackingField: Please Enter Item Description Here...
-  <ItemPrice>k__BackingField: 0
+  <Icon>k__BackingField: {fileID: 21300000, guid: 99956c676a4b5104da149011c4bb4c38, type: 3}
+  <ItemName>k__BackingField: "\uD558\uC774\uB9AC\uC2A4\uD06C"
+  <Description>k__BackingField: "20% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC 2\uBC88\uC9F8
+    \uC22B\uC790\uB97C 0\uB85C \uACE0\uC815\uD558\uBA70, \uCD5C\uC885 \uACB0\uACFC\uC5D0
+    2^\uC744 \uD568"
+  <ItemPrice>k__BackingField: 1500
   <ActiveTurn>k__BackingField: 0
+  <Probability>k__BackingField: 20
   <Durability>k__BackingField: 0
-  square: {fileID: 0}
+  square: {fileID: 11400000, guid: 5500a6c3dc6145d4d868fdfe642b68b1, type: 2}
