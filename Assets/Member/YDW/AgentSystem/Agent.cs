@@ -4,7 +4,6 @@ using System.Linq;
 using Core.PoolSystem;
 using Member.YDW.HealthSystem;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Member.YDW.AgentSystem
 {
@@ -92,7 +91,6 @@ namespace Member.YDW.AgentSystem
         
         public virtual void StartTurn()
         {
-            
         }
 
         public virtual void Turning()

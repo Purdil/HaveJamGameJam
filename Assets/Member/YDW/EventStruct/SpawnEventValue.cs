@@ -1,9 +1,4 @@
-﻿
-
-using Member.YDW.AgentSystem;
-using UnityEngine;
-
-namespace Member.YDW.EventStruct
+﻿namespace Member.YDW.EventStruct
 {
     public struct SpawnEventValue
     {

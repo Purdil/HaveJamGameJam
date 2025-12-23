@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9948f92cf0497b93150b8dd2d54874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocityXParam: {fileID: 11400000, guid: 8b941691edee5e940aeef5f6f4a87742, type: 2}
   speed: 3

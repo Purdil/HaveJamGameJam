@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/02. Prefab/Ui/Audio.prefab.meta
 guid: cfc07b2203ce0544abd4bb5dcffd9463
+========
+guid: 2d46810fd9a0bcc42bf9e59904ff39ea
+>>>>>>>> origin/Base:Assets/02. Prefab/Ui/Setting.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

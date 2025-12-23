@@ -3,7 +3,6 @@ using Core.Logger;
 using DG.Tweening;
 using Member.YDW.AnimationSystem;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Member.YDW.Agents.Enemys
 {
@@ -11,24 +10,6 @@ namespace Member.YDW.Agents.Enemys
     {
         [SerializeField] private AnimParamSO attackParam;
         private Vector3 beforePosition;
-        private void Update()
-        {
-            #region Test
-
-            if (Keyboard.current.kKey.wasPressedThisFrame)
-            {
-                OnTurnEnd = true;
-            }
-
-            if (Keyboard.current.eKey.wasPressedThisFrame)
-            {
-                ApplyDamage(1000 , out _);
-            }
-            
-
-            #endregion
-        }
-
         public override void StartTurn()
         {
             base.StartTurn();
@@ -61,6 +42,7 @@ namespace Member.YDW.Agents.Enemys
         private void HandleAttack()
         {
             AgentRenderer.OnAttackTrigger -= HandleAttack;
+            attackImpulse.GenerateImpulse();
             target.ApplyDamage(10, out _); //룰렛 연산으로 나온 데미지 부여.
         }
 
