@@ -26,7 +26,7 @@ public class LobbyButton : MonoBehaviour
         for (int i = 0; i < btn.Count; i++)
         {
 
-            seq.AppendInterval(1f);
+            seq.AppendInterval(0.5f);
 
             Transform t = btn[i];
 
@@ -34,7 +34,7 @@ public class LobbyButton : MonoBehaviour
             float targetY = startPos.y + moveY + (i * changDisY);
 
             seq.Append(
-                t.DOMoveY(targetY, 0.5f)
+                t.DOMoveY(targetY, 0.2f)
                  .SetEase(moveEase)
             );
 
