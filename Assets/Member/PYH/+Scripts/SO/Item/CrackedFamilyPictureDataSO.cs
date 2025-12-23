@@ -1,18 +1,19 @@
 ﻿using System;
 using BBJ;
-using Core.Logger;
 using UnityEngine;
 
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "CrackedFamilyPictureDataSO", menuName = "SO/ITEM/CrackedFamilyPictureDataSO")]
-    public class CrackedFamilyPictureDataSO : ItemSO, IAfterApplyTrunIteem<RouletOperator, RouletNum>
+    public class CrackedFamilyPictureDataSO : ItemSO, IAfterApplyTrunIteem<RouletOperator, ApplyFinal>, IProbabilityItem
     {
         [field: SerializeField] public float Probability { get; private set; }
+        [SerializeField] private OperatorSO plus;
         
-        public void AfterApply(Func<RouletOperator> Getter, Action<RouletNum> Setter)
+        public void AfterApply(Func<RouletOperator> Getter, Action<ApplyFinal> Setter)
         {
-            Logging.Log("Player Health++");
+            var a = new ApplyFinal(32, plus);
+            Setter(a);
         }
 
         public void Acquire()

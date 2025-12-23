@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eef7f3327024648850051e293f42fa9, type: 3}
   m_Name: Leather_Knuckles
   m_EditorClassIdentifier: 
-  index: 22
+  index: 21
   <Icon>k__BackingField: {fileID: 21300000, guid: 572c2e861a5f8a345a99375b4cb1fde2, type: 3}
   <ItemName>k__BackingField: "\uAC00\uC8FD \uB108\uD074"
-  <Description>k__BackingField: Please Enter Item Description Here...
+  <Description>k__BackingField: "45% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC, \uCD5C\uC885
+    \uAC12\uC5D0 +15\uB97C \uD568"
   <ItemPrice>k__BackingField: 4110
-  <ActiveTurn>k__BackingField: 0
-  <Durability>k__BackingField: 0
+  <Probability>k__BackingField: 45
+  <Durability>k__BackingField: 2
   plus: {fileID: 11400000, guid: e69bc13a35165814c8257de2933d0e9e, type: 2}

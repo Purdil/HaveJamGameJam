@@ -1,14 +1,14 @@
 ﻿using System;
 using BBJ;
-using Core.Logger;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
-    public class TornBannedBookDataSO : ItemSO, IWearOutItem, IBeforeApplyTrunItem<RouletOperator>
+    public class TornBannedBookDataSO : ItemSO, IWearOutItem, IBeforeApplyTrunItem<RouletOperator>, IProbabilityItem
     {
+        [field: SerializeField] public float Probability { get; private set; }
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public int Durability { get; private set; }
         [SerializeField] private OperatorSO plus, minus;

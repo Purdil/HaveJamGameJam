@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d45394ade8014dc2a3fdea77c8e6e945, type: 3}
   m_Name: Loose_Leather_Shoes
   m_EditorClassIdentifier: 
-  index: 23
+  index: 22
   <Icon>k__BackingField: {fileID: 21300000, guid: fd746f67fbec20044bbbf5ecc7187ffd, type: 3}
   <ItemName>k__BackingField: "\uD5D0\uAC70\uC6B4 \uAC00\uC8FD \uC2E0\uBC1C"
-  <Description>k__BackingField: Please Enter Item Description Here...
+  <Description>k__BackingField: "35% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC, \uCD5C\uC885
+    \uAC12\uC5D0 +10\uB97C \uD568"
   <ItemPrice>k__BackingField: 5110
-  <ActiveTurn>k__BackingField: 0
-  <Durability>k__BackingField: 0
+  <Probability>k__BackingField: 35
+  <Durability>k__BackingField: 5
   plus: {fileID: 11400000, guid: e69bc13a35165814c8257de2933d0e9e, type: 2}

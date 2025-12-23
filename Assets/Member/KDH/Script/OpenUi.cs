@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using csiimnida.CSILib.SoundManager.Editor;
+using csiimnida.CSILib.SoundManager.RunTime;
 using DG.Tweening;
 using Unity.AppUI.UI;
 using UnityEngine;
@@ -33,6 +35,7 @@ public class OpenUi : MonoBehaviour
     public void OnCountinue()
     {
         isOpen = false;
+        SoundManager.Instance.PlaySound("Click");
         SetActive(isOpen);
         Time.timeScale = 1f;
     }

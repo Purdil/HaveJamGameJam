@@ -1,20 +1,21 @@
 ﻿using System;
 using BBJ;
-using Core.Logger;
 using UnityEngine;
 
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
-    public class LooseLeatherShoesDataSO : ItemSO, IWearOutItem, IBeforeApplyTrunItem<RouletNum>
+    public class LooseLeatherShoesDataSO : ItemSO, IWearOutItem, IAfterApplyTrunIteem<RouletNum, ApplyFinal>, IProbabilityItem
     {
+        [field: SerializeField] public float Probability { get; private set; }
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public int Durability { get; private set; }
         [SerializeField] private OperatorSO plus;
         
-        public void BeforeApply(Action<RouletNum> numSetter)
+        public void AfterApply(Func<RouletNum> Getter, Action<ApplyFinal> Setter)
         {
-            Logging.Log("도망치는 확률 증가");
+            var a = new ApplyFinal(10, plus);
+            Setter(a);
             WearOut();
         }
         public void WearOut()
@@ -26,7 +27,7 @@ namespace Member.PYH._Scripts.SO.Item
                 Destroyed?.Invoke(this);
             }
         }
-
+        
         public void Acquire()
         {
         }

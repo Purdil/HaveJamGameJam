@@ -1,21 +1,17 @@
 ﻿using System;
 using BBJ;
-using Core.Logger;
 using UnityEngine;
 
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
-    public class HeartLocketDataSO : ItemSO, IWearOutItem, IBeforeApplyTrunItem<RouletOperator>, IAfterApplyTrunIteem<RouletNum, ApplyFinal>
+    public class HeartLocketDataSO : ItemSO, IWearOutItem, IAfterApplyTrunIteem<RouletNum, ApplyFinal>, IProbabilityItem
     {
+        [field: SerializeField] public float Probability { get; private set; }
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public int Durability { get; private set; }
         [SerializeField] private OperatorSO plus;
         
-        public void BeforeApply(Action<RouletOperator> operatorSetter)
-        {
-            Logging.Log("도망치는 확률 감소!!");
-        }
         public void AfterApply(Func<RouletNum> Getter, Action<ApplyFinal> Setter)
         {
             var a = new ApplyFinal(30, plus);

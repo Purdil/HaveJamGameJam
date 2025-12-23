@@ -5,10 +5,8 @@ using UnityEngine;
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
-    public class JackpotDataSO : ItemSO, IWearOutItem, IAfterApplyTrunIteem<RouletNum, RouletOperator>
+    public class JackpotDataSO : ItemSO, IAfterApplyTrunIteem<RouletNum, RouletOperator>
     {
-        public Action<IDestroyItem> Destroyed { get; set; }
-        [field: SerializeField] public int Durability { get; private set; }
         [SerializeField] private OperatorSO multiply;
         
         public void AfterApply(Func<RouletNum> Getter, Action<RouletOperator> Setter)
@@ -19,16 +17,6 @@ namespace Member.PYH._Scripts.SO.Item
             {
                 var b = new RouletOperator(multiply, multiply);
                 Setter(b);
-                WearOut();
-            }
-        }
-        public void WearOut()
-        {
-            Durability--;
-
-            if (Durability == 0)
-            {
-                Destroyed?.Invoke(this);
             }
         }
         

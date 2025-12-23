@@ -10,8 +10,8 @@ namespace Member.PYH._Scripts.SO.Item
     {
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public int Durability { get; private set; }
+        [field: SerializeField] public float Probability { get; private set; }
 
-        [SerializeField]public float Probability { get; private set; }
 
         public void AfterApply(Func<RouletNum> getter, Action<RouletNum> setter)
         {

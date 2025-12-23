@@ -21,9 +21,12 @@ namespace csiimnida.CSILib.SoundManager.RunTime
             {
                 Debug.LogError("AudioMixer가 할당되지 않았습니다. SoundManager를 사용하기 전에 할당해주세요.");
             }
+
+            //DontDestroyOnLoad(gameObject);
         }
         public void PlaySound(string soundName)
         {
+            Debug.Log("[SoundManager] 소리!!!!!!!!!!!!!!!!!!!!");
             GameObject obj = new GameObject();
             obj.name = soundName + " Sound";
             AudioSource source = obj.AddComponent<AudioSource>();

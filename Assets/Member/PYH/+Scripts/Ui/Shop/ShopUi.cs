@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Member.PYH._Scripts.Ui.Shop
@@ -62,6 +63,10 @@ namespace Member.PYH._Scripts.Ui.Shop
         }
         private void Update()
         {
+            if (Keyboard.current.f2Key.wasPressedThisFrame)
+            {
+                SceneManager.LoadScene(1);
+            }
             if (Keyboard.current.f1Key.wasPressedThisFrame)
             {
                 OpenUi();

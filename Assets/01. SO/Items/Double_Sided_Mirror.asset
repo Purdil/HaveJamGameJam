@@ -20,4 +20,5 @@ MonoBehaviour:
     \uBCC0\uD658\uC2DC\uD0B4"
   <ItemPrice>k__BackingField: 3250
   <ActiveTurn>k__BackingField: 0
-  <Durability>k__BackingField: 0
+  <Durability>k__BackingField: 1
+  <Probability>k__BackingField: 32

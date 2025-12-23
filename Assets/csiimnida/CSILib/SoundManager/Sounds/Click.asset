@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: Click
   soundType: 1
-  clip: {fileID: 8300000, guid: f3a93caf633f2314eb2fec54d86dc600, type: 3}
+  clip: {fileID: 8300000, guid: 5f6b3e1d76d024841bc0f0d04613ad18, type: 3}
   loop: 0
   Priority: 128
   volume: 1
-  pitch: 1
+  pitch: 3
   stereoPan: 0
   SpatialBlend: 0
   RandomPitch: 0
