@@ -15,6 +15,7 @@ public class OpenUi : MonoBehaviour
     private Tween a;
     [SerializeField] private GameObject panel;
 
+    private int count = 0;
     private bool isOpen;
 
     private void Awake()
@@ -44,23 +45,23 @@ public class OpenUi : MonoBehaviour
         Time.timeScale = isOpen ? 0f : 1f;
     }
 
-    private void SetActive(bool isOpen)
+    public void SetActive(bool isOpen)
     {
+        if (count > 2) return;  
         gameUi.SetActive(isOpen);
 
         if (isOpen)
         {
             a?.Complete();
             Sequence seq = DOTween.Sequence().SetUpdate(true);
-
-            seq.AppendInterval(2f);
-
             foreach (var i in btn)
             {
                 seq.Append(i.DOMoveX(moveX, 0.1f).From().SetEase(ease));
             }
             a = seq;
-
+            count++;
         }
+        else
+            count = 0;
     }
 }

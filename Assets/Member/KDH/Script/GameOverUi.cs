@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using DG.Tweening;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameOverUi : MonoBehaviour
@@ -15,13 +15,12 @@ public class GameOverUi : MonoBehaviour
     private void Start()
     {
         Sequence seq = DOTween.Sequence();
-
-        seq.AppendInterval(3f);
-
         foreach (var i in btn)
         {
+            seq.AppendInterval(2f);
+
             seq.Append(i.DOMoveX(startPos.x - moveX, 0.5f).SetEase(ease));
+
         }
     }
 }
-

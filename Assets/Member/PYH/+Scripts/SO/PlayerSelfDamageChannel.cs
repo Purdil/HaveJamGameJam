@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Member.PYH._Scripts.SO.Item
 {
-    [CreateAssetMenu(fileName = "PlayerSelfDamageChannel", menuName = "SO/EVENT/PlayerSelfDamageChannel", order = 0)]
+    [CreateAssetMenu(fileName = "PLA", menuName = "MENUNAME", order = 0)]
     public class PlayerSelfDamageChannel : EventChannel<int>
     {
     }

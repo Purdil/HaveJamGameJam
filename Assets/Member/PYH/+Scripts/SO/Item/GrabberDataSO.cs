@@ -1,13 +1,13 @@
 ﻿using System;
 using BBJ;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Member.PYH._Scripts.SO.Item
 {
-    [CreateAssetMenu(fileName = "GrabberDataSO", menuName = "SO/ITEM/GrabberDataSO")]
+    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
     public class GrabberDataSO : ItemSO, IWearOutItem, IAfterApplyTrunIteem<RouletNum, ApplyFinal>
     {
-        [field: SerializeField] public float Probability { get; private set; }
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public int Durability { get; private set; }
         [SerializeField] private OperatorSO multiply;
@@ -15,7 +15,9 @@ namespace Member.PYH._Scripts.SO.Item
         public void AfterApply(Func<RouletNum> Getter, Action<ApplyFinal> Setter)
         {
             var a = Getter;
-            var b = new ApplyFinal(final: 2, applyOperator: multiply);
+            var b = new ApplyFinal();
+            b.final = 2;
+            b.ApplyOperator = multiply;
             Setter(b);
             WearOut();
         }
