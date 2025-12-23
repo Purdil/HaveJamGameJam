@@ -8,9 +8,26 @@ namespace Member.PYH._Scripts.Currency
     public class CurrencyManager : MonoSingleton<CurrencyManager>
     {
         public UnityEvent<int> onRepaymentEvent;
-        
-        public int CurrentCurrency { get; private set; } = 0;
+        public UnityEvent<int> onCurrencyChanged;
+        private int _currentCurrency = 5000;
 
+        public int CurrentCurrency
+        {
+            get => _currentCurrency;
+            set
+            {
+                if (_currentCurrency == value) return;
+                _currentCurrency = value;
+                onCurrencyChanged?.Invoke(_currentCurrency);
+            }
+        }
+        
+        private new void Awake()
+        {
+            base.Awake();
+            onCurrencyChanged?.Invoke(CurrentCurrency);
+        }
+        
         public bool CanUseCurrency(int price)
         {
             return CurrentCurrency - price >= 0;
@@ -32,7 +49,7 @@ namespace Member.PYH._Scripts.Currency
         private void UseCurrency(int price)
         {
             Logging.Log("USE CURRENCY");
-            CurrentCurrency = Mathf.Clamp(CurrentCurrency - price, 0, int.MaxValue);
+            CurrentCurrency = Mathf.Clamp(CurrentCurrency - price, 0, 1000000000);
         }
     }
 }
