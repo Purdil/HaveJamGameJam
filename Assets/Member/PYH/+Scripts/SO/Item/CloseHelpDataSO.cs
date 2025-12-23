@@ -5,20 +5,16 @@ using UnityEngine;
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
-    public class GrabberDataSO : ItemSO, IWearOutItem, IAfterApplyTrunIteem<RouletNum, ApplyFinal>
+    public class CloseHelpDataSO : ItemSO, IWearOutItem, IBeforeApplyTrunItem<RouletOperator>
     {
-        [field: SerializeField] public float Probability { get; private set; }
         public Action<IDestroyItem> Destroyed { get; set; }
+        [field: SerializeField] public float Probability { get; private set; }
         [field: SerializeField] public int Durability { get; private set; }
-        [SerializeField] private OperatorSO multiply;
+        [SerializeField] private OperatorSO plus;
         
-        public void AfterApply(Func<RouletNum> Getter, Action<ApplyFinal> Setter)
+        public void BeforeApply(Action<RouletOperator> operatorSetter)
         {
-            var a = Getter;
-            var b = new ApplyFinal();
-            b.final = 2;
-            b.ApplyOperator = multiply;
-            Setter(b);
+            var a = new RouletOperator(operator1: plus);
             WearOut();
         }
         public void WearOut()
@@ -30,7 +26,7 @@ namespace Member.PYH._Scripts.SO.Item
                 Destroyed?.Invoke(this);
             }
         }
-        
+
         public void Acquire()
         {
         }

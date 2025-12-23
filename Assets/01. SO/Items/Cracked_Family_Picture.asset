@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28975a0a1864cb38924cb57ba6a3668, type: 3}
   m_Name: Cracked_Family_Picture
   m_EditorClassIdentifier: 
-  index: 10
+  index: 9
   <Icon>k__BackingField: {fileID: 21300000, guid: f9813f8d2ba51564cb196b5fc2b30c04, type: 3}
   <ItemName>k__BackingField: "\uAE08\uC774 \uAC04 \uAC00\uC871 \uC561\uC790"
-  <Description>k__BackingField: "45% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uC801
-    \uCC98\uCE58 \uC2DC \uD50C\uB808\uC774\uC5B4\uC758 \uCCB4\uB825\uC744 +15 \uD68C\uBCF5\uD568"
+  <Description>k__BackingField: "32% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uCD5C\uC885
+    \uAC12\uC5D0 +32\uB97C \uD568"
   <ItemPrice>k__BackingField: 6251
-  <ActiveTurn>k__BackingField: 0
-  <Probability>k__BackingField: 0
+  <Probability>k__BackingField: 32
+  plus: {fileID: 11400000, guid: e69bc13a35165814c8257de2933d0e9e, type: 2}

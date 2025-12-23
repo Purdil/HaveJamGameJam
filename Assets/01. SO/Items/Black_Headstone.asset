@@ -19,7 +19,7 @@ MonoBehaviour:
     \uC5F0\uC0B0\uC790 \uC911 1\uAC00\uC9C0\uB97C + \uB610\uB294 1\uB85C \uBCC0\uD658\uC2DC\uD0B4"
   <ItemPrice>k__BackingField: 5250
   <ActiveTurn>k__BackingField: 0
-  <Probability>k__BackingField: 0
+  <Probability>k__BackingField: 47
   plus: {fileID: 11400000, guid: e69bc13a35165814c8257de2933d0e9e, type: 2}
   minus: {fileID: 11400000, guid: 58be907de4884554f8a77a15148b3714, type: 2}
-  <Durability>k__BackingField: 0
+  <Durability>k__BackingField: 1

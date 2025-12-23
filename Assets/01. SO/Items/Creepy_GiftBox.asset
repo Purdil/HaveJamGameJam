@@ -20,5 +20,6 @@ MonoBehaviour:
     \uC218\uB85C \uBCC0\uD658\uC2DC\uD0B4"
   <ItemPrice>k__BackingField: 3000
   <ActiveTurn>k__BackingField: 0
-  <Probability>k__BackingField: 0
-  <Durability>k__BackingField: 0
+  <Probability>k__BackingField: 15
+  <Durability>k__BackingField: 1
+  Pow: {fileID: 11400000, guid: 5500a6c3dc6145d4d868fdfe642b68b1, type: 2}

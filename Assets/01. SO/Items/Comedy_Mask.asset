@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7362125d4c4e06ad6ab78390447c27, type: 3}
   m_Name: Comedy_Mask
   m_EditorClassIdentifier: 
-  index: 9
+  index: 8
   <Icon>k__BackingField: {fileID: 21300000, guid: 47ebaa96aa2b0b447ad5297c740eb4d0, type: 3}
   <ItemName>k__BackingField: "\uD76C\uADF9\uC758 \uAC00\uBA74"
   <Description>k__BackingField: "16% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uD574\uB2F9
     \uD134 \uB3D9\uC548 \uB3C4\uB9DD \uC131\uACF5 \uD655\uB960\uC774 100%\uB85C \uACE0\uC815\uB428"
   <ItemPrice>k__BackingField: 2345
-  <ActiveTurn>k__BackingField: 0
-  <Probability>k__BackingField: 0
+  <Probability>k__BackingField: 16
+  _escapeValueEvent: {fileID: 11400000, guid: ed74433c60c661147be05af7fbffe4ab, type: 2}
