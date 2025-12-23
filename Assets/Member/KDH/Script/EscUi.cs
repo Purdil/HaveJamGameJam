@@ -22,14 +22,14 @@ public class EscUi : MonoBehaviour
     }
     public void GoBattle()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("CombatScene");
     }
     public void GoDebt()
     {
-        SceneManager.LoadScene("");
+        //SceneManager.LoadScene("ShopScene");
     }
     public void GoShop()
     {
-        SceneManager.LoadScene("");
+       // SceneManager.LoadScene("DebtScene");
     }
 }
