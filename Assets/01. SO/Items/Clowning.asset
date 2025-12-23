@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Clowning
   m_EditorClassIdentifier: 
   index: 8
-  <Icon>k__BackingField: {fileID: 21300000, guid: f2f1fb127506e5849b00c6cb4a18c973, type: 3}
+  <Icon>k__BackingField: {fileID: 0}
   <ItemName>k__BackingField: "\uAD11\uB300\uB180\uC74C"
   <Description>k__BackingField: "67% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC 2\uAC1C\uC758
     \uC5F0\uC0B0\uC790\uB97C \uB098\uB204\uAE30 \uB610\uB294 \uACF1\uD558\uAE30 \uB610\uB294

@@ -1,4 +1,3 @@
-using DG.Tweening;
 using System;
 using System.Text;
 using TMPro;
@@ -15,9 +14,7 @@ public class ProbInfoUI : MonoBehaviour
     private void Awake()
     {
         numData.ValueChenged += ApplyNumProb;
-        ApplyNumProb(numData.GetPrebInfo());
         operData.ValueChenged += ApplyOperProb;
-        ApplyOperProb(operData.GetPrebInfo());
     }
 
     private void ApplyNumProb(NumberProbInfo[] info)
@@ -51,5 +48,4 @@ public class ProbInfoUI : MonoBehaviour
         numData.ValueChenged -= ApplyNumProb;
         operData.ValueChenged -= ApplyOperProb;
     }
-
 }

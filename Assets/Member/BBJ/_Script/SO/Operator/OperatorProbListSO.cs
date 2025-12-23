@@ -3,7 +3,6 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using System.Linq;
-using Core.Logger;
 
 [CreateAssetMenu(fileName = "OperatorProbs", menuName = "SO/Prob/Operator/List")]
 public class OperatorProbListSO : ScriptableObject
@@ -35,7 +34,7 @@ public class OperatorProbListSO : ScriptableObject
         ValueChenged?.Invoke(probs);
     }
 
-    public OperatorProbInfo[] GetPrebInfo()
+    private OperatorProbInfo[] GetPrebInfo()
     {
         var sum = OperatorberProbList.Values.Sum((x) => x.Prob);
         OperatorProbInfo[] result = new OperatorProbInfo[OperatorberProbList.Count];
@@ -47,42 +46,22 @@ public class OperatorProbListSO : ScriptableObject
         }
         return result;
     }
-    public OperatorSO GetRendom()
+    public int GetRendomNum()
     {
         var sum = OperatorberProbList.Values.Sum((x) => x.Prob);
-        float r = Random.value * sum;
-        OperatorSO result = default;
+        float r = Random.value;
+        int result = default;
         int s = 0;
         foreach (var item in OperatorberProbList)
         {
             s += item.Value.Prob;
-            if (s >= r)
+            if (s > r)
             {
-                result = item.Value.OperatorSO;
+                result = int.Parse(item.Key);
                 break;
             }
         }
         return result;
-    }
-    public void SetProb(OperatorSO key, int setValue) => SetProb(key.std, setValue);
-    public void SetProb(string key, int setValue)
-    {
-        if (OperatorberProbList.ContainsKey(key))
-        {
-            OperatorberProbList[key].Prob = setValue;
-            return;
-        }
-        Logging.LogError($"Dictionary : {key} is null");
-    }
-    public int GetProb(OperatorSO key) => GetProb(key.std);
-    public int GetProb(string key)
-    {
-        if (OperatorberProbList.ContainsKey(key))
-        {
-            return OperatorberProbList[key].Prob;
-        }
-        Logging.LogError($"Dictionary : {key} is null");
-        return default;
     }
 }
 public struct OperatorProbInfo

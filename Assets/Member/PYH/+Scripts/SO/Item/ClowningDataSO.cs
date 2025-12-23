@@ -58,7 +58,7 @@ namespace Member.PYH._Scripts.SO.Item
         {
             var a = new ApplyFinal();
             var b = Getter();
-            a.final = (int)b.Num2.Value;
+            a.final = b.Num2.Value;
             a.ApplyOperator = plus;
             Setter(a);
         }

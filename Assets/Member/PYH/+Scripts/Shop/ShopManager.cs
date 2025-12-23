@@ -12,10 +12,9 @@ namespace Member.PYH._Scripts.Shop
 
         public void TryBuyItem(int price, int index)
         {
-            if (!CurrencyManager.Instance.CanUseCurrency(CurrencyType.Gold, price)) { Logging.Log("Returned From Check CanUseCurrency"); return; }
-            if (!InventoryManager.Instance.CanGetItem()) return;
+            if (!CurrencyManager.Instance.CanUseCurrency(price)) { Logging.Log("Returned From Check CanUseCurrency"); return; }
             
-            CurrencyManager.Instance.TryUseCurrency(CurrencyType.Gold, price);
+            CurrencyManager.Instance.TryUseCurrency(price);
             InventoryManager.Instance.TryAddItem(list.GetItem(index));
         }
     }

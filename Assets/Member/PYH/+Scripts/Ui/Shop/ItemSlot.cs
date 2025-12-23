@@ -14,7 +14,7 @@ namespace Member.PYH._Scripts.Ui.Shop
     
         [SerializeField] public Image highlight;
         [SerializeField] private Image itemIcon;
-        [SerializeField] public TMP_Text itemName;
+        [SerializeField] private TMP_Text itemName;
         [SerializeField] private TMP_Text itemDesc;
         public int ItemIndex { get; private set; }
         
@@ -26,7 +26,7 @@ namespace Member.PYH._Scripts.Ui.Shop
         public void SetSlotUiSetting(ItemSO item)
         {
             Item = item;
-            itemName.text = $"{Item.ItemName} | {item.ItemPrice.ToString("N0")}G";
+            itemName.text = Item.ItemName;
             itemDesc.text = Item.Description;
             itemIcon.sprite = Item.Icon;
             ItemIndex = item.index;
