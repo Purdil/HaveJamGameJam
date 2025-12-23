@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Member/KDH/Scene/TitleScene.unity
+    path: Assets/Member/KDH/Scene/StartScene.unity
     guid: f6ae0b0e054d84e4fb8e6c27c576c797
   - enabled: 1
     path: Assets/Member/KDH/Scene/LobbyScene.unity
