@@ -6,14 +6,16 @@ using UnityEngine;
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
-    public class LuckyPlusDataSO : ItemSO, IWearOutItem, IBeforeApplyTrunItem<ApplyRouletNum>
+    public class LuckyPlusDataSO : ItemSO, IWearOutItem, IBeforeApplyTrunItem<RouletNum>, IProbabilityItem
     {
+        [field: SerializeField] public float Probability { get; private set; }
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public int Durability { get; private set; }
         
-        public void BeforeApply(Action<ApplyRouletNum> numSetter)
+        public void BeforeApply(Action<RouletNum> numSetter)
         {
-            Logging.Log("높은 숫자 나올 확률 증가");
+            var a = new RouletNum(num1: 7, num2: 7, num3: 7);
+            numSetter(a);
             WearOut();
         }
         public void WearOut()

@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5fdab22f594c7cbdf2450470a3a8e3, type: 3}
   m_Name: HighRisk
   m_EditorClassIdentifier: 
-  index: 20
+  index: 19
   <Icon>k__BackingField: {fileID: 21300000, guid: 1ba2b90a94c6ec8489429c4dcdbf31cf, type: 3}
   <ItemName>k__BackingField: "\uD558\uC774\uB9AC\uC2A4\uD06C"
-  <Description>k__BackingField: Please Enter Item Description Here...
+  <Description>k__BackingField: "20% \uD655\uB960\uB85C \uB450 \uBC88\uC9F8 \uC22B\uC790\uB97C
+    0\uC73C\uB85C \uACE0\uC815\uD558\uACE0, \uCD5C\uC885 \uAC12\uC5D0 ^2\uB97C \uD568"
   <ItemPrice>k__BackingField: 4300
-  <ActiveTurn>k__BackingField: 0
-  <Durability>k__BackingField: 0
+  <Probability>k__BackingField: 20
+  <Durability>k__BackingField: 5
   square: {fileID: 11400000, guid: 5500a6c3dc6145d4d868fdfe642b68b1, type: 2}

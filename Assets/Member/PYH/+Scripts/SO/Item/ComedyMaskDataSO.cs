@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "ComedyMaskDataSO", menuName = "SO/ITEM/ComedyMaskDataSO")]
-    public class ComedyMaskDataSO : ItemSO, IBeforeApplyTrunItem<RouletOperator>
+    public class ComedyMaskDataSO : ItemSO, IBeforeApplyTrunItem<RouletOperator>, IProbabilityItem
     {
         [field: SerializeField] public float Probability { get; private set; }
         [SerializeField] private EscapeValueEvent _escapeValueEvent;

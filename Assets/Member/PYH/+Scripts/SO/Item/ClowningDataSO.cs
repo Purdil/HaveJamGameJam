@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "ClowningDataSO", menuName = "SO/ITEM/ClowningDataSO")]
-    public class ClowningDataSO : ItemSO, IBeforeApplyTrunItem<RouletOperator>, IAfterApplyTrunIteem<RouletNum, ApplyFinal>
+    public class ClowningDataSO : ItemSO, IBeforeApplyTrunItem<RouletOperator>, IAfterApplyTrunIteem<RouletNum, ApplyFinal>, IProbabilityItem
     {
         [field: SerializeField] public float Probability { get; private set; }
         [SerializeField] private OperatorSO multiply, plus, divide;

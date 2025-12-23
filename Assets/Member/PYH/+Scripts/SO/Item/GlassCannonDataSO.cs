@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
-    public class GlassCannonDataSO : ItemSO, IBeforeApplyTrunItem<RouletOperator>, IWearOutItem, IAfterApplyTrunIteem<RouletNum, ApplyFinal>
+    public class GlassCannonDataSO : ItemSO, IBeforeApplyTrunItem<RouletOperator>, IWearOutItem, IAfterApplyTrunIteem<RouletNum, ApplyFinal>, IProbabilityItem
     {
         [field: SerializeField] public float Probability { get; private set; }
         public Action<IDestroyItem> Destroyed { get; set; }

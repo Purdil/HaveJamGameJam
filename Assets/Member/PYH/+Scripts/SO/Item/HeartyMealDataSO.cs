@@ -5,9 +5,10 @@ using UnityEngine;
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
-    public class HeartyMealDataSO : ItemSO, IWearOutItem, IBeforeApplyTrunItem<ApplyRouletNum>
+    public class HeartyMealDataSO : ItemSO, IWearOutItem, IBeforeApplyTrunItem<ApplyRouletNum>, IProbabilityItem
     {
         public Action<IDestroyItem> Destroyed { get; set; }
+        [field: SerializeField] public float Probability { get; private set; }
         [field: SerializeField] public int Durability { get; private set; }
         [SerializeField] private OperatorSO plus;
 

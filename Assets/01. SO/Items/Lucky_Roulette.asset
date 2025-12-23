@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 133e7b03fcec4adc8d09c3884e8489fd, type: 3}
   m_Name: Lucky_Roulette
   m_EditorClassIdentifier: 
-  index: 26
+  index: 25
   <Icon>k__BackingField: {fileID: 21300000, guid: d5e323fabec7eb549b755ae75db6b7a5, type: 3}
   <ItemName>k__BackingField: "\uB7ED\uD0A4 \uB8F0\uB81B"
-  <Description>k__BackingField: Please Enter Item Description Here...
+  <Description>k__BackingField: "\uB192\uC740 \uC22B\uC790\uAC00 \uB8F0\uB81B\uC744
+    \uAC00\uB4DD \uCC44\uC6C0"
   <ItemPrice>k__BackingField: 5555
-  <ActiveTurn>k__BackingField: 0
-  <Durability>k__BackingField: 0
+  <Durability>k__BackingField: 1

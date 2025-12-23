@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
-    public class CloseHelpDataSO : ItemSO, IWearOutItem, IBeforeApplyTrunItem<RouletOperator>
+    public class CloseHelpDataSO : ItemSO, IWearOutItem, IBeforeApplyTrunItem<RouletOperator>, IProbabilityItem
     {
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public float Probability { get; private set; }

@@ -6,15 +6,17 @@ using UnityEngine;
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
-    public class SevenDataSO : ItemSO, IWearOutItem, IBeforeApplyTrunItem<RouletNum>
+    public class SevenDataSO : ItemSO, IWearOutItem, IBeforeApplyTrunItem<RouletNum>, IProbabilityItem
     {
+        [field: SerializeField] public float Probability { get; private set; }
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public int Durability { get; private set; }
         [SerializeField] private OperatorSO multiply;
         
         public void BeforeApply(Action<RouletNum> numSetter)
         {
-            Logging.Log("룰렛 획득");
+            var a = new RouletNum(num1: 7, num3: 7);
+            numSetter(a);
             WearOut();
         }
         public void WearOut()

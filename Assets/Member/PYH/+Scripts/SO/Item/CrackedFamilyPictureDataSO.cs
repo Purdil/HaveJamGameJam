@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "CrackedFamilyPictureDataSO", menuName = "SO/ITEM/CrackedFamilyPictureDataSO")]
-    public class CrackedFamilyPictureDataSO : ItemSO, IAfterApplyTrunIteem<RouletOperator, ApplyFinal>
+    public class CrackedFamilyPictureDataSO : ItemSO, IAfterApplyTrunIteem<RouletOperator, ApplyFinal>, IProbabilityItem
     {
         [field: SerializeField] public float Probability { get; private set; }
         [SerializeField] private OperatorSO plus;
