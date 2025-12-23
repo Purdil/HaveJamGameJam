@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Core.Logger;
 using Core.PoolSystem;
+using Member.PYH._Scripts.Inventory;
 using Member.YDW.AgentSystem;
 using Member.YDW.AnimationSystem;
 using Member.YDW.EventChannels;
@@ -44,38 +45,13 @@ namespace Member.YDW.Agents
             _enemies.AddRange(targets);
             Logging.Log($"Init Target Count : {_enemies.Count}");
         }
-        private void Update()
-        
-        {
-            //룰렛 연산이 끝난 후, 아무곳이나 클릭하면 공격함.
-            #region Test
-
-            if (Keyboard.current.nKey.wasPressedThisFrame)
-            {
-                OnTurnEnd = true;
-            }
-
-            if (Keyboard.current.pKey.wasPressedThisFrame)
-            {
-                ApplyDamage(1000, out _);
-            }
-
-           
-            #endregion
-        }
 
         public override void Turning()
         {
             base.Turning();
-
-            #region TestCode
-            if (Keyboard.current.rKey.wasPressedThisFrame)
-            {
-                TryEscape();
-            }
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
-                int damage = RouletteManager.Instance.StartPlayerSpin(numberProbList, operatorProbList)();
+                int damage = RouletteManager.Instance.StartPlayerSpin(numberProbList, operatorProbList, InventoryManager.Instance.GetAllItem())();
 
                 if (minusDamage)
                 {
@@ -105,7 +81,6 @@ namespace Member.YDW.Agents
                 Logging.Log($"Player damage : {damage}");
                 StartCoroutine(Attack(damage));// 플레이어는 검기를 날림. 데미지는 룰렛 산출로 넣어줌.
             }
-            #endregion
         }
         
 

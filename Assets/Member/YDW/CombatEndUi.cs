@@ -38,7 +38,7 @@ namespace Member.YDW
         public void ReturnScene()
         {
             Time.timeScale = 1;
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 }
