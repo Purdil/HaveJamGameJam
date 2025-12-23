@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Tragedy_Mask
   m_EditorClassIdentifier: 
   index: 31
-  <Icon>k__BackingField: {fileID: 0}
-  <ItemName>k__BackingField: Please Enter Item Name Here...
+  <Icon>k__BackingField: {fileID: 21300000, guid: a8b621de065bfac4596179c1263999d7, type: 3}
+  <ItemName>k__BackingField: "\uBE44\uADF9\uC758 \uAC00\uBA74"
   <Description>k__BackingField: Please Enter Item Description Here...
   <ItemPrice>k__BackingField: 0
   <ActiveTurn>k__BackingField: 0

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: HighRisk
   m_EditorClassIdentifier: 
   index: 20
-  <Icon>k__BackingField: {fileID: 0}
-  <ItemName>k__BackingField: Please Enter Item Name Here...
+  <Icon>k__BackingField: {fileID: 21300000, guid: 1ba2b90a94c6ec8489429c4dcdbf31cf, type: 3}
+  <ItemName>k__BackingField: "\uD558\uC774\uB9AC\uC2A4\uD06C"
   <Description>k__BackingField: Please Enter Item Description Here...
   <ItemPrice>k__BackingField: 0
   <ActiveTurn>k__BackingField: 0

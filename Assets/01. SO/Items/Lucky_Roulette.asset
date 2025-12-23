@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Lucky_Roulette
   m_EditorClassIdentifier: 
   index: 26
-  <Icon>k__BackingField: {fileID: 0}
-  <ItemName>k__BackingField: Please Enter Item Name Here...
+  <Icon>k__BackingField: {fileID: 21300000, guid: d5e323fabec7eb549b755ae75db6b7a5, type: 3}
+  <ItemName>k__BackingField: "\uB7ED\uD0A4 \uB8F0\uB81B"
   <Description>k__BackingField: Please Enter Item Description Here...
   <ItemPrice>k__BackingField: 0
   <ActiveTurn>k__BackingField: 0
