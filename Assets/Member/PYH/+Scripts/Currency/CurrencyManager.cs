@@ -105,8 +105,8 @@ namespace Member.PYH._Scripts.Currency
             if (string.IsNullOrEmpty(loadData)) return;
 
             var payload = JsonUtility.FromJson<CurrencySavePayload>(loadData);
-            _currentGold = Mathf.Clamp(payload.gold, 0, int.MaxValue);
-            _currentMagicstone = Mathf.Clamp(payload.magicstone, 0, int.MaxValue);
+            _currentGold = Mathf.Clamp(payload.gold, -int.MaxValue, int.MaxValue);
+            _currentMagicstone = Mathf.Clamp(payload.magicstone, -int.MaxValue, int.MaxValue);
         }
 
         public bool CanUseCurrency(CurrencyType type, int price)
@@ -138,10 +138,10 @@ namespace Member.PYH._Scripts.Currency
             switch (type)
             {
                 case CurrencyType.GOLD:
-                    CurrentGold = Mathf.Clamp(CurrentGold + amount, 0, int.MaxValue);
+                    CurrentGold = Mathf.Clamp(CurrentGold + amount, -int.MaxValue, int.MaxValue);
                     break;
                 case CurrencyType.MAGICSTONE:
-                    CurrentMagicstone = Mathf.Clamp(CurrentMagicstone + amount, 0, int.MaxValue);
+                    CurrentMagicstone = Mathf.Clamp(CurrentMagicstone + amount, -int.MaxValue, int.MaxValue);
                     break;
             }
         }
@@ -158,10 +158,10 @@ namespace Member.PYH._Scripts.Currency
             switch (type)
             {
                 case CurrencyType.GOLD:
-                    CurrentGold = Mathf.Clamp(CurrentGold - price, 0, int.MaxValue);
+                    CurrentGold = Mathf.Clamp(CurrentGold - price, -int.MaxValue, int.MaxValue);
                     break;
                 case CurrencyType.MAGICSTONE:
-                    CurrentMagicstone = Mathf.Clamp(CurrentMagicstone - price, 0, int.MaxValue);
+                    CurrentMagicstone = Mathf.Clamp(CurrentMagicstone - price, -int.MaxValue, int.MaxValue);
                     break;
             }
             Logging.Log("USE CURRENCY");
