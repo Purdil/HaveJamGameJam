@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
-using csiimnida.CSILib.SoundManager.Editor;
 using csiimnida.CSILib.SoundManager.RunTime;
 using DG.Tweening;
-using Unity.AppUI.UI;
+using Member.PYH._Scripts.Ui.Shop;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,6 +14,7 @@ public class OpenUi : MonoBehaviour
     private Vector2 startPos;
     private Tween a;
     [SerializeField] private GameObject panel;
+    [SerializeField] private ShopUi shopUi;
 
     private bool isOpen;
 
@@ -41,6 +40,8 @@ public class OpenUi : MonoBehaviour
     }
     private void SettingToggle()
     {
+        if (CanOpenSetting())
+        
         isOpen = !isOpen;
         SetActive(isOpen);
 
@@ -62,5 +63,10 @@ public class OpenUi : MonoBehaviour
             a = seq;
 
         }
+    }
+
+    private bool CanOpenSetting()
+    {
+        return !shopUi.IsActive;
     }
 }
