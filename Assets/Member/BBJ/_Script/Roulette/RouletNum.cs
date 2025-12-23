@@ -6,18 +6,44 @@ public struct RouletNum : IRouletApply, IRouletInfo, IPriority
     public Vector<float?, int>[] _num;
     public float? Num1
     {
-        get => _num[0].x;
-        set => _num[0].x = value;
+        get
+        {
+            if (_num == null) _num = new Vector<float?, int>[3];
+            return _num[0].x;
+        }
+        set
+        {
+            if (_num == null) _num = new Vector<float?, int>[3];
+            _num[0].x = value;
+        }
     }
+
     public float? Num2
     {
-        get => _num[1].x;
-        set => _num[1].x = value;
+        get
+        {
+            if (_num == null) _num = new Vector<float?, int>[3];
+            return _num[1].x;
+        }
+        set
+        {
+            if (_num == null) _num = new Vector<float?, int>[3];
+            _num[1].x = value;
+        }
     }
+
     public float? Num3
     {
-        get => _num[2].x;
-        set => _num[2].x = value;
+        get
+        {
+            if (_num == null) _num = new Vector<float?, int>[3];
+            return _num[2].x;
+        }
+        set
+        {
+            if (_num == null) _num = new Vector<float?, int>[3];
+            _num[2].x = value;
+        }
     }
     public int Priority { get; set; }
     public RouletNum(float? num1 = default, int? num2 = default, int? num3 = default, int Priority = default)
