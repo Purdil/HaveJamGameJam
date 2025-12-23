@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TestEnemyList
   m_EditorClassIdentifier: 
   <PoolableList>k__BackingField:
-  - {fileID: 11400000, guid: 1b0e9c9eda8eeb0468320ce56d38354a, type: 2}
-  - {fileID: 11400000, guid: 1b0e9c9eda8eeb0468320ce56d38354a, type: 2}
-  - {fileID: 11400000, guid: 1b0e9c9eda8eeb0468320ce56d38354a, type: 2}
+  - {fileID: 11400000, guid: 8c7107db2b681434b9075b25d6334f1e, type: 2}
+  - {fileID: 11400000, guid: 8c7107db2b681434b9075b25d6334f1e, type: 2}
+  - {fileID: 11400000, guid: 8c7107db2b681434b9075b25d6334f1e, type: 2}
+  - {fileID: 11400000, guid: 3e257d915c8b162418bed0cefab40f19, type: 2}

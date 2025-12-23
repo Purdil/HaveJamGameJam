@@ -13,24 +13,31 @@ namespace Member.YDW.AgentSystem
         private Vector2 moveDir;
         private Vector2 destination;
 
-        private bool isMoveEnt;
+        public bool IsMoveEnt { get; private set; }
+
         public void Initialize(Agent owner)
         {
-            _owner = owner;
-            _renderer = _owner.GetCompo<IAgentRenderer>();
+            if (owner != null)
+            {
+                _owner = owner;
+                _renderer = _owner.GetCompo<IAgentRenderer>();
+            }
             _rigidbody = GetComponentInParent<Rigidbody2D>();
+                
         }
 
         private void FixedUpdate()
         {
             if (!ChackArrive() && moveDir !=  Vector2.zero)
             {
-                _renderer.SetParam(velocityXParam,_rigidbody.linearVelocity.x);
+                if(_renderer != null)
+                    _renderer.SetParam(velocityXParam,_rigidbody.linearVelocity.x);
                 _rigidbody.linearVelocity = moveDir.normalized * speed;
             }
             else
             {
-                _renderer.SetParam(velocityXParam,0f);
+                if(_renderer != null)
+                    _renderer.SetParam(velocityXParam,0f);
                 _rigidbody.linearVelocity = Vector3.zero;
                 moveDir = Vector2.zero;
                 destination = Vector2.zero;
@@ -49,6 +56,7 @@ namespace Member.YDW.AgentSystem
         {
             this.destination = destination;
             moveDir = destination - _owner.transform.position;
+            moveDir.Normalize();
         }
     }
 }

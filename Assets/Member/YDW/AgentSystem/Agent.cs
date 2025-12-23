@@ -20,6 +20,7 @@ namespace Member.YDW.AgentSystem
 
         public bool IsActivated {get; private set;}
         public AgentHealth Health { get; private set; }
+        public AgentRenderer AgentRenderer {get; private set;}
         protected virtual void Awake()
         {
             _components = GetComponentsInChildren<IAgentComponent>().ToDictionary(compo => compo.GetType());
@@ -34,6 +35,7 @@ namespace Member.YDW.AgentSystem
             }
             Health = GetComponentInChildren<AgentHealth>();
             Health.OnDeath += HandleDead;
+            AgentRenderer = GetCompo<AgentRenderer>();
         }
 
         private void HandleDead(Agent agent)

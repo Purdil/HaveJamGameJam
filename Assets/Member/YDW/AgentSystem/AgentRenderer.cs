@@ -41,7 +41,9 @@ namespace Member.YDW.AgentSystem
         }
 
         public event Action OnAnimationEnd;
+        public event Action OnAttackTrigger;
         
         private void AnimationEnd() =>  OnAnimationEnd?.Invoke();
+        private void AttackTrigger() =>  OnAttackTrigger?.Invoke();
     }
 }

@@ -2,15 +2,19 @@
 using Core.Logger;
 using Core.PoolSystem;
 using Member.YDW.AgentSystem;
+using Member.YDW.AnimationSystem;
 using UnityEngine;
 
 namespace Member.YDW.HealthSystem
 {
     public class AgentHealth : MonoBehaviour , IAgentComponent , IDamageable, IHealable
     {
+        [SerializeField] private AnimParamSO deathParam;
+        [SerializeField] private AnimParamSO hurtParam;
         [SerializeField] private int maxHealth;
 
         private Agent _owner;
+        
         public event Action<int> OnDamaged;
         public event Action<Agent> OnDeath;
         public int Health {get; private set;}
@@ -35,10 +39,17 @@ namespace Member.YDW.HealthSystem
             Health = Mathf.Clamp(Health, 0, maxHealth);
             if (Health <= 0)
             {
+                _owner.AgentRenderer.SetParam(deathParam, true);
+                _owner.AgentRenderer.OnAnimationEnd += HandleDeath;
                 OnDeath?.Invoke(_owner);
                 Logging.Log($"사망했습니다. {_owner.GetInstanceID()}");
-                PoolManager.Instance.Factory(_owner.PoolableSO).Push(_owner);
             }
+            else
+            {
+                _owner.AgentRenderer.SetParam(hurtParam,true); 
+                _owner.AgentRenderer.OnAnimationEnd += HandleHitEnd;
+            }
+                
             OnDamaged?.Invoke(Health);
             if (over < 0)
             {
@@ -46,7 +57,21 @@ namespace Member.YDW.HealthSystem
                 return;
             }
 
+
             overDamage = 0;
+        }
+
+        private void HandleDeath()
+        {
+            _owner.AgentRenderer.OnAnimationEnd -= HandleDeath;
+            PoolManager.Instance.Factory(_owner.PoolableSO).Push(_owner);
+            _owner.AgentRenderer.SetParam(deathParam, false);
+        }
+
+        private void HandleHitEnd()
+        {
+            _owner.AgentRenderer.SetParam(hurtParam,false);
+            _owner.AgentRenderer.OnAnimationEnd -= HandleHitEnd;
         }
 
         public void ApplyHeal(int heal)

@@ -1,19 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Core.Logger;
 using Member.YDW.Agents;
 using Member.YDW.AgentSystem;
+using Member.YDW.EventChannels;
+using Member.YDW.EventStruct;
 using UnityEngine;
 
 namespace Member.YDW.CombatSystem
 {
     public class EnemyPosManager : MonoBehaviour
     {
+        [SerializeField] private TurnManagerPauseEvent pauseEvent;
         [SerializeField] private Transform[] positions;
-
+        [SerializeField] private EnemyMoveEvent moveEvent;
+        
         private Dictionary<Transform, AbstractEnemy> _enemyPosition = new();
         private List<AbstractEnemy> _enemies = new();
-
+        private bool _waitMove;
         public void Initialize(List<AbstractEnemy> enemies)
         {
             _enemies = enemies;
@@ -29,6 +34,8 @@ namespace Member.YDW.CombatSystem
                 _enemies[i].transform.position = positions[i].position;
                 _enemies[i].Health.OnDeath += DeleteEnemy;
             }
+
+            moveEvent.OnEvent += EnemiesMove;
         }
 
         private void DeleteEnemy(Agent target)
@@ -43,12 +50,17 @@ namespace Member.YDW.CombatSystem
                 }
             }
             //누가 죽으면 재정렬 시킴.
-            EnemiesMove();
-                
+            _waitMove = true;
+            target.Health.OnDeath -= DeleteEnemy;
         }
 
-        public void EnemiesMove()
+        private void EnemiesMove(bool _)
         {
+            if (!_waitMove)
+            {
+                pauseEvent.Raise(false);
+                return;
+            }
             int emptyCount = 0;
             bool reSort = false;
             for (int i = 0; i < positions.Length; i++)
@@ -66,9 +78,22 @@ namespace Member.YDW.CombatSystem
                     }
                 }
             }
-            if(reSort)
-                EnemiesMove();
+
+            if (reSort)
+            {
+                EnemiesMove(_);
+                return;
+            }
+            Logging.Log("RisePauseFalse");
+            StartCoroutine(EndPause()); //정렬이 끝나면 퍼즈 끈냄.
+            _waitMove =  false;
         }
 
+        private IEnumerator EndPause()
+        {
+            yield return new WaitForSeconds(1);
+            pauseEvent.Raise(false);
+            
+        }
     }
 }

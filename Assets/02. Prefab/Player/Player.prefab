@@ -34,6 +34,7 @@ Transform:
   - {fileID: 5597247389128692626}
   - {fileID: 8556228652299819406}
   - {fileID: 6855554268650018578}
+  - {fileID: 5644822437787368204}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3178156789443941324
@@ -52,6 +53,9 @@ MonoBehaviour:
   escapeEvent: {fileID: 11400000, guid: d92225094ceb80445a6ac100d18bcd62, type: 2}
   escapeValueEvent: {fileID: 11400000, guid: ed74433c60c661147be05af7fbffe4ab, type: 2}
   input: {fileID: 11400000, guid: cbd4bf472020a974db38fbf0fa107407, type: 2}
+  swordPrefab: {fileID: 11400000, guid: 807ad18f64f581a49ad14bd71cf79788, type: 2}
+  animParam: {fileID: 11400000, guid: ccb96eb4bf9d3a24fbfbb9669c590275, type: 2}
+  auraSpawnPoint: {fileID: 5644822437787368204}
 --- !u!50 &767491646625730049
 Rigidbody2D:
   serializedVersion: 5
@@ -79,6 +83,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &4445279094177537619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5644822437787368204}
+  m_Layer: 0
+  m_Name: AuraSpawnos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5644822437787368204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4445279094177537619}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.009, y: 1.09, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8397721944043080621}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5402634429831365682
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +142,7 @@ Transform:
   m_GameObject: {fileID: 5402634429831365682}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []

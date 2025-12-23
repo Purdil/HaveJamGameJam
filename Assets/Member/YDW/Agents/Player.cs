@@ -1,11 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using Core.Logger;
+using Core.PoolSystem;
 using Member.YDW.AgentSystem;
+using Member.YDW.AnimationSystem;
 using Member.YDW.EventChannels;
 using Member.YDW.EventStruct;
 using Member.YDW.HealthSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 namespace Member.YDW.Agents
 {
@@ -15,10 +20,15 @@ namespace Member.YDW.Agents
         [SerializeField] private TryEscapeEvent escapeEvent;
         [SerializeField] private EscapeValueEvent  escapeValueEvent;
         [SerializeField] private PlayerInputSO input;
+        [SerializeField] private PoolableSO swordPrefab;
+        [SerializeField] private AnimParamSO animParam;
+        [SerializeField] private Transform auraSpawnPoint;
         private AgentAttack _attackCompo;
+        
+        private readonly List<IDamageable>  _enemies = new();
 
-        private List<IDamageable>  _enemies = new();
-
+        private bool _isAniEnd;
+        
         protected override void Awake()
         {
             base.Awake();
@@ -64,15 +74,33 @@ namespace Member.YDW.Agents
             }
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
-                Attack(100);// 플레이어는 검기를 날림. 데미지는 룰렛 산출로 넣어줌.
-                OnTurnEnd = true;
+                StartCoroutine(Attack(150));// 플레이어는 검기를 날림. 데미지는 룰렛 산출로 넣어줌.
             }
             #endregion
         }
+        
 
-        private void Attack(int damage)
+        private IEnumerator Attack(int damage)
         {
-            
+            AgentRenderer.SetParam(animParam,true);
+            AgentRenderer.OnAnimationEnd += HandleAnimationEnd;
+            yield return new WaitUntil( () => _isAniEnd);
+            _isAniEnd = false;
+            AgentRenderer.SetParam(animParam, false);
+            MonoBehaviour swordAuraInstance = PoolManager.Instance.Factory(swordPrefab).Pop();
+            if (swordAuraInstance is SwordAura swordAura)
+            {
+                swordAuraInstance.transform.position = auraSpawnPoint.position;
+                swordAura.Initialize(damage);
+                swordAura.SettingSO(swordPrefab);
+                OnTurnEnd = true;
+            }
+        }
+
+        private void HandleAnimationEnd()
+        {
+            _isAniEnd = true;
+            AgentRenderer.OnAnimationEnd -= HandleAnimationEnd;
         }
 
         public override void EndTurn()
@@ -83,12 +111,13 @@ namespace Member.YDW.Agents
 
 
         private float _escapeChance;
-
+        public Action<float> EscapeChanceCallback;
         private int _escapeChanceCount = 1;
 
         private void ModifyEscapeChance(float amount)
         {
             _escapeChance = Mathf.Clamp(_escapeChance + amount, 0f, 100f);
+            EscapeChanceCallback?.Invoke(_escapeChance);
         }
 
         private void TryEscape()
@@ -101,6 +130,11 @@ namespace Member.YDW.Agents
             _escapeChanceCount--;
             float roll = Random.Range(0f, 100f);
             escapeEvent.Raise(roll < _escapeChance);
+            OnTurnEnd = true;
+        }
+
+        public void IsTurnEnd()
+        {
             OnTurnEnd = true;
         }
 
