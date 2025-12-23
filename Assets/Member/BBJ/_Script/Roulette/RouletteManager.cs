@@ -48,10 +48,6 @@ public class RouletteManager : MonoSingleton<RouletteManager>
         rouletApplyUIChannel.Raise(a); // ���밪UI
 
 
-        rouletEndChannel.Raise((data) => { RouletData.Setter(data); }); // ����
-        a.Setter(RouletData);
-        rouletApplyUIChannel.Raise(a); // ���밪UI
-
         Logging.Log($"{a.rouletNum.Num1.Value} {a.rouletOperator.Operator1.std} {a.rouletNum.Num2.Value} {a.rouletOperator.Operator2.std} {a.rouletNum.Num3.Value}");
 
         itemUnsubChannel.Raise(list);

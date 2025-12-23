@@ -1,4 +1,5 @@
 using Core.Logger;
+using DG.Tweening;
 using JetBrains.Annotations;
 using NUnit.Framework;
 using System;
@@ -34,20 +35,23 @@ public class RouletteUIManager : MonoBehaviour
 
     private void OnOpertion(RouletData data)
     {
-        //data.applyrouletNum.Sort();
-        //float result = 0;
+        data.applyrouletNum.Sort();
+        float result = 0;
 
-        //for (int i = 0; i < data.applyrouletNum.Count; i++)
-        //{
-        //    // 딜레이
-        //    data.rouletNum.Apply(data.applyrouletNum[i]);
-        //}
-        //infoUI[0].TweenClear();
-        //infoUI[1].TweenClear();
-        //infoUI[2].TweenClear();
-        //resultInfoUI.TweenClear();
+        for (int i = 0; i < data.applyrouletNum.Count; i++)
+        {
+            data.rouletNum.Apply(data.applyrouletNum[i]);
+        }
+        DOVirtual.DelayedCall(applyDelay,() =>
+        {
+            ApplyCoroutine(data);
+            infoUI[0].TweenClear();
+            infoUI[1].TweenClear();
+            infoUI[2].TweenClear();
+        });
 
         resultUI.TweenStart(data.GetResult().ToString());
+        resultInfoUI.TweenClear();
     }
 
     private void OnDestroy()
@@ -83,7 +87,8 @@ public class RouletteUIManager : MonoBehaviour
     }
     public void OnApplyItem(RouletData rouletData)
     {
-        ApplyCoroutine(rouletData);
+        DOVirtual.DelayedCall(applyDelay ,
+            ()=> ApplyCoroutine(rouletData));
     }
     private void ApplyCoroutine(RouletData rouletData)
     {
@@ -92,12 +97,11 @@ public class RouletteUIManager : MonoBehaviour
         //yield return new WaitForSeconds(applyDelay);
         //Logging.Log("적용 시작");
 
-        //numInfoUI[0].ApplyItem(rouletData.rouletNum.Num1.ToString());
-        //operInfoUI[0].ApplyItem(rouletData.rouletOperator.Operator1.std);
-        //numInfoUI[1].ApplyItem(rouletData.rouletNum.Num2.ToString());
-        //operInfoUI[1].ApplyItem(rouletData.rouletOperator.Operator2.std);
-        //numInfoUI[2].ApplyItem(rouletData.rouletNum.Num3.ToString());
-        //yield return new WaitForSeconds(applyDelay);
+        numInfoUI[0].ApplyItem(rouletData.rouletNum.Num1.ToString());
+        operInfoUI[0].ApplyItem(rouletData.rouletOperator.Operator1.std);
+        numInfoUI[1].ApplyItem(rouletData.rouletNum.Num2.ToString());
+        operInfoUI[1].ApplyItem(rouletData.rouletOperator.Operator2.std);
+        numInfoUI[2].ApplyItem(rouletData.rouletNum.Num3.ToString());
 
         if (rouletData.applyrouletNum != null)
         {
@@ -131,12 +135,15 @@ public class RouletteUIManager : MonoBehaviour
 
         }
 
-        //if (rouletData.applyFinal != null)
-        //    foreach (var item in rouletData.applyFinal)
-        //    {
-        //        infoUI[0].TweenStart(item.ApplyOperator.std + item.final);
-        //        yield return new WaitForSeconds(applyDelay);
-        //    }
+        if (rouletData.applyFinal != null)
+        {
+            List<ApplyStruct> a2 = new List<ApplyStruct>();
+            foreach (var item in rouletData.applyFinal)
+            {
+                a2.Add( new ApplyStruct(item.final, item.ApplyOperator));
+            }
+            resultInfoUI.TweenStart(a2.ToArray());
+        }
     }
 }
 
