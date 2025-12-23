@@ -2554,8 +2554,8 @@ MonoBehaviour:
   shopChannel: {fileID: 425209613}
   blackmarketChannel: {fileID: 125431759}
   channelFadeImage: {fileID: 1209701179}
-  shopUi: {fileID: 425209614}
-  background: {fileID: 1209701179}
+  shopUi: {fileID: 253865910}
+  background: {fileID: 402696294}
   onTryBuyEvent:
     m_PersistentCalls:
       m_Calls:
@@ -2785,8 +2785,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -199, y: -21}
-  m_SizeDelta: {x: 1385, y: 133}
+  m_AnchoredPosition: {x: -205.30261, y: -21}
+  m_SizeDelta: {x: 1389.3945, y: 133}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1190076251
 MonoBehaviour:
@@ -3031,8 +3031,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -170, y: 453}
-  m_SizeDelta: {x: 205, y: 132}
+  m_AnchoredPosition: {x: -166.25, y: 453}
+  m_SizeDelta: {x: 212, y: 134}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1252274718
 MonoBehaviour:
@@ -3881,8 +3881,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -370, y: 453}
-  m_SizeDelta: {x: 205, y: 132}
+  m_AnchoredPosition: {x: -368.71948, y: 453}
+  m_SizeDelta: {x: 212, y: 134}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1686007246
 MonoBehaviour:
