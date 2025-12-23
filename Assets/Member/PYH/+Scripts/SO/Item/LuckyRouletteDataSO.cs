@@ -1,13 +1,13 @@
 ﻿using System;
 using BBJ;
+using Core.Logger;
 using UnityEngine;
 
 namespace Member.PYH._Scripts.SO.Item
 {
-    [CreateAssetMenu(fileName = "LuckyRouletteDataSO", menuName = "SO/ITEM/LuckyRouletteDataSO")]
+    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
     public class LuckyRouletteDataSO : ItemSO, IWearOutItem, IAfterApplyTrunIteem<RouletNum, RouletNum>
     {
-        [field: SerializeField] public float Probability { get; private set; }
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public int Durability { get; private set; }
         

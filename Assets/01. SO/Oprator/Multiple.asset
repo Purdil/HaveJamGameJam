@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Multiple
   m_EditorClassIdentifier: 
   <std>k__BackingField: x
+  <Priority>k__BackingField: 1

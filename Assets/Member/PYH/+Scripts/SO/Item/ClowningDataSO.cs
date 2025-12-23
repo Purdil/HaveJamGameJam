@@ -6,12 +6,10 @@ using Random = UnityEngine.Random;
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "ClowningDataSO", menuName = "SO/ITEM/ClowningDataSO")]
-    public class ClowningDataSO : ItemSO, IBeforeApplyTrunItem<RouletOperator>, IAfterApplyTrunIteem<RouletNum, ApplyFinal>, IWearOutItem
+    public class ClowningDataSO : ItemSO, IBeforeApplyTrunItem<RouletOperator>, IAfterApplyTrunIteem<RouletNum, ApplyFinal>
     {
         [field: SerializeField] public float Probability { get; private set; }
         [SerializeField] private OperatorSO multiply, plus, divide;
-        public Action<IDestroyItem> Destroyed { get; set; }
-        public int Durability { get; }
         
         public void BeforeApply(Action<RouletOperator> numSetter)
         {
@@ -60,10 +58,9 @@ namespace Member.PYH._Scripts.SO.Item
         {
             var a = new ApplyFinal();
             var b = Getter();
-            a.final = b.Num2.Value;
+            a.final = (int)b.Num2.Value;
             a.ApplyOperator = plus;
             Setter(a);
-            Destroyed?.Invoke(this);
         }
 
         public void Acquire()
@@ -72,8 +69,6 @@ namespace Member.PYH._Scripts.SO.Item
         public void UnAcquire()
         {
         }
-        public void WearOut()
-        {
-        }
+
     }
 }

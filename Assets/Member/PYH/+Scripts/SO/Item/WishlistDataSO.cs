@@ -2,13 +2,13 @@
 using BBJ;
 using Core.Logger;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Member.PYH._Scripts.SO.Item
 {
-    [CreateAssetMenu(fileName = "WishlistDataSO", menuName = "SO/ITEM/WishlistDataSO")]
+    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
     public class WishlistDataSO : ItemSO, IWearOutItem, IAfterApplyTrunIteem<RouletOperator, ApplyRouletNum>
     {
-        [field: SerializeField] public float Probability { get; private set; }
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public int Durability { get; private set; }
         
