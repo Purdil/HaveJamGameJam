@@ -176,6 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3904147488966939510}
   - component: {fileID: 5441728272933735897}
+  - component: {fileID: 4431773689843624005}
   m_Layer: 5
   m_Name: BGM Slide
   m_TagString: Untagged
@@ -268,6 +269,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4431773689843624005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053954822445948615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79e99ad527095b40a1bae66dd55f57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioType: 1
 --- !u!1 &1457637323163649216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,7 +1491,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ef99547d5e3343243952d1fdd910ba20, type: 2}
-  m_sharedMaterial: {fileID: 6826908594570447800, guid: 1d6aa744224b1f84790eaf63bbcdd9a8, type: 2}
+  m_sharedMaterial: {fileID: 1973918710382178373, guid: ef99547d5e3343243952d1fdd910ba20, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1542,7 +1556,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &6108449968763004996
@@ -1688,6 +1702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3167111047315373693}
   - component: {fileID: 8339183464692166028}
+  - component: {fileID: 3134540311881811577}
   m_Layer: 5
   m_Name: Master Slide
   m_TagString: Untagged
@@ -1780,6 +1795,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3134540311881811577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6310088704227197295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79e99ad527095b40a1bae66dd55f57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioType: 0
 --- !u!1 &6538668827217054010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2344,7 +2372,7 @@ MonoBehaviour:
   m_text: SFX
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ef99547d5e3343243952d1fdd910ba20, type: 2}
-  m_sharedMaterial: {fileID: 6826908594570447800, guid: 1d6aa744224b1f84790eaf63bbcdd9a8, type: 2}
+  m_sharedMaterial: {fileID: 1973918710382178373, guid: ef99547d5e3343243952d1fdd910ba20, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2409,7 +2437,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8106994044617041922
@@ -2422,6 +2450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2036390125333494184}
   - component: {fileID: 7116627247703828900}
+  - component: {fileID: 489540839113837703}
   m_Layer: 5
   m_Name: SFX Slide
   m_TagString: Untagged
@@ -2514,6 +2543,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &489540839113837703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8106994044617041922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79e99ad527095b40a1bae66dd55f57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioType: 2
 --- !u!1 &8163661784029853957
 GameObject:
   m_ObjectHideFlags: 0

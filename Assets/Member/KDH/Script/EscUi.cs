@@ -14,10 +14,22 @@ public class EscUi : MonoBehaviour
 
     public void OnEnd()
     {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    SettingToggle();
-        //}
         Application.Quit();
+    }
+    public void GoLobby()
+    {
+        SceneManager.LoadScene("LobbyScene");
+    }
+    public void GoBattle()
+    {
+        SceneManager.LoadScene("");
+    }
+    public void GoDebt()
+    {
+        SceneManager.LoadScene("");
+    }
+    public void GoShop()
+    {
+        SceneManager.LoadScene("");
     }
 }
