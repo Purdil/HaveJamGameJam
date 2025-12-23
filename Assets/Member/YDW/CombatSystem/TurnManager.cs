@@ -89,7 +89,8 @@ namespace Member.YDW.CombatSystem
                 Logging.Log(_currentTurnAgent.User.GetInstanceID().ToString());
                 if(_currentTurnAgent is Player player)
                     player.InitTargets(_enemies);
-                randomEvent.Raise(AgentType.Player);
+                if(_player is ICanHoldRandomEvent agent)
+                    randomEvent.Raise(agent);
                 yield return StartCoroutine(StartTurn());
                 
                 while (_pause)
@@ -123,7 +124,8 @@ namespace Member.YDW.CombatSystem
                     Logging.Log("Pause 2");
                 }
                 _currentTurnAgent = _currentEnemy;
-                randomEvent.Raise(AgentType.Enemy);
+                if(_currentEnemy is ICanHoldRandomEvent agent2)
+                    randomEvent.Raise(agent2);
                 (_currentEnemy as AbstractEnemy)?.InitTarget(_player.User as Player);
                 yield return StartCoroutine(StartTurn());
                 while (_pause)
