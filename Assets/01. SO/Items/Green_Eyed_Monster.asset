@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Green_Eyed_Monster
   m_EditorClassIdentifier: 
   index: 15
-  <Icon>k__BackingField: {fileID: 0}
-  <ItemName>k__BackingField: Please Enter Item Name Here...
+  <Icon>k__BackingField: {fileID: 21300000, guid: 47825a1a0b22c804d91455ad62a710da, type: 3}
+  <ItemName>k__BackingField: "\uB179\uC0C9 \uB208\uC758 \uAD34\uBB3C"
   <Description>k__BackingField: Please Enter Item Description Here...
   <ItemPrice>k__BackingField: 0
   <ActiveTurn>k__BackingField: 0

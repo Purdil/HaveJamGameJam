@@ -1,10 +1,5 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
-using Core;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using Core.Logger;
-using System;
-using JetBrains.Annotations;
 
 public struct RouletData: IRouletApply
 {
@@ -70,17 +65,20 @@ public struct RouletData: IRouletApply
             ApplyRouletNum item = applyrouletNum[i];
             var a = item.RouletNum;
             rouletNum.Num1 = item.ApplyOperator.Operation(rouletNum.Num1.Value, a.Num1.Value);
-            rouletNum.Num2 = item.ApplyOperator.Operation(rouletNum.Num1.Value, a.Num1.Value);
-            rouletNum.Num3 = item.ApplyOperator.Operation(rouletNum.Num1.Value, a.Num1.Value);
+            rouletNum.Num2 = item.ApplyOperator.Operation(rouletNum.Num2.Value, a.Num2.Value);
+            rouletNum.Num3 = item.ApplyOperator.Operation(rouletNum.Num3.Value, a.Num3.Value);
         }
-
-        if (rouletOperator.oper[0].y < rouletOperator.oper[0].y)
+        if (Mathf.Max(rouletOperator.oper[0].x.Priority , rouletOperator.oper[0].y) < Mathf.Max(rouletOperator.oper[1].x.Priority, rouletOperator.oper[1].y))
         {
-           result = rouletOperator.oper[0].x.Operation(rouletNum.Num1.Value, rouletOperator.oper[0].x.Operation(rouletNum.Num2.Value, rouletNum.Num3.Value));
+            var temp = rouletOperator.oper[1].x.Operation(rouletNum.Num2.GetValueOrDefault(), rouletNum.Num3.GetValueOrDefault());
+
+           result = rouletOperator.oper[0].x.Operation(rouletNum.Num1.GetValueOrDefault(), temp);
         }
         else
         {
-           result = rouletOperator.oper[0].x.Operation(rouletOperator.oper[0].x.Operation(rouletNum.Num1.Value, rouletNum.Num2.Value), rouletNum.Num3.Value);
+            var temp = rouletOperator.oper[0].x.Operation(rouletNum.Num1.GetValueOrDefault(), rouletNum.Num2.GetValueOrDefault());
+
+            result = rouletOperator.oper[1].x.Operation(rouletNum.Num3.GetValueOrDefault(), temp);
         }
 
         for (int i = 0; i < applyFinal.Count; i++)

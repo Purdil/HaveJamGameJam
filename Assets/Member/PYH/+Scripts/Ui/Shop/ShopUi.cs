@@ -188,12 +188,12 @@ namespace Member.PYH._Scripts.Ui.Shop
                 if (slot == null) continue;
 
                 Image img = slot.highlight;
-                //TMP_Text text = slot.itemName;
+                TMP_Text text = slot.itemName;
                 
                 if (img == null) continue;
 
                 img.color = (slot == CurrentSlot) ? Color.yellow : Color.white;
-                //text.color = (slot == CurrentSlot) ? Color.yellow : Color.white;
+                text.color = (slot == CurrentSlot) ? Color.yellow : Color.white;
             }
         }
         private void CenterCurrentSlotInScroll(bool instant)
