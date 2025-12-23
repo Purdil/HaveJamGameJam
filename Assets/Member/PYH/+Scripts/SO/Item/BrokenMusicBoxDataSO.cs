@@ -6,9 +6,11 @@ using Random = UnityEngine.Random;
 namespace Member.PYH._Scripts.SO.Item
 {
     [CreateAssetMenu(fileName = "BrokenMusicBoxDataSO", menuName = "SO/ITEM/BrokenMusicBoxDataSO")]
-    public class BrokenMusicBoxDataSO : ItemSO, IBeforeApplyTrunItem<RouletNum>, IProbabilityItem
+    public class BrokenMusicBoxDataSO : ItemSO, IBeforeApplyTrunItem<RouletNum>, IProbabilityItem, IWearOutItem
     {
         [field: SerializeField] public float Probability { get; private set; }
+        public Action<IDestroyItem> Destroyed { get; set; }
+        [field: SerializeField] public int Durability { get; private set; }
         
         public void BeforeApply(Action<RouletNum> numSetter)
         {
@@ -36,13 +38,21 @@ namespace Member.PYH._Scripts.SO.Item
             
             numSetter(a);
         }
+        public void WearOut()
+        {
+            Durability--;
 
+            if (Durability == 0)
+            {
+                Destroyed?.Invoke(this);
+            }
+        }
+        
         public void Acquire()
         {
         }
         public void UnAcquire()
         {
         }
-
     }
 }

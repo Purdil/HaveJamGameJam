@@ -6,9 +6,10 @@ using Random = UnityEngine.Random;
 
 namespace Member.PYH._Scripts.SO.Item
 {
-    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
+    [CreateAssetMenu(fileName = "TragedyMaskDataSO", menuName = "SO/ITEM/TragedyMaskDataSO")]
     public class TragedyMaskDataSO : ItemSO, IWearOutItem, IBeforeApplyTrunItem<RouletOperator>
     {
+        [field: SerializeField] public float Probability { get; private set; }
         public Action<IDestroyItem> Destroyed { get; set; }
         [field: SerializeField] public int Durability { get; private set; }
         [SerializeField] private OperatorSO multiply;

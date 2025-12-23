@@ -5,11 +5,10 @@ using Random = UnityEngine.Random;
 
 namespace Member.PYH._Scripts.SO.Item
 {
-    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
-    public class HalfBeanDataSO : ItemSO, IWearOutItem, IBeforeApplyTrunItem<RouletOperator>
+    [CreateAssetMenu(fileName = "HalfBeanDataSO", menuName = "SO/ITEM/HalfBeanDataSO")]
+    public class HalfBeanDataSO : ItemSO, IBeforeApplyTrunItem<RouletOperator>
     {
-        public Action<IDestroyItem> Destroyed { get; set; }
-        [field: SerializeField] public int Durability { get; private set; }
+        [field: SerializeField] public float Probability { get; private set; }
         [SerializeField] private OperatorSO multiply, divide;
         
         public void BeforeApply(Action<RouletOperator> operatorSetter)
@@ -41,16 +40,6 @@ namespace Member.PYH._Scripts.SO.Item
                 }
             }
             operatorSetter(a);
-            WearOut();
-        }
-        public void WearOut()
-        {
-            Durability--;
-
-            if (Durability == 0)
-            {
-                Destroyed?.Invoke(this);
-            }
         }
 
         public void Acquire()

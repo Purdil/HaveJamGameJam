@@ -19,8 +19,9 @@ MonoBehaviour:
     \uC5F0\uC0B0\uC790 \uCE78\uC744 \uACF1\uC148\uC73C\uB85C \uBC14\uAFBC \uB4A4
     \uCD5C\uC885 \uACB0\uACFC\uC5D0 -25\uB97C \uD568 (\uBC1C\uB3D9 \uD6C4 25% \uD655\uB960\uB85C
     \uC544\uC774\uD15C\uC774 \uD30C\uAD34\uB428)"
-  <ItemPrice>k__BackingField: 0
+  <ItemPrice>k__BackingField: 2221
   <ActiveTurn>k__BackingField: 0
-  <Durability>k__BackingField: 0
-  multiply: {fileID: 0}
-  minus: {fileID: 0}
+  <Probability>k__BackingField: 10
+  <Durability>k__BackingField: 2
+  multiply: {fileID: 11400000, guid: 7a474416a68e6714695a26dff50c4c78, type: 2}
+  minus: {fileID: 11400000, guid: 58be907de4884554f8a77a15148b3714, type: 2}
