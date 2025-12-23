@@ -23,8 +23,14 @@ public class RouletteUIManager : MonoBehaviour
     [SerializeField] private float roulettTime;
     [SerializeField] private float roulettDelay;
     [SerializeField] private float applyDelay;
+    [SerializeField] public float finalTime;
+
+    private Coroutine coroutine;
+    private Coroutine Roulettecoroutine;
+
 
     private bool isRoulette;
+
 
     private void Awake()
     {
@@ -35,23 +41,34 @@ public class RouletteUIManager : MonoBehaviour
 
     private void OnOpertion(RouletData data)
     {
-        data.applyrouletNum.Sort();
-        float result = 0;
+        StartCoroutine(enumerator(data));
+    }
+    private IEnumerator enumerator(RouletData data)
+    {
+        yield return new WaitUntil(() => isRoulette == false);
+        //float result = 0;
 
+        if (coroutine != null)
+            StopCoroutine(coroutine);
+        coroutine = StartCoroutine(ApplyCoroutine(data));
+        yield return new WaitForSeconds(applyDelay);
         for (int i = 0; i < data.applyrouletNum.Count; i++)
         {
             data.rouletNum.Apply(data.applyrouletNum[i]);
         }
-        DOVirtual.DelayedCall(applyDelay,() =>
-        {
-            ApplyCoroutine(data);
-            infoUI[0].TweenClear();
-            infoUI[1].TweenClear();
-            infoUI[2].TweenClear();
-        });
 
-        resultUI.TweenStart(data.GetResult().ToString());
+        if (coroutine != null)
+            StopCoroutine(coroutine);
+        coroutine = StartCoroutine(ApplyCoroutine(data));
+        infoUI[0].TweenClear();
+        infoUI[1].TweenClear();
+        infoUI[2].TweenClear();
+
+        yield return new WaitForSeconds(finalTime);
+
         resultInfoUI.TweenClear();
+        resultUI.TweenStart(data.GetResult().ToString());
+
     }
 
     private void OnDestroy()
@@ -63,6 +80,7 @@ public class RouletteUIManager : MonoBehaviour
 
     private void OnRouletteStart(RouletData rouletData)
     {
+        resultUI.TweenStart("");
         isRoulette = true;
         StartCoroutine(RouletteCoroutine(rouletData, () => isRoulette = false));
     }
@@ -87,14 +105,13 @@ public class RouletteUIManager : MonoBehaviour
     }
     public void OnApplyItem(RouletData rouletData)
     {
-        DOVirtual.DelayedCall(applyDelay ,
-            ()=> ApplyCoroutine(rouletData));
+        if (coroutine != null)
+            StopCoroutine(coroutine);
+           coroutine = StartCoroutine(ApplyCoroutine(rouletData));
     }
-    private void ApplyCoroutine(RouletData rouletData)
+    private IEnumerator ApplyCoroutine(RouletData rouletData)
     {
-        //yield return new WaitUntil(() => isRoulette == false);
-
-        //yield return new WaitForSeconds(applyDelay);
+        yield return new WaitUntil(() => isRoulette == false);
         //Logging.Log("적용 시작");
 
         numInfoUI[0].ApplyItem(rouletData.rouletNum.Num1.ToString());
@@ -140,7 +157,7 @@ public class RouletteUIManager : MonoBehaviour
             List<ApplyStruct> a2 = new List<ApplyStruct>();
             foreach (var item in rouletData.applyFinal)
             {
-                a2.Add( new ApplyStruct(item.final, item.ApplyOperator));
+                a2.Add(new ApplyStruct(item.final, item.ApplyOperator));
             }
             resultInfoUI.TweenStart(a2.ToArray());
         }

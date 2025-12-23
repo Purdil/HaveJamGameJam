@@ -2625,9 +2625,9 @@ MonoBehaviour:
   - {fileID: 7618819319538022029}
   resultUI: {fileID: 2867196131685899556}
   resultInfoUI: {fileID: 6271510483650974082}
-  roulettTime: 2
+  roulettTime: 1
   roulettDelay: 0.2
-  applyDelay: 5
+  applyDelay: 4
 --- !u!1 &5885764627670849593
 GameObject:
   m_ObjectHideFlags: 0
