@@ -1,38 +1,35 @@
-using System;
+using Core.Logger;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "PlayerInputSO", menuName = "Scriptable Objects/PlayerInputSO")]
-public class PlayerInputSO : ScriptableObject, PlayerInput.IPlayerActions
+public class PlayerInputSO : ScriptableObject, Control.IPlayerActions
 {
-    private PlayerInput input;
+    private Control input;
 
-    public event Action MouseClick;
-    private void Awake()
+    [field: SerializeField] public Vector3 MoveDir { get; private set; }
+    
+    
+    private void OnEnable()
     {
         if (input == null)
         {
-            input = new PlayerInput();
+            input = new Control();
             input.Player.SetCallbacks(this);
             
         }
         
-        input.Player.Enable();
+        input.Enable();
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
-        input.Player.Disable();
+        input.Disable();
     }
 
-
-    public void OnMouseClick(InputAction.CallbackContext context)
+    public void OnMove(InputAction.CallbackContext context)
     {
-        MouseClick?.Invoke();
+        MoveDir = context.ReadValue<Vector2>();
+        Logging.Log($"MoveDir: {MoveDir}");
     }
-    
-    
-    
-    
-    
 }
