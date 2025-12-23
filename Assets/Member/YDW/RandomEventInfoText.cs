@@ -9,7 +9,7 @@ namespace Member.YDW
     {
         [SerializeField] private RandomEventInfoEvent _eventInfoEvent;
 
-        [SerializeField] private TextMeshPro _description;
+        [SerializeField] private TextMeshProUGUI _description;
         private void Awake()
         {
             gameObject.SetActive(false);

@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Core.Logger;
+using Member.PYH._Scripts.Currency;
 using Member.YDW.Agents;
 using Member.YDW.Agents.Enemys;
 using Member.YDW.AgentSystem;
 using Member.YDW.EventChannels;
 using Member.YDW.EventStruct;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace Member.YDW.CombatSystem
 {
@@ -67,6 +69,7 @@ namespace Member.YDW.CombatSystem
         {
             if (_enemies.Contains(agent as AbstractEnemy))
             {
+                CurrencyManager.Instance.TryGiveCurrency(CurrencyType.MAGICSTONE,1);
                 _enemies.Remove(agent as AbstractEnemy);
             }
 
