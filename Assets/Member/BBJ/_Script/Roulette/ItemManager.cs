@@ -1,5 +1,6 @@
 using BBJ;
 using Core;
+using JetBrains.Annotations;
 using Member.PYH._Scripts.SO;
 using System;
 using System.Collections.Generic;
@@ -38,31 +39,20 @@ public class ItemManager : MonoSingleton<ItemManager>
         rouletStartChannel.OnEvent += OnRouletBefore;
         rouletEndChannel.OnEvent += OnRouletAfter;
         itemSubChannel.OnEvent += ResetSpine;
-        itemUnsubChannel.OnEvent +=  EndTrun;
+        itemUnsubChannel.OnEvent += EndTrun;
     }
     public void OnDestroy()
     {
         rouletStartChannel.OnEvent -= OnRouletBefore;
         rouletEndChannel.OnEvent -= OnRouletAfter;
         itemSubChannel.OnEvent -= ResetSpine;
-        itemUnsubChannel.OnEvent -=  EndTrun;
+        itemUnsubChannel.OnEvent -= EndTrun;
     }
-    public void EndTrun(List<ItemSO> _) => UnSubItems();
-    //public void StartTrun(List<ItemSO> list)
-    //{
-    //    foreach (var item in list)
-    //    {
-    //        if (item is IDelayItem delay)
-    //        {
-    //            if (delay.isDelay)
-    //            {
-    //                delay.StartDelay();
-    //            }
-    //        }
-    //    }
-    //}
+    public void EndTrun(List<ItemSO> _) {if (_ == null) return; UnSubItems(); }
     public void ResetSpine(List<ItemSO> list)
     {
+        if (list == null) return;
+
         _currentTrunUseItem.Clear();
         foreach (var item in list)
         {
@@ -112,20 +102,20 @@ public class ItemManager : MonoSingleton<ItemManager>
     }
     public void OnRouletBefore(Action<RouletData> setter)
     {
-        var result = new RouletData(new RouletNum(), new RouletOperator());
-        /*var num = RouletteManager.Instance.rouletData.rouletNum;
+        var result = new RouletData(new RouletNum(null), new RouletOperator(null));
+        var num = RouletteManager.Instance.rouletData.rouletNum;
         var oper = RouletteManager.Instance.rouletData.rouletOperator;
 
         OnBefore_RouletNum?.Invoke((RouletNum num) => result.Setter(num));
         OnBefore_ApplyFinal?.Invoke((ApplyFinal num) => result.Setter(num));
         OnBefore_ApplyRouletNum?.Invoke((ApplyRouletNum num) => result.Setter(num));
-        OnBefore_RouletOperator?.Invoke((RouletOperator num) => result.Setter(num));*/
+        OnBefore_RouletOperator?.Invoke((RouletOperator num) => result.Setter(num));
         setter(result);
     }
     public void OnRouletAfter(Action<RouletData> setter)
     {
-        var result = new RouletData(new RouletNum(), new RouletOperator());
-        /*var num = RouletteManager.Instance.rouletData.rouletNum;
+        var result = new RouletData(new RouletNum(null), new RouletOperator(null));
+        var num = RouletteManager.Instance.rouletData.rouletNum;
         var oper = RouletteManager.Instance.rouletData.rouletOperator;
         OnAfter_RN_RN?.Invoke(() => { return num; }, (RouletNum num) => result.Setter(num));
         OnAfter_RN_AF?.Invoke(() => { return num; }, (ApplyFinal num) => result.Setter(num));
@@ -136,7 +126,7 @@ public class ItemManager : MonoSingleton<ItemManager>
         OnAfter_RO_AF?.Invoke(() => { return oper; }, (ApplyFinal num) => result.Setter(num));
         OnAfter_RO_ARN?.Invoke(() => { return oper; }, (ApplyRouletNum num) => result.Setter(num));
         OnAfter_RO_RO?.Invoke(() => { return oper; }, (RouletOperator num) => result.Setter(num));
-        setter(result);*/
+        setter(result);
     }
 
     public void UnSubItems()

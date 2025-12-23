@@ -19,4 +19,4 @@ MonoBehaviour:
   <ItemPrice>k__BackingField: 0
   <ActiveTurn>k__BackingField: 0
   <Durability>k__BackingField: 0
-  square: {fileID: 0}
+  square: {fileID: 11400000, guid: 5500a6c3dc6145d4d868fdfe642b68b1, type: 2}

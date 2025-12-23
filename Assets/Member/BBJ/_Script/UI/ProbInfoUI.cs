@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class ProbInfoUI : MonoBehaviour
 {
-    [SerializeField]private TextMeshProUGUI numTMP;
-    [SerializeField]private TextMeshProUGUI operTMP;
+    [SerializeField] private TextMeshProUGUI numTMP;
+    [SerializeField] private TextMeshProUGUI operTMP;
 
-    [SerializeField]private NumberProbListSO numData;
-    [SerializeField]private OperatorProbListSO operData;
+    [SerializeField] private NumberProbListSO numData;
+    [SerializeField] private OperatorProbListSO operData;
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class ProbInfoUI : MonoBehaviour
     private void ApplyNumProb(NumberProbInfo[] info)
     {
         var sb = new StringBuilder();
-        foreach(var item in info)
+        foreach (var item in info)
         {
             sb.Append(item.num);
             sb.Append(" : ");
@@ -37,7 +37,7 @@ public class ProbInfoUI : MonoBehaviour
         {
             sb.Append(item.str);
             sb.Append(" : ");
-            sb.Append((item.prob*100).ToString("F2"));
+            sb.Append((item.prob * 100).ToString("F2"));
             sb.Append("%\n");
         }
         operTMP.text = sb.ToString();

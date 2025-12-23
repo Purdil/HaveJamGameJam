@@ -22,6 +22,6 @@ MonoBehaviour:
   <ItemPrice>k__BackingField: 0
   <ActiveTurn>k__BackingField: 0
   <Probability>k__BackingField: 0
-  multiply: {fileID: 0}
-  plus: {fileID: 0}
-  divide: {fileID: 0}
+  multiply: {fileID: 11400000, guid: 7a474416a68e6714695a26dff50c4c78, type: 2}
+  plus: {fileID: 11400000, guid: e69bc13a35165814c8257de2933d0e9e, type: 2}
+  divide: {fileID: 11400000, guid: a922a8c576b8eed45a46d5929096ec29, type: 2}

@@ -35,13 +35,13 @@ public class RouletteSlotUI : MonoBehaviour
             })
 
              .Prepend(tempTMP.transform.DOLocalMoveY(-temp, duration)
-             .From(slot1TMP.transform.localPosition, false))
+             .From(slot1TMP.transform.localPosition))
 
              .Join(slot1TMP.transform.DOLocalMoveY(-temp, duration)
-             .From(slot2TMP.transform.localPosition, false))
+             .From(slot2TMP.transform.localPosition))
 
              .Join(slot2TMP.transform.DOLocalMoveY(0, duration)
-             .From(slot1TMP.transform.localPosition + new Vector3(0, temp, 0), false));
+             .From(slot1TMP.transform.localPosition + new Vector3(0, temp, 0)));
     }
 
 
