@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb5d50f5bac466b939bb446fe029b29, type: 3}
+  m_Name: Moeny9
+  m_EditorClassIdentifier: 
+  poolableListSOs:
+  - {fileID: 11400000, guid: d1b182b7302d9d44ba3695ce28114a8c, type: 2}
+  - {fileID: 11400000, guid: 21df21cca49db9c48965245a608ffdd7, type: 2}
+  - {fileID: 11400000, guid: 301d6228933456c4498d3d43251482ae, type: 2}
+  - {fileID: 11400000, guid: e6dbe689e510fa04a81b91c44c0e3015, type: 2}
