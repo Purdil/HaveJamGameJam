@@ -3,18 +3,18 @@ using Member.PYH._Scripts.SO;
 
 public struct RouletNum : IRouletApply, IRouletInfo, IPriority
 {
-    public Vector<float?, int>[] _num;
+    public Vector<float?, int>[] Num;
     public float? Num1
     {
         get
         {
-            if (_num == null) _num = new Vector<float?, int>[3];
-            return _num[0].x;
+            if (Num == null) Num = new Vector<float?, int>[3];
+            return Num[0].x;
         }
         set
         {
-            if (_num == null) _num = new Vector<float?, int>[3];
-            _num[0].x = value;
+            if (Num == null) Num = new Vector<float?, int>[3];
+            Num[0].x = value;
         }
     }
 
@@ -22,13 +22,13 @@ public struct RouletNum : IRouletApply, IRouletInfo, IPriority
     {
         get
         {
-            if (_num == null) _num = new Vector<float?, int>[3];
-            return _num[1].x;
+            if (Num == null) Num = new Vector<float?, int>[3];
+            return Num[1].x;
         }
         set
         {
-            if (_num == null) _num = new Vector<float?, int>[3];
-            _num[1].x = value;
+            if (Num == null) Num = new Vector<float?, int>[3];
+            Num[1].x = value;
         }
     }
 
@@ -36,34 +36,34 @@ public struct RouletNum : IRouletApply, IRouletInfo, IPriority
     {
         get
         {
-            if (_num == null) _num = new Vector<float?, int>[3];
-            return _num[2].x;
+            if (Num == null) Num = new Vector<float?, int>[3];
+            return Num[2].x;
         }
         set
         {
-            if (_num == null) _num = new Vector<float?, int>[3];
-            _num[2].x = value;
+            if (Num == null) Num = new Vector<float?, int>[3];
+            Num[2].x = value;
         }
     }
     public int Priority { get; set; }
     public RouletNum(float? num1 = default, int? num2 = default, int? num3 = default, int Priority = default)
     {
-        this._num = new Vector<float?, int>[3];
+        this.Num = new Vector<float?, int>[3];
         this.Priority = Priority;
-        this._num[0] = new Vector<float?, int>(num1, Priority);
-        this._num[1] = new Vector<float?, int>(num2, Priority);
-        this._num[2] = new Vector<float?, int>(num3, Priority);
+        this.Num[0] = new Vector<float?, int>(num1, Priority);
+        this.Num[1] = new Vector<float?, int>(num2, Priority);
+        this.Num[2] = new Vector<float?, int>(num3, Priority);
     }
     public void Apply(RouletNum p2)
     {
-        if (p2._num == null) return;
+        if (p2.Num == null) return;
 
-        if (p2.Num1 != null &&( this.Num1.HasValue == false || this._num[0].y < p2._num[0].y))
-            this._num[0] = p2._num[0]; 
-        if (p2.Num2 != null && ( this.Num2.HasValue == false || this._num[1].y < p2._num[1].y))
-            this._num[1] = p2._num[1];
-        if (p2.Num3 != null && (this.Num3.HasValue == false || this._num[2].y < p2._num[2].y))
-            this._num[2] = p2._num[2];
+        if (p2.Num1 != null &&( this.Num1.HasValue == false || this.Num[0].y < p2.Num[0].y))
+            this.Num[0] = p2.Num[0]; 
+        if (p2.Num2 != null && ( this.Num2.HasValue == false || this.Num[1].y < p2.Num[1].y))
+            this.Num[1] = p2.Num[1];
+        if (p2.Num3 != null && (this.Num3.HasValue == false || this.Num[2].y < p2.Num[2].y))
+            this.Num[2] = p2.Num[2];
     }
 }
 public struct Vector<T, V>

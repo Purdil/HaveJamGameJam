@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04cab5b6a11c47578046fa9b7babd44a, type: 3}
-  m_Name: Heal
+  m_Name: Closehelp
   m_EditorClassIdentifier: 
-  index: 17
+  index: 16
   <Icon>k__BackingField: {fileID: 21300000, guid: 4c708195898dbd64c8c11351764c3402, type: 3}
-  <ItemName>k__BackingField: "\uD790"
-  <Description>k__BackingField: Please Enter Item Description Here...
+  <ItemName>k__BackingField: "\uB3C4\uC6C0\uB2EB\uAE30"
+  <Description>k__BackingField: "65% \uD655\uB960\uB85C \uCCAB\uBC88\uC9F8 \uC5F0\uC0B0\uC790\uB97C
+    +\uC73C\uB85C \uACE0\uC815\uC2DC\uD0B4"
   <ItemPrice>k__BackingField: 4581
-  <ActiveTurn>k__BackingField: 0
-  <Durability>k__BackingField: 0
-  multiply: {fileID: 11400000, guid: 7a474416a68e6714695a26dff50c4c78, type: 2}
-  divide: {fileID: 11400000, guid: a922a8c576b8eed45a46d5929096ec29, type: 2}
+  <Probability>k__BackingField: 65
+  <Durability>k__BackingField: 3
+  plus: {fileID: 11400000, guid: e69bc13a35165814c8257de2933d0e9e, type: 2}

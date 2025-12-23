@@ -18,7 +18,7 @@ namespace Member.PYH._Scripts.Inventory
         [Header("Item List")]
         [SerializeField] private ItemSOList itemSOList;
 
-        private readonly List<ItemSO> _inventory = new List<ItemSO>();
+        private List<ItemSO> _inventory = new List<ItemSO>();
 
         [Header("Inventory")]
         [SerializeField] private int maxSlot;

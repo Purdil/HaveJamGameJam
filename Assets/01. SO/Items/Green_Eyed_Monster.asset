@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b920cc93df4e3a8be58b94a031460b, type: 3}
   m_Name: Green_Eyed_Monster
   m_EditorClassIdentifier: 
-  index: 15
+  index: 14
   <Icon>k__BackingField: {fileID: 21300000, guid: 47825a1a0b22c804d91455ad62a710da, type: 3}
   <ItemName>k__BackingField: "\uB179\uC0C9 \uB208\uC758 \uAD34\uBB3C"
-  <Description>k__BackingField: Please Enter Item Description Here...
+  <Description>k__BackingField: "72% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uC804\uD22C
+    \uC911 \uCD5C\uC885 \uAC12\uC5D0 +(0~99) \uB9CC\uD07C \uB354 \uD568"
   <ItemPrice>k__BackingField: 6000
-  <ActiveTurn>k__BackingField: 0
-  <Durability>k__BackingField: 0
+  <Probability>k__BackingField: 72
+  <Durability>k__BackingField: 1
   plus: {fileID: 11400000, guid: e69bc13a35165814c8257de2933d0e9e, type: 2}

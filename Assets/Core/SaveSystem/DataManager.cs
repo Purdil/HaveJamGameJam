@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Core.Logger;
 using Member.YDW.EventChannels;
 using UnityEngine;
 
@@ -46,6 +47,7 @@ namespace Core.SaveSystem
 
         private void HandlePrefSaveEvent()
         {
+            Logging.Log($"Try Save");
             string dataJson = GetDataToSave();
             PlayerPrefs.SetString(prefKey, dataJson);
             Debug.Log(dataJson);
@@ -62,6 +64,7 @@ namespace Core.SaveSystem
             {
                 toSaveData.Add(new SaveData {Id = saveable.SaveId.id, JsonData = saveable.GetSaveData()});
             }
+            Logging.Log($"Save Data Count : {toSaveData.Count}");
             toSaveData.AddRange(_unUsedData);
             DataCollection dataCollection = new DataCollection {DataList = toSaveData};
             
@@ -98,6 +101,7 @@ namespace Core.SaveSystem
                     {
                         if (saveData.Id == saveable.SaveId.id)
                         {
+                            Logging.Log($"saveData Id : {saveData.Id}");
                             saveable.RestoreData(saveData.JsonData);
                         }
                         else
@@ -107,6 +111,7 @@ namespace Core.SaveSystem
                     }
                 }
             }
+            Logging.Log("Retore Data!");
 
 
             //로드된 DataCollection의 값들을 신안에 있는 ISavable 들한테 ID에 맞게 끼워서 복구해줘라.

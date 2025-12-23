@@ -18,6 +18,7 @@ namespace Member.PYH._Scripts.Debt
         [SerializeField] private int maxDebt;  // 총/남은 부채
         private int _currentDebt;              // 이번 주 갚아야 하는 부채
         private int _allWeekEndCount;          // 주차 카운트(변동)
+        private int _debted;
 
         [SerializeField] private int defaultDay; // 주 길이
         private int _dayLeft;                   // 남은 날
@@ -102,8 +103,11 @@ namespace Member.PYH._Scripts.Debt
             maxDebt = Mathf.Clamp(maxDebt - amount, 0, int.MaxValue);
 
             if (maxDebt == 0) gameEnd?.Invoke();
-            if (_currentDebt <= 0) currentDebtAllRepayment?.Invoke();
-
+            if (_currentDebt <= 0)
+            {
+                _debted++;
+                currentDebtAllRepayment?.Invoke();
+            }
             RequestSave();
         }
 
@@ -127,5 +131,6 @@ namespace Member.PYH._Scripts.Debt
         }
 
         public int GetAllWeekEnd() => _allWeekEndCount;
+        public int GetDebted() => _debted;
     }
 }
