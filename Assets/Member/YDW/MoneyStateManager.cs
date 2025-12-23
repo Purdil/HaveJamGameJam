@@ -1,4 +1,6 @@
-﻿using Core;
+﻿using System;
+using Core;
+using Member.PYH._Scripts.Debt;
 using UnityEngine;
 
 namespace Member.YDW
@@ -10,6 +12,13 @@ namespace Member.YDW
         {
             base.Awake();
             DontDestroyOnLoad(this);
+            state = DebtManager.Instance.GetDebted();
+        }
+
+        private void Update()
+        {
+            if(state != DebtManager.Instance.GetDebted())
+                state = DebtManager.Instance.GetDebted();
         }
     }
 }
