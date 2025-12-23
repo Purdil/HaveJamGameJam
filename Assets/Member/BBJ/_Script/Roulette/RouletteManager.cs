@@ -43,15 +43,13 @@ public class RouletteManager : MonoSingleton<RouletteManager>
         rouletUIChannel.Raise(a); // �귿UI
 
         rouletEndChannel.Raise((data) => { RouletData.Setter(data); }); // ����
-        a.rouletNum.Apply(RouletData.rouletNum);
-        a.rouletOperator.Apply(RouletData.rouletOperator);
+        a.Setter(RouletData);
         Logging.Log($"{a.rouletNum.Num1.Value} {a.rouletOperator.Operator1.std} {a.rouletNum.Num2.Value} {a.rouletOperator.Operator2.std} {a.rouletNum.Num3.Value}");
         rouletApplyUIChannel.Raise(a); // ���밪UI
 
 
         rouletEndChannel.Raise((data) => { RouletData.Setter(data); }); // ����
-        a.rouletNum.Apply(RouletData.rouletNum);
-        a.rouletOperator.Apply(RouletData.rouletOperator);
+        a.Setter(RouletData);
         rouletApplyUIChannel.Raise(a); // ���밪UI
 
         Logging.Log($"{a.rouletNum.Num1.Value} {a.rouletOperator.Operator1.std} {a.rouletNum.Num2.Value} {a.rouletOperator.Operator2.std} {a.rouletNum.Num3.Value}");
@@ -67,6 +65,7 @@ public class RouletteManager : MonoSingleton<RouletteManager>
         temp.oper[index].x = operatorSO;
         temp.oper[index].y = int.MaxValue;
         RouletData.Setter(temp);
+        rouletApplyUIChannel?.Raise(RouletData);
     }
     public void SetNumbor(int index, int num)
     {
@@ -74,6 +73,7 @@ public class RouletteManager : MonoSingleton<RouletteManager>
         temp.Num[index].x = num;
         temp.Num[index].y = int.MaxValue;
         RouletData.Setter(temp);
+        rouletApplyUIChannel?.Raise(RouletData);
     }
     public RouletData Spin(NumberProbListSO numberProb, OperatorProbListSO operatorProb)
     {

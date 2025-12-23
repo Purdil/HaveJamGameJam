@@ -49,24 +49,21 @@ public struct RouletData: IRouletApply
         {
             Setter(roulet.rouletNum);
             Setter(roulet.rouletOperator);
-            //if (applyrouletNum == null) applyrouletNum = new(); 
-            //applyrouletNum.AddRange( roulet.applyrouletNum);
-            //if (applyFinal == null) applyFinal = new(); 
-            //applyFinal.AddRange( roulet.applyFinal);
+            if (applyrouletNum == null) applyrouletNum = new();
+            applyrouletNum.AddRange(roulet.applyrouletNum);
+            if (applyFinal == null) applyFinal = new();
+            applyFinal.AddRange(roulet.applyFinal);
         }
     }
 
     internal int GetResult()
     {
-        applyrouletNum.Sort();
+        //applyrouletNum.Sort();
         float result = 0;
+
         for (int i = 0; i < applyrouletNum.Count; i++)
         {
-            ApplyRouletNum item = applyrouletNum[i];
-            var a = item.RouletNum;
-            rouletNum.Num1 = item.ApplyOperator.Operation(rouletNum.Num1.Value, a.Num1.Value);
-            rouletNum.Num2 = item.ApplyOperator.Operation(rouletNum.Num2.Value, a.Num2.Value);
-            rouletNum.Num3 = item.ApplyOperator.Operation(rouletNum.Num3.Value, a.Num3.Value);
+            rouletNum.Apply(applyrouletNum[i]);
         }
         if (Mathf.Max(rouletOperator.oper[0].x.Priority , rouletOperator.oper[0].y) < Mathf.Max(rouletOperator.oper[1].x.Priority, rouletOperator.oper[1].y))
         {
@@ -86,6 +83,7 @@ public struct RouletData: IRouletApply
             var item = applyFinal[i];
             result = item.ApplyOperator.Operation(result, item.final);
         }
+        
 
         return Mathf.CeilToInt(result);
     }
