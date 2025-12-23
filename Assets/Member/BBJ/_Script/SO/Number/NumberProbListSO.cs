@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class NumberProbListSO : ScriptableObject
 {
     [SerializeField]
-    private SerializableDictionary<string,NumberProb> numberProbList;
+    private SerializableDictionary<string, NumberProb> numberProbList;
 
     public Action<NumberProbInfo[]> ValueChenged;
 
