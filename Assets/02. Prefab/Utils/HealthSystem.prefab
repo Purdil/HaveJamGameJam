@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f37be7b2ac470b8396a891923e3bb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healEffect: {fileID: 11400000, guid: 2aac13003471f3b449e01579f1070d24, type: 2}
   deathParam: {fileID: 11400000, guid: 0c3e2d27d3ba1fc409d92de05302fdc2, type: 2}
   hurtParam: {fileID: 11400000, guid: fb6a32e4dd9d61d48bebf348cf3c9d32, type: 2}
   maxHealth: 0

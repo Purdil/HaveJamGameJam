@@ -10,10 +10,11 @@ namespace Member.YDW.CombatSystem
     {
         [SerializeField] private Transform playerSpawnPos;
         [SerializeField] private PoolableSO playerPool;
-        [SerializeField] private PoolableListSO enemyList;
+        [SerializeField] private PoolableListList enemyLists;
         
         public (Player, List<AbstractEnemy>) CreateAgents()
         {
+            PoolableListSO enemyList = enemyLists.poolableListSOs[Random.Range(0,enemyLists.poolableListSOs.Count)];
             List<AbstractEnemy> enemies = new List<AbstractEnemy>();
             Player player = PoolManager.Instance.Factory(playerPool).Pop() as Player;
             if(player == null)

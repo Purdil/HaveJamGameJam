@@ -23,6 +23,7 @@ namespace Member.YDW.Agents
         [SerializeField] private PoolableSO swordPrefab;
         [SerializeField] private AnimParamSO animParam;
         [SerializeField] private Transform auraSpawnPoint;
+        
         private AgentAttack _attackCompo;
         
         private readonly List<IDamageable>  _enemies = new();
@@ -74,7 +75,9 @@ namespace Member.YDW.Agents
             }
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
-                StartCoroutine(Attack(150));// 플레이어는 검기를 날림. 데미지는 룰렛 산출로 넣어줌.
+                int damage = RouletteManager.Instance.StartPlayerSpin(numberProbList, operatorProbList)();
+                Logging.Log($"Player damage : {damage}");
+                StartCoroutine(Attack(damage));// 플레이어는 검기를 날림. 데미지는 룰렛 산출로 넣어줌.
             }
             #endregion
         }

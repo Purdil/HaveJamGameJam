@@ -43,7 +43,9 @@ namespace Member.YDW.Agents.Enemys
         {
             AgentRenderer.OnAttackTrigger -= HandleAttack;
             attackImpulse.GenerateImpulse();
-            target.ApplyDamage(10, out _); //룰렛 연산으로 나온 데미지 부여.
+            int damage = RouletteManager.Instance.StartPlayerSpin(numberProbList, operatorProbList)();
+            Logging.Log($"{gameObject.name} damage {damage}.");
+            target.ApplyDamage(damage, out _); //룰렛 연산으로 나온 데미지 부여.
         }
 
         private void HandleAttackAniEnd()

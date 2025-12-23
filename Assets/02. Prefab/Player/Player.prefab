@@ -49,6 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c412bc4a85854b4bbd0772428e82ae06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberProbList: {fileID: 11400000, guid: d0a348a9f158a294fa14ccd8983822c8, type: 2}
+  operatorProbList: {fileID: 11400000, guid: 6f920d47bc1b38945b420aa29dee3af5, type: 2}
   initEscapeChance: 0
   escapeEvent: {fileID: 11400000, guid: d92225094ceb80445a6ac100d18bcd62, type: 2}
   escapeValueEvent: {fileID: 11400000, guid: ed74433c60c661147be05af7fbffe4ab, type: 2}
@@ -313,7 +315,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 91802238693893098, guid: b67c2319e1dec224a9b93fbd302fa235, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.48484325
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 91802238693893098, guid: b67c2319e1dec224a9b93fbd302fa235, type: 3}
       propertyPath: m_LocalPosition.y

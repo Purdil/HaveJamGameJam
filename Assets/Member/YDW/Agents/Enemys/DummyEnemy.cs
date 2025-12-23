@@ -4,7 +4,6 @@
     {
         private void Update()
         {
-            Health.ApplyHeal(1000);
         }
 
         public override void StartTurn()
