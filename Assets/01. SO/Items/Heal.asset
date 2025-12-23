@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Heal
   m_EditorClassIdentifier: 
   index: 17
-  <Icon>k__BackingField: {fileID: 0}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 47825a1a0b22c804d91455ad62a710da, type: 3}
   <ItemName>k__BackingField: "\uD790"
   <Description>k__BackingField: "15% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC 3\uD134
     \uB3D9\uC548, \uD50C\uB808\uC774\uC5B4 HP 7 \uB9CC\uD07C \uD68C\uBCF5"

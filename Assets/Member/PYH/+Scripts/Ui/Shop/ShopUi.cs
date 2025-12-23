@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using Member.PYH._Scripts.SO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -8,6 +9,12 @@ using UnityEngine.UI;
 
 namespace Member.PYH._Scripts.Ui.Shop
 {
+    public enum ChannelEnum
+    {
+        Shop,
+        BlackMarket
+    }
+    
     public class ShopUi : MonoBehaviour
     {
         [SerializeField] private Transform itemSlotPoint;
@@ -19,11 +26,22 @@ namespace Member.PYH._Scripts.Ui.Shop
         [SerializeField] private ScrollRect scrollRect;
         [SerializeField] private RectTransform content;
         [SerializeField] private float scrollTweenDuration = 0.15f;
-    
+
+        [SerializeField] private TMP_Text enterButtonText;
+        [SerializeField] private TMP_Text shopMainMsgText, shopMiniMsgText;
+        [SerializeField] private RectMask2D mask;
+        
+        [SerializeField] private ChannelEnum currentChannel;
+        [SerializeField] private GameObject shopChannel, blackmarketChannel;
+        [SerializeField] private Image channelFadeImage;
+
+        private Sequence _selectSeq;
+        private bool _fading;
         private int _currentIndex;
         private Tween _scrollTween;
         public ItemSlot CurrentSlot { get; private set; }
         public UnityEvent<int, int> onTryBuyEvent;
+        public UnityEvent onSellEvent;
     
         private void Awake()
         {
@@ -34,6 +52,7 @@ namespace Member.PYH._Scripts.Ui.Shop
                 slot.SetSlotUiSetting(var);
             }
 
+            SelectChannel(ChannelEnum.Shop);
             BuildSlotList();
         }
         private void Update()
@@ -41,6 +60,8 @@ namespace Member.PYH._Scripts.Ui.Shop
             if (!gameObject.activeInHierarchy) return;
             if (Keyboard.current == null) return;
             if (slotList == null || slotList.Count == 0) return;
+            if (_fading) return;
+            
             if (CurrentSlot == null)
             {
                 _currentIndex = GetFirstValidIndex();
@@ -49,18 +70,36 @@ namespace Member.PYH._Scripts.Ui.Shop
                 UpdateUi();
                 CenterCurrentSlotInScroll(true);
             }
-            if (Keyboard.current.upArrowKey.wasPressedThisFrame)
+            if (Keyboard.current.upArrowKey.wasPressedThisFrame && currentChannel == ChannelEnum.Shop)
                 MoveSelection(-1);
 
-            if (Keyboard.current.downArrowKey.wasPressedThisFrame)
+            if (Keyboard.current.downArrowKey.wasPressedThisFrame && currentChannel == ChannelEnum.Shop)
                 MoveSelection(1);
 
             if (Keyboard.current.enterKey.wasPressedThisFrame)
             {
-                onTryBuyEvent?.Invoke(CurrentSlot.Item.ItemPrice, CurrentSlot.ItemIndex);
+                if (currentChannel == ChannelEnum.Shop)
+                {
+                    onTryBuyEvent?.Invoke(CurrentSlot.Item.ItemPrice, CurrentSlot.ItemIndex);
+                }
+                else if (currentChannel == ChannelEnum.BlackMarket)
+                {
+                    onSellEvent?.Invoke();
+                }
+            }
+
+            if (Keyboard.current.digit1Key.wasPressedThisFrame)
+            {
+                SelectChannel(ChannelEnum.Shop);
+            }
+
+            if (Keyboard.current.digit2Key.wasPressedThisFrame)
+            {
+                SelectChannel(ChannelEnum.BlackMarket);
             }
         }
 
+        #region  For Ui Move
         private void MoveSelection(int dir)
         {
             int next = Mathf.Clamp(_currentIndex + dir, 0, slotList.Count - 1);
@@ -74,10 +113,9 @@ namespace Member.PYH._Scripts.Ui.Shop
             }
 
             if (slotList[next] == null) return;
-
             _currentIndex = next;
             CurrentSlot = slotList[_currentIndex];
-
+            
             UpdateUi();
             CenterCurrentSlotInScroll(false);
         }
@@ -91,16 +129,12 @@ namespace Member.PYH._Scripts.Ui.Shop
                 if (slot == null) continue;
 
                 Image img = slot.highlight;
-
-                if (img == null)
-                {
-                    var hl = slot.transform.Find("SlotHighLight");
-                    if (hl != null) img = hl.GetComponent<Image>();
-                }
-
+                TMP_Text text = slot.itemName;
+                
                 if (img == null) continue;
 
-                img.color = (slot == CurrentSlot) ? Color.yellow : Color.gray;
+                img.color = (slot == CurrentSlot) ? Color.yellow : Color.white;
+                text.color = (slot == CurrentSlot) ? Color.yellow : Color.white;
             }
         }
         private void CenterCurrentSlotInScroll(bool instant)
@@ -233,5 +267,76 @@ namespace Member.PYH._Scripts.Ui.Shop
                 slotList[rs.index] = rs;
             }
         }
+        #endregion
+        #region  For Channel Move
+        private void SelectChannel(ChannelEnum channel)
+        {
+            if (currentChannel == channel) return;
+            if (_fading) return;
+
+            _selectSeq?.Kill();
+            channelFadeImage.DOKill();
+            enterButtonText.DOKill();
+
+            _fading = true;
+
+            string nextText;
+            string nextMsg1, nextMsg2;
+            bool shopActive;
+            bool blackActive;
+
+            switch (channel)
+            {
+                case ChannelEnum.Shop:
+                    nextText = "구매하기 | (ENTER)";
+                    nextMsg1 = "[[특별$한]] 상$$점!!!";
+                    nextMsg2 = "지금 당장 구매하세요!!";
+                    shopActive = true;
+                    blackActive = false;
+                    break;
+
+                case ChannelEnum.BlackMarket:
+                    nextText = "판매하기 | (ENTER)";
+                    nextMsg1 = "그가 운영하는 암시장";
+                    nextMsg2 = "\"언제나 환영합니다.\"";
+                    shopActive = false;
+                    blackActive = true;
+                    break;
+
+                default:
+                    _fading = false;
+                    return;
+            }
+
+            _selectSeq = DOTween.Sequence();
+
+            _selectSeq.Append(channelFadeImage.DOFade(1f, 1f));
+
+            _selectSeq.AppendCallback(() =>
+            {
+                currentChannel = channel;
+
+                shopChannel.SetActive(shopActive);
+                blackmarketChannel.SetActive(blackActive);
+            });
+
+            _selectSeq.Append(enterButtonText.DOFade(0f, 0.15f));
+            _selectSeq.Append(shopMainMsgText.DOFade(0f, 0.15f));
+            _selectSeq.Append(shopMiniMsgText.DOFade(0f, 0.15f));
+            _selectSeq.AppendCallback(() =>
+            {
+                enterButtonText.text = nextText;
+                shopMainMsgText.text = nextMsg1;
+                shopMiniMsgText.text = nextMsg2;
+            });
+            _selectSeq.Append(enterButtonText.DOFade(1f, 0.15f));
+            _selectSeq.Append(shopMainMsgText.DOFade(1f, 0.15f));
+            _selectSeq.Append(shopMiniMsgText.DOFade(1f, 0.15f));
+            _selectSeq.Append(channelFadeImage.DOFade(0f, 1f));
+
+            _selectSeq.OnComplete(() => _fading = false);
+            _selectSeq.Play();
+        }
+        #endregion
     }
 }

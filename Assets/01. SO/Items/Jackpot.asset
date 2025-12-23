@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jackpot
   m_EditorClassIdentifier: 
   index: 21
-  <Icon>k__BackingField: {fileID: 0}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 98759c7511552fb4198f2fb286efeb8e, type: 3}
   <ItemName>k__BackingField: "\uC7AD\uD31F!"
   <Description>k__BackingField: "\uBAA8\uB4E0 \uCE78\uC758 \uC22B\uC790\uAC00 \uAC19\uB2E4\uBA74,
     \uBAA8\uB4E0 \uC5F0\uC0B0\uC790\uB97C *\uC73C\uB85C \uACE0\uC815\uD568"

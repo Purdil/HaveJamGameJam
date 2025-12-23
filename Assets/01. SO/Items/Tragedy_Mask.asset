@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tragedy_Mask
   m_EditorClassIdentifier: 
   index: 31
-  <Icon>k__BackingField: {fileID: 0}
+  <Icon>k__BackingField: {fileID: 21300000, guid: a8b621de065bfac4596179c1263999d7, type: 3}
   <ItemName>k__BackingField: "\uBE44\uADF9\uC758 \uAC00\uBA74"
   <Description>k__BackingField: "39% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uD574\uB2F9
     \uD134 \uB3D9\uC548 \uB3C4\uB9DD \uC131\uACF5 \uD655\uB960\uC774 0%\uB85C \uACE0\uC815\uB418\uBA70,

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Seven
   m_EditorClassIdentifier: 
   index: 29
-  <Icon>k__BackingField: {fileID: 0}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 844051a0d7b9248498f86171c93be4ba, type: 3}
   <ItemName>k__BackingField: 7
   <Description>k__BackingField: "22% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC \uB8F0\uB81B\uC5D0\uC11C
     \uB192\uC740 \uC22B\uC790\uAC00 \uB098\uC62C \uD655\uB960 77% \uC99D\uAC00"

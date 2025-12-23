@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Torn_Banned_Book
   m_EditorClassIdentifier: 
   index: 30
-  <Icon>k__BackingField: {fileID: 0}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 415d824363c7d5d43bc4a426d5b2681f, type: 3}
   <ItemName>k__BackingField: "\uCC22\uC5B4\uC9C4 \uAE08\uC11C"
   <Description>k__BackingField: "49% \uD655\uB960\uB85C \uBC1C\uB3D9 \uC2DC 2\uAC1C\uC758
     \uC5F0\uC0B0\uC790\uB97C - \uB610\uB294 +\uC73C\uB85C \uBCC0\uD658\uC2DC\uD0A8

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wishlist
   m_EditorClassIdentifier: 
   index: 33
-  <Icon>k__BackingField: {fileID: 0}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 0f53287c7eab1e44f933449a10952cde, type: 3}
   <ItemName>k__BackingField: "\uD76C\uB9DD \uC0AC\uD56D"
   <Description>k__BackingField: "49%\uB85C \uBC1C\uB3D9 \uC2DC \uD574\uB2F9 \uD134
     \uB3D9\uC548 \uB8F0\uB81B\uC5D0\uC11C 1, 2, 3\uC774 \uB098\uC624\uC9C0 \uC54A\uC73C\uBA70,
