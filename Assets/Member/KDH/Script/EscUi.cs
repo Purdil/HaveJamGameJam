@@ -52,7 +52,6 @@ public class EscUi : MonoBehaviour
         SoundManager.Instance?.PlaySound("Click");
         SceneManager.sceneLoaded -= OnClickButton;
     }
-
     public void GoBattle()
     {
 
